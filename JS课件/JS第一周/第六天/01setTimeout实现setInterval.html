@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    var n=0;
+    //递归思想
+    function fn() {
+        alert(n++);
+        if(n>5){
+            clearTimeout(timer);
+            return; //阻断程序执行的作用；
+        }
+        var timer=setTimeout(fn,1000);
+    }
+    fn();
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+<script>
+    /*
+    函数包含有名函数和匿名函数：
+     1：匿名函数：给元素的某个属性绑定一个函数表达式；
+     2: 匿名函数：函数自己调用自己；
+     闭包：
+     1:当函数被调用的时候，会形成一个私有作用域，保护里面的变量不受外界的干扰，函数的这种保护机制，叫做闭包；
+     2:自函数可以使用父函数的私有变量；
+    * */
+    /*var oDiv=document.getElementsByTagName('div')[0];
+    oDiv.onclick=function () {
+        alert(1)
+    }*/
+    var a=123;
+    (function () {
+        var a=456;
+        alert(a)
+    })()
+    (function () {
+        alert(a)
+    })();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

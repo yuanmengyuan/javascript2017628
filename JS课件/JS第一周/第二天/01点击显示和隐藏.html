@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+<button>点击显示和隐藏</button>
+<div></div>
+<script>
+    //需要获取几个元素？
+    var oBtn=document.getElementsByTagName('button')[0];
+    var oDiv=document.getElementsByTagName('div')[0];
+    var bOk=true; //默认让bOk为true，代表div处于显示状态；
+    //找到按钮oBtn,给他添加点击事件
+    //思路1：
+    /*oBtn.onclick=function () {
+        //当发生点击事件的时候，如果div是显示状态，就让其隐藏；如果div是隐藏状态，就让其显示；
+        //因为style拿到的是行内样式
+        if(oDiv.style.display=='none'){
+            oDiv.style.display='block';
+        }else{
+            oDiv.style.display='none';
+        }
+    }*/
+    //思路2：
+    /*oBtn.onclick=function () {
+        if(bOk){
+            oDiv.style.display='none';
+            bOk=false;
+        }else{
+            oDiv.style.display='block';
+            bOk=true;
+        }
+    }*/
+    //思路3：
+    oBtn.onclick=function () {
+        if(bOk){
+            oDiv.style.display='none';
+        }else{
+            oDiv.style.display='block';
+        }
+        bOk=!bOk; //开关思路
+    }
+</script>
+</body>
+</html>

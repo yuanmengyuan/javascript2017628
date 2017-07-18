@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .wrap{
+            width: 600px;
+            height: 300px;
+            margin:10px;
+            float: left;
+        }
+        .wrap li{
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background: #cccccc;
+            float: left;
+            border-bottom: 1px solid #333;
+            box-sizing: border-box;
+        }
+        #tab2 li{
+            width: 150px;
+        }
+        .wrap li+li{
+            border-left:1px solid #333;
+        }
+        .wrap li.on{
+            background: lightblue;
+            border-bottom: none;
+        }
+        .wrap div{
+            width: 100%;
+            height: 100%;
+            background: lightblue;
+            display: none;
+            font-size: 30px;
+        }
+        .wrap div.show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap" id="tab1">
+    <ul>
+        <li class="on">按钮1</li>
+        <li>按钮2</li>
+        <li>按钮3</li>
+    </ul>
+    <div class="show">内容1</div>
+    <div>内容2</div>
+    <div>内容3</div>
+</div>
+<div class="wrap"id="tab2">
+    <ul>
+        <li class="on">按钮1</li>
+        <li>按钮2</li>
+        <li>按钮3</li>
+        <li>按钮4</li>
+    </ul>
+    <div class="show">内容1</div>
+    <div>内容2</div>
+    <div>内容3</div>
+    <div>内容4</div>
+</div>
+<div class="wrap" id="tab3">
+    <ul>
+        <li class="on">按钮1</li>
+        <li>按钮2</li>
+    </ul>
+    <div class="show">内容1</div>
+    <div>内容2</div>
+</div>
+<div class="wrap" id="tab4">
+    <ul>
+        <li class="on">按钮1</li>
+        <li>按钮2</li>
+        <li>按钮3</li>
+        <li>按钮4</li>
+        <li>按钮5</li>
+    </ul>
+    <div class="show">内容1</div>
+    <div>内容2</div>
+    <div>内容3</div>
+    <div>内容4</div>
+    <div>内容5</div>
+</div>
+<script>
+    /*
+    * 1:把所有代码都放在一个函数中；
+    * 2：把可变的部分拎出来作为变量；
+    * */
+    function tab(id) {//形参
+        var oWrap=document.getElementById(id);
+        var aBtn=oWrap.getElementsByTagName('li');
+        var aDiv=oWrap.getElementsByTagName('div');
+        oWrap.style.width=aBtn.length*aBtn[0].offsetWidth+'px'; //通过JS动态计算wrap的宽度；
+        //点击每个按钮的时候，让所有的按钮都灭，让当前按钮变亮； 同时，让所有内容框都隐藏，让当前按钮对应的内容框显示；
+        for(var i=0; i<aBtn.length; i++){
+            //这里的i值正确
+            (function (index) {
+                //1：当函数被调用的时候，会形成一个私有作用域，保护里面的变量不受外界的干扰；
+                aBtn[index].onclick=function () {
+                    //2:自函数可以使用父函数的私有变量
+                    for(var i=0; i<aBtn.length; i++){
+                        aBtn[i].className=aDiv[i].className='';
+                    }
+                    //让当前点击的按钮变亮，让当前按钮对应的内容框显示
+                    aBtn[index].className='on';
+                    aDiv[index].className='show';
+                }
+            })(i);
+        }
+    }
+    tab('tab1');//让第一个选项卡可以切换
+    tab('tab2');
+    tab('tab3');
+    tab('tab4');
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

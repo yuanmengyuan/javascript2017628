@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul{
+            padding:30px;
+        }
+        ul li{
+            height: 50px;
+            line-height: 50px;
+            font-size: 30px;
+        }
+        .bg0{
+            background: pink;
+        }
+        .bg1{
+            background: lightcyan;
+        }
+        .bg2{
+            background: lightgoldenrodyellow;
+        }
+        .change{
+            background: purple;
+            color: #ffffff;
+        }
+        ul li span{
+            display: inline-block;
+            width: 120px;
+        }
+    </style>
+</head>
+<body>
+<ul></ul>
+<script>
+    (function () {
+        var oUl=document.getElementsByTagName('ul')[0];
+        var aLi=oUl.getElementsByTagName('li');
+        var str='';
+        var oldBg=null; //现在没有，以后会有
+        for(var i=1; i<=9; i++){
+            str+='<li>'
+            for(j=1; j<=i; j++){
+                str+='<span>'+(j+'*'+i+'='+j*i)+'</span>'
+            }
+            str+='</li>'
+        }
+        oUl.innerHTML=str;
+
+        //隔行换色，最简单的方法，就是%的思想；
+        for(var i=0; i<aLi.length; i++){
+            aLi[i].className='bg'+i%3;
+            //自定义属性思想：所有你将来要用到的数值，不知道存哪里，都可以存在元素的自定义属性上；
+            /*aLi[i].oldBg='bg'+i%3;//当我们换完颜色的时候，就把每个li自身的颜色，存在自己的自定义属性上；
+             aLi[i].onmouseover=function () {
+             this.className='change';
+             };
+             aLi[i].onmouseout=function () {
+             //鼠标移出的时候，就恢复以前的严格，以前的颜色在标签的自定义属性oldBg上存的；
+             this.className=this.oldBg;
+             };*/
+            //思路2：利用变量存值
+            aLi[i].onmouseover=function () {
+                oldBg=this.className;
+                this.className='change';
+            };
+            aLi[i].onmouseout=function () {
+                this.className=oldBg;
+            }
+        }
+
+    })();
+</script>
+</body>
+</html>

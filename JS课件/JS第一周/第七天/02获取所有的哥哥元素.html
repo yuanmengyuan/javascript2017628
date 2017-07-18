@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<div>
+    <div></div>
+    <p>我是第1个p元素</p>
+    <p>我是第2个p元素</p>
+    <p>我是第3个p元素</p>
+    <p>我是第4个p元素</p>
+    <p>我是第5个p元素</p>
+</div>
+<script>
+    var oDiv=document.getElementsByTagName('div')[0];
+    var aP=document.getElementsByTagName('p');
+    /*
+    * 目的：获取当前元素，所有的哥哥元素
+    * 参数：当前元素curEle;
+    * 返回值：数组
+    * */
+    function prev(curEle){
+        if(curEle.previousElementSibling){
+            return curEle.previousElementSibling;
+        }
+        var pre=curEle.previousSibling;
+        while(pre && pre.nodeType !== 1){
+            pre=pre.previousSibling;
+        }
+        return pre;
+    }
+    function prevAll(curEle) {
+        //先找到一个哥哥元素，
+        var pre=prev(curEle);
+        //创建一个空数组用来接收，开启while循环；
+        var ary=[];
+        while(pre){
+            ary.push(pre);
+            pre=prev(pre); //等号的作用，是用来赋值的
+        }
+        return ary;
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

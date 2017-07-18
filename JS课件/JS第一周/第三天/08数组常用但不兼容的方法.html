@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    var obj={};
+    var ary=[100,200,300,400];
+    //console.log(ary.indexOf(300))
+    /*var res=ary.forEach(function(item,index,input){
+        //console.log(arguments)
+        //我们可以通过arguments拿到别人传进来的实参，forEach的匿名函数中，接收了三个实参；
+        //1）数组中的每一项的内容 item 2）索引index 3）原始数组 input
+        console.log(this)
+    },obj) //forEach中的第二个参数，是用来改变匿名函数中的this指向；
+    //forEach没有返回值；*/
+    var res=ary.map(function (item, index, input) {
+        console.log(this)
+        return 123;
+    },obj)
+    //map的功能跟forEach基本一样，但是map有返回值，而forEach没有返回值；
+</script>
+</body>
+</html>

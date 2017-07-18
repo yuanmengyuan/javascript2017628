@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    function choujiang() {
+        var str='';
+        while(str.length<4){
+            var rnd=Math.round(Math.random()*9);
+            str+=rnd;
+        }
+        document.body.innerHTML=str; //展现在页面上
+    }
+    var index=0;
+    choujiang();
+    var timer=setInterval(function () {
+        ++index;
+        if(index>10){
+            clearTimeout(timer);
+            return;
+        }
+        choujiang();
+    },1000)
+</script>
+</body>
+</html>

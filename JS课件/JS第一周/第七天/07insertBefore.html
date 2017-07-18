@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<div class="wrap">
+    <p>我是第1个p元素</p>
+    <p>我是第2个p元素</p>
+    <p>我是第3个p元素</p>
+    <p>我是第4个p元素</p>
+</div>
+<script>
+    var aP=document.getElementsByTagName('p');
+    //parent.insertBefore()
+    var newP=document.createElement('p');
+    newP.innerHTML='我是一个特立独行的p';
+    //aP[2].parentNode.insertBefore(newP,aP[2]);
+    //需求：点击第4个p元素的时候，把当前元素替换为新元素；
+    /*aP[3].onclick=function () {
+        this.parentNode.replaceChild(newP,this)
+    };*/
+    /*aP[3].onclick=function () {
+        this.parentNode.removeChild(this);
+    }*/
+    for(var i=0; i<aP.length; i++){
+        aP[i].onclick=function () {
+            this.parentNode.removeChild(this);
+        }
+    }
+
+</script>
+</body>
+</html>

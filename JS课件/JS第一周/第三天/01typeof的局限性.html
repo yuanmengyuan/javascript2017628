@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    var obj={name:'ymy',age:18};//字面量的创建方式
+    var obj2=new Object({
+        name:'ymy',
+        age:20
+    });
+
+    var str='123';
+    var date=new Date();
+    var re=new RegExp('/^\\d{2}$/');
+    var ary1=[1,2,3,4];//字面量的创建方式
+    var ary2=new Array(1,2,3,4); //实例创建
+    function lala(){}
+
+   // alert(date)
+    //1：constructor  可以检测出当前对象具体属于哪个类
+    //console.log(obj.constructor)
+    //2: instanceof 判断某个对象是否属于某个类
+    //console.log(date instanceof Date)
+    //3:Object.prototype.toString.call()
+    console.log(Object.prototype.toString.call(lala))
+    //[object Date]  [object RegExp]
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<div>
+    <p>我是第1个p元素</p>
+    <p>我是第2个p元素</p>
+    <p>我是第3个p元素</p>
+    <p>我是第4个p元素</p>
+    <p>我是第5个p元素</p>
+</div>
+<script>
+    var aP=document.getElementsByTagName('p');
+    function nex(curEle) {
+        //1:判断，如果浏览器有提供的直接获取弟弟元素的方法，我们就直接使用
+        if(curEle.nextElementSibling){
+            return curEle.nextElementSibling;
+        }
+        //2: 自己做兼容处理；
+        var next=curEle.nextSibling;
+        while(next && next.nodeType !==1){
+            next=next.nextSibling;
+        }
+        return next;
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

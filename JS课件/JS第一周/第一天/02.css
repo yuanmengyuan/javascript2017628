@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#main{
+    height: 400px;
+    font-size: 30px;
+    color: #ffffff;
+}
+#main .left{
+    height: 100%;
+    width: 200px;
+    background: #ff0000;
+    float: left;
+    word-break: break-all;
+}
+#main .right{
+    height: 100%;
+    background: #00f;
+    margin-left: 200px;
+    word-break: break-all;
+}

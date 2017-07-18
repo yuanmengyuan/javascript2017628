@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    //核心思想，都是把星期作为索引；
+    /*var str='日一二三四五六';
+    var ary=["日", "一", "二", "三", "四", "五", "六"];
+    console.log('星期'+str.charAt(new Date().getDay()))
+    console.log('星期'+ary[new Date().getDay()])*/
+
+    //需求：'0123456'转成'日一二三四五六'；
+    var str='0123456';
+    var ary=["日","一", "二", "三", "四", "五", "六"];
+    //str=str.replace('0123456','日一二三四五六');
+    /*str=str.split('').map(function (item, index) {
+        return ary[item];
+    }).join('')*/
+    //str=ary.join('');
+
+    str=str.replace(/\d/g,function (item,index,input) {
+       // console.log(index)
+        return ary[index]
+    })
+
+</script>
+</body>
+</html>

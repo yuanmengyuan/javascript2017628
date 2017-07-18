@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<div>距离下课还有 <span>00天 00：00：00</span></div>
+<script>
+    var oSpan=document.getElementsByTagName('span')[0];
+    function toDou(n) {
+        return n>=0 && n<10? '0'+n:''+n;
+    }
+    /*function countDown() {
+        var s=Math.floor((new Date('2017/7/14 16:28:00')-new Date())/1000);
+        if(s<0){
+            oSpan.innerHTML='下课了，你来晚了';
+            oSpan.style.color='#ccc';
+            clearInterval(timer);//性能优化；
+            return;//阻断程序执行；
+        }
+        //通过%进行秒转换 24*60*60
+        var d=Math.floor(s/86400);
+        s%=86400;
+        var h=Math.floor(s/3600);
+        s%=3600;
+        var m=Math.floor(s/60);
+        s%=60;
+        oSpan.innerHTML=toDou(d)+'天 '+toDou(h)+'：'+toDou(m)+'：'+toDou(s);
+    }
+    countDown();
+    var timer=setInterval(countDown,1000);*/
+    (function() {
+        var s=Math.floor((new Date('2017/7/14 18:00:00')-new Date())/1000);
+        if(s<0){
+            oSpan.innerHTML='下课了，你来晚了';
+            oSpan.style.color='#ccc';
+            clearInterval(timer);//性能优化；
+            return;//阻断程序执行；
+        }
+        //通过%进行秒转换 24*60*60
+        var d=Math.floor(s/86400);
+        s%=86400;
+        var h=Math.floor(s/3600);
+        s%=3600;
+        var m=Math.floor(s/60);
+        s%=60;
+        oSpan.innerHTML=toDou(d)+'天 '+toDou(h)+'：'+toDou(m)+'：'+toDou(s);
+
+        setTimeout(arguments.callee,1000);
+    })();
+</script>
+</body>
+</html>

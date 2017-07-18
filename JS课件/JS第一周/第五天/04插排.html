@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    var ary=[29,12,3,42,6,8,1];
+    function insertSort(ary) {
+        var left=ary.splice(0,1);//[29]
+        //遍历ary中的每一个，跟left从后往前的比较
+        for(var i=0; i<ary.length; i++){//这里，代表从right数组中取值
+            var cur=ary[i];
+            for(var j=left.length-1; j>=0; ){//这里，把取出来的值跟left数组进行比对；
+                if(cur<left[j]){
+                    j--;
+                    if(j==-1){
+                        left.unshift(cur); //位置定好了；
+                        break;
+                    }
+                }else{
+                    left.splice(j+1,0,cur);
+                    break;
+                }
+            }
+        }
+        return left;
+    }
+    var res=insertSort(ary);
+</script>
+</body>
+</html>

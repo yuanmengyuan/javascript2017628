@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<!--为什么要封装？要封装他干什么？目的：1)为了获取当前容器下，所有的子元素 2)对子元素再做一个过滤-->
+<div>
+    <p></p>
+    <p></p>
+    <p></p>
+    <span></span><span></span>
+</div>
+<script>
+    var oDiv=document.getElementsByTagName('div')[0];
+    var aP=getChildren(oDiv,'p');
+    var aSpan=getChildren(oDiv,'span');
+    var aChild=getChildren(oDiv);
+    function getChildren(parent,tagName) {
+        //1：拿到当前容器下，所有的子节点
+        var aChilds=parent.childNodes;
+        //2:建立空数组，逐个遍历每个节点进行判断
+        var ary=[];
+        for(var i=0; i<aChilds.length; i++){
+            var cur=aChilds[i];
+            if(cur.nodeType===1){
+                /*if(typeof tagName==='undefined'){//说明没传第二个参数，那我们获取的就是所有子节点
+                    ary.push(cur)
+                }else{//传了第二个参数，需要比对标签名后再放入数组；
+                    if(cur.tagName.toLowerCase()===tagName.toLowerCase()){
+                        ary.push(cur);
+                    }
+                }*/
+                tagName?cur.tagName.toLowerCase()===tagName.toLowerCase()&&ary.push(cur):ary.push(cur);
+            }
+        }
+        return ary;
+    }
+</script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    var ary=[23,21,12,6,1,32,8];
+    /*
+    * 1:从ary数组中，随意抽取一张牌，放入left数组;比如：[23]
+    * 2：遍历ary中的每一个，用其跟left数组进行比对，如果比left的某个值小，继续往前比对，如果比到头还小的话，插入left数组的第一项，unshift；
+    * 如果比left数组中的某个值大，插入到这个值的下一项的前面；一定阻断程序的执行；
+    * */
+    function insertSort(ary){
+        var left=ary.splice(0,1);  //[23]
+        //遍历ary，用ary中的每一个，跟left从后往前的比较；
+        for(var i=0; i<ary.length; i++){
+            var cur=ary[i];
+            //跟left从后往前的比较
+            for(var j=left.length-1; j>=0;){
+                if(cur<left[j]){//如果当前项，比left的最后一个小的话，继续往前比，j--
+                    j--;
+                    if(j==-1){//代表比到头，还小的话，就插入到left的第一个位置；
+                        left.unshift(cur);
+                    }
+                }else{
+                    left.splice(j+1,0,cur);
+                    break; //break跳出循环
+                }
+            }
+        }
+        return left;
+
+    }
+var res=insertSort(ary);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        body{
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    //一位数转两位数；
+    function toDou(n) {
+        //三目，也叫做三元表达式;  条件? 语句1 ：语句2；
+        return n>=0 && n<10? '0'+n:''+n;
+        //if(条件) {语句1} else{语句2}
+        /*if(n>0 && n<10){
+            return '0'+n
+        }else{
+            return ''+n;
+        }*/
+    }
+    function clock() {
+        var oDate=new Date();
+        var y=oDate.getFullYear();
+        var m=oDate.getMonth()+1;
+        var d=oDate.getDate();
+        var H=oDate.getHours();
+        var M=oDate.getMinutes()ff;
+        var S=oDate.getSeconds();
+        var str=y+'-'+toDou(m)+'-'+toDou(d)+' '+toDou(H)+':'+toDou(M)+':'+toDou(S);
+        document.body.innerHTML=str;
+    };
+    clock();//直接调用函数，可以让函数立即执行；
+    setInterval(clock,1000);
+</script>
+</body>
+</html>

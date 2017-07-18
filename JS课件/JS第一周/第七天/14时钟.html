@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    function toDou(n) {
+        return n>=0 && n<10? '0'+n:''+n;
+    }
+    function clock() {
+        var oDate=new Date();
+        var y=oDate.getFullYear();
+        var m=oDate.getMonth()+1;
+        var d=oDate.getDate();
+        var H=oDate.getHours();
+        var M=oDate.getMinutes();
+        var S=oDate.getSeconds();
+        //document.body.innerHTML=`${y}年${m}月${d}号 ${H}:${M}:${S}`;
+        document.body.innerHTML=toDou(y)+'年'+toDou(m)+'月'+toDou(d)+'号 '+toDou(H)+':'+toDou(M)+':'+toDou(S);
+    }
+    clock();
+    setInterval(clock,1000)
+</script>
+</body>
+</html>

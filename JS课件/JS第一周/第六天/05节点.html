@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<ul><!--llalalalala-->  111111111111
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+<div>
+    <p></p>
+    <p></p>
+    <p></p>
+    <h2></h2>
+    <h2></h2>
+</div>
+<script>
+    var oUl=document.getElementsByTagName('ul')[0];
+    var oDiv=document.getElementsByTagName('div')[0];
+    //需求：找到当前元素下，所有子元素节点；
+    /*
+    * 如何进行函数封装
+    * 1：函数的功能；
+    * 2：函数是否需要传参
+    * 3：函数是否有返回值；
+    * */
+    function  getChildren(parent,tagName){
+        //1:先拿到当前元素下所有的子节点
+        var aChilds=parent.childNodes;
+        //2:逐个验证每个子节点，是否是元素节点，如果是元素节点就放入数组；
+        var ary=[];
+        for(var i=0; i<aChilds.length; i++){
+            if(aChilds[i].nodeType==1){
+                //不仅是子元素，而且是子元素中的xxxx标签，我们才把放入数组；
+                //tagName==undefined    typeof tagName=='undefined'   tagName;
+                if(typeof tagName=="undefined"){//没传
+                    ary.push(aChilds[i]);//没传第二个参数，就不需要过滤；
+                }else{//如果传了，就得进行进一步的比对；
+                    if(aChilds[i].tagName.toLowerCase()===tagName.toLowerCase()){
+                        ary.push(aChilds[i])
+                    }
+                }
+            }
+        }
+        return ary;
+    };
+    var aLi=getChildren(oUl);
+    var aChild=getChildren(oDiv,'p');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    var strCode='abcdefghigklmnopqrstuvwxyzABCDEFGHIGKLMNOPQRSTUVWXYZ0123456789';
+    var ary=[];
+    /*for(var i=0; i<4; i++){
+        //取随机数
+        var num=Math.round(Math.random()*61);
+        if(ary.indexOf(strCode[num])==-1){//说明数组中没有你；
+            ary.push(strCode[num]);
+        }else{//证明数组中已经存在，为了不浪费这次机会，我们必须i--;
+            i--;//这次不算，以后冲抓
+        }
+    }
+    document.write(ary)*/
+    while(ary.length<4){//只要数组的长度小于4，都可以无限制的抓下去
+        var num=Math.round(Math.random()*61);
+        if(ary.indexOf(strCode[num])==-1){//只有不重复，才往数组中放；
+            ary.push(strCode[num])
+        }
+    }
+    document.write(ary)
+</script>
+</body>
+</html>

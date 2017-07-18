@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    var ary=[99,18,12,4,2,23,1];
+    //1:快排；
+    /*function quickSort(ary) {
+        //一定要有停止拆分的条件
+        if(ary.length<=1){
+            return ary;
+        }
+        var n=Math.floor(ary.length/2);
+        var num=ary.splice(n,1)[0];
+        var left=[],right=[];
+        for(var i=0; i<ary.length; i++){
+            var cur=ary[i];
+            if(cur<num){
+                left.push(cur);
+            }else{
+                right.push(cur);
+            }
+        }
+        return quickSort(left).concat([num],quickSort(right));
+    }*/
+    //2:插排
+    /*function  quickSort(ary) {
+        var left=ary.splice(0,1);
+        for(var i=0; i<ary.length; i++){
+            var cur=ary[i];
+            for(var j=left.length-1; j>=0;){
+                if(cur<left[j]){
+                    j--;
+                    if(j==-1){
+                        left.unshift(cur);
+                        break;
+                    }
+                }else{
+                    left.splice(j+1,0,cur);
+                    break;
+                }
+            }
+        }
+        return left;
+    }*/
+    //3:冒排
+    for(var i=0; i<ary.length; i++){
+        for(var j=0; j<ary.length-1-i; j++){
+            if(ary[j]>ary[j+1]){
+                var tmp=ary[j];
+                ary[j]=ary[j+1];
+                ary[j+1]=tmp;
+            }
+        }
+    }
+</script>
+</body>
+</html>

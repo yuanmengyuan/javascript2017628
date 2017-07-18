@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        div{
+            font-size: 30px;
+        }
+        div span{
+            font-size: 50px;
+            color: #ff0000;
+        }
+        div span.close{
+            color: #cccccc;
+        }
+    </style>
+</head>
+<body>
+<div>距离下课还有  <span>00天 00 : 00 : 00</span></div>
+<script>
+    //核心思路：拿到两个日期对象，求出两个日期对象之间的毫秒差，转成秒差；然后通过秒进行秒转换，转成时，分，秒
+    //注意：1）一位数要转成两位 2）如果秒为负值的时候，要做处理；
+    function toDou(n) {
+        return n>=0 && n<10? '0'+n:''+n;
+    }
+    function countDown() {
+        var oSpan=document.getElementsByTagName('span')[0];
+        var timer=null; //现在没有，以后会有；
+        //1:获取日期对象
+        var oDate=new Date();
+        //2:设置未来的日期对象  new Date('2017/7/12 18:00:00')
+        //3:核心：求未来和现在之间的毫秒差,并且把毫秒转成秒；
+       /* var s=Math.floor((new Date('2017/7/12 18:00:00').getTime() - oDate.getTime())/1000);*/
+       var newDate=new Date('2017/7/12 17:21:30');
+       var s=Math.floor((newDate-oDate)/1000);
+       //注意：当s<=0的时候，已经下课了
+        if(s<0){
+            oSpan.innerHTML='你来晚了，我们已经下课了';
+            oSpan.className='close';
+            clearInterval(timer);
+            return; //阻断程序执行的作用
+        }
+        //24*60*60=86400 秒
+        var d=Math.floor(s/86400);
+        s%=86400;//拿到剩余的秒数；
+        var h=Math.floor(s/3600);
+        s%=3600;
+        var m=Math.floor(s/60);
+        s%=60;
+        oSpan.innerHTML=toDou(d)+'天 '+toDou(h)+' : '+toDou(m)+' : '+toDou(s); //字符串拼接
+    }
+    countDown();//这里为了防止1秒钟的空白；
+    timer=setInterval(countDown,1000);
+</script>
+</body>
+</html>

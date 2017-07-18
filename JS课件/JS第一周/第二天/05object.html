@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    //小明今年20岁，性别：男，他有两个姐姐，大姐：红红,年龄：28，小姐：绿绿，年龄：22，小明考试成绩出来了，语文：89，数学：30，英语：30，小明的爱好是踢足球和打篮球；请用一个对象的形式描述以上文字；
+    //var obj={};  //{k:v,k:v,k:v}   k:key  v:value
+    var xiaoming = {
+        name: 'xiaoming',
+        sex: '男',
+        age: 20,
+        sisters: {
+            "大姐": {
+                name: '红红',
+                age: 28
+            },
+            "小姐": {
+                name: '绿绿',
+                age: 22
+            }
+        },
+        score: [
+            {"语文": 89},
+            {"数学": 30},
+            {"英语": 30}
+        ],
+        hobby: ['踢足球', '打篮球']
+    }
+    //对象的取值；--查找
+    //alert(xiaoming.sisters['大姐'].age)
+    //alert(xiaoming.socre[0]["语文"])
+    //增加: 如果对象身上没有haha属性，就属于增加；
+    xiaoming.haha=123;
+    //更改: 更改和增加都是通过"."来操作的，如果对象上有这个属性名，那么属于更改，如果没有属于增加；
+    xiaoming.hobby[0]='睡觉';
+    //删除：假删除和真删除
+    //xiaoming.score=null;
+    delete xiaoming.score;
+
+    //对象的遍历；
+    for(var attr in xiaoming){
+        console.log(attr+':'+xiaoming[attr])
+    }
+</script>
+</body>
+</html>

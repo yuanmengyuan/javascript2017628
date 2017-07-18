@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var ary=[1,2,3,2,3,1,2,3,3,2,1];
+    //思路1：双重循环
+    /*for(var i=0; i<ary.length; i++){
+        var cur=ary[i];
+        //要跟后面每一项进行比对
+        for(var j=i+1; j<ary.length; j++){
+            if(cur==ary[j]){
+                //删除数组中间项，只能用splice；
+                ary.splice(j,1);
+                j--;//为了防止数组塌陷
+            }
+        }
+    }*/
+    //思路2：新数组，测试的就是新数组；
+    /*var newAry=[];
+    for(var i=0; i<ary.length; i++){
+        //如何判断新数组中是否有某个值 indexOf
+        if(newAry.indexOf(ary[i])==-1){//如果新数组中没有的话
+            newAry.push(ary[i]);//把这个数放入新数组
+        }
+    }*/
+    //思路3：sort排序
+    /*ary.sort(function (a,b) {
+        return a-b;
+    });
+    //用当前项跟他的邻居比对，如果重复，删掉其中一个就行；
+    for(var i=0; i<ary.length; i++){
+        if(ary[i]===ary[i+1]){
+            ary.splice(i,1);
+            i--;//防止数组塌陷
+        }
+    }*/
+    //思路4：利用对象不重名的特性
+    /*var obj={};
+    //遍历数组中的每一项，如果对象中没有，把这一项赋值一份给对象，如果对像中已经有了，说明这是重复项，我们就删除数组中的这一项；
+    for(var i=0; i<ary.length; i++){
+        if(obj[ary[i]]){//走if说明重复了；
+            ary.splice(i,1);
+            i--;
+        }else{//走else说明对象中没有这个数；那么就给obj添加属性
+            obj[ary[i]]=ary[i];
+        }
+    }*/
+    //思路5：利用对象
+    var obj={};
+    for(var i=0; i<ary.length; i++){
+        if(obj[ary[i]]){
+            obj[ary[i]]++; //++ +=1
+        }else{//走else一定是对象没有；给这个属性名贴个1的标签
+            obj[ary[i]]=1;
+        }
+    }
+    //通过for..in拿到每个属性名；
+    var newAry=[];
+    for(var attr in obj){
+        newAry.push(Number(attr));
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

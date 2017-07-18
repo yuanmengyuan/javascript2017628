@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    var ary=[23,21,12,6,1,32,8]
+    function quickSort(ary) {
+        //5:停止拆分的条件
+        if(ary.length<=1){
+            return ary;
+        }
+        //1:先找中间位置
+        var centerIndex=Math.floor(ary.length/2);
+        //2:找到中间的值
+        var centerNum=ary.splice(centerIndex,1)[0];
+        //3:建立新数组left,right
+        var left=[],
+            right=[];
+        //4:遍历比对
+        for(var i=0; i<ary.length; i++){
+            var cur=ary[i];
+            if(cur<centerNum){
+                left.push(cur);
+            }else{
+                right.push(cur);
+            }
+        }
+        return quickSort(left).concat([centerNum],quickSort(right));
+    }
+
+    var res=quickSort(ary);
+
+</script>
+</body>
+</html>

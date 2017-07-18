@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        .div1111111{
+            background: #ff0000;
+        }
+        .div2{
+            background: #0000ff;
+        }
+    </style>
+</head>
+<body>
+<div class="div1111111" id="div1" leilei="123" style="font-size: 10px;" onclick="console.dir(this)">
+    <h1><a href="#">张蕾</a></h1>
+</div>
+<script>
+    //需求1：点击div的时候，可以"打印出"div的属性和方法
+    var oDiv=document.getElementById('div1'); //var 定义变量的； 一次定义，多次使用
+    //alert(oDiv.className)
+    //alert(oDiv.id)
+    //oDiv.onclick()
+    function aa() {
+        console.log(this)
+    }
+    aa();
+//    oDiv.onclick=function () {
+//        //"打印出"div的属性和方法
+//        //alert('lalalla')
+//        console.log(oDiv.innerHTML)
+//        console.log(oDiv.innerText)
+//        console.dir(oDiv)  //dir方法，可以打印出对象身上的属性和方法；
+//    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

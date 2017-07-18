@@ -1,0 +1,33 @@
+### 怎么判断git是否安装成功 git --version
+    只要能打印出版本号，就代表git安装成功；
+### 如何配置git
+    + git config --global user.name "github的用户名"
+    + git config --global user.email "github的邮箱地址"
+
+### 如何创建本地仓库
+    1、创建一个空文件夹
+    2、把文件夹变成git可以管理的仓库：git init
+       + 如何查看当前文件夹下有哪些子文件 ls -a
+    3、把本地仓库在cmd中打开
+        + 左手按shift+右手点击右键； 选择在此处打开命令行；
+### 关于远程仓库
+- 如何查看链接了哪些远程仓库
+    + git remote -v
+- 链接远程仓库
+    + git remote add 远程通道名称 通道地址
+    远程仓库名称：（自己起的，一般自己的远程仓库，默认是origin）
+    通道地址：从github上复制粘贴过来的；
+    + 移出远程通道 ： git remote rm 通道名称
+### git工作流-》目的：把本地仓库的内容，推送到远程仓库；
+1、 git add .   代表把当前目录下，所有的文件都推送上去；
+2、 git commit -m"注释"   把工作区的内容推送到暂存区
+3、 git push origin master 把暂存区的内容推送到历史区；即推送到GitHub的远程仓库的master分支上去；
+### git克隆
+- git clone
+
+### 涉及一些常见的命令
+- 进入某个文件夹： cd 文件夹的名字
+- 文件夹名字自动补全： 先写上一部分+ tab键自动补全
+- 回退到上一级：cd ../
+
+

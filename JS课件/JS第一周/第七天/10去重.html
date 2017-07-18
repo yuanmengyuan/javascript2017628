@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    var ary=[1,2,3,1,2,3,2,3,2,4];
+    //1:双重循环
+    /*for(var i=0; i<ary.length; i++){
+        for(var j=i+1; j<ary.length; j++){
+            if(ary[i]===ary[j]){
+                ary.splice(j,1);
+                j--;
+            }
+        }
+    }*/
+    //2:sort排序
+    /*ary.sort(function(a,b){return a-b});
+    //拿当前项和下一项进行比对
+    for(var i=0; i<ary.length; i++){
+        if(ary[i]===ary[i+1]){
+            ary.splice(i,1);
+            i--;
+        }
+    }*/
+    //3:新数组
+    /*var newAry=[];
+    for(var i=0; i<ary.length; i++){
+        if(newAry.indexOf(ary[i])===-1){
+            newAry.push(ary[i]);
+        }
+    }*/
+    //4: 利用对象不重名的特性；
+    /*var obj={};
+    for(var i=0; i<ary.length; i++){
+        var cur=ary[i];
+        if(obj[cur]){
+            ary.splice(i,1);
+            i--;
+        }else{
+            obj[cur]=cur;
+        }
+    }*/
+    //5:利用对象不重名的特性，同时记录次数
+    var obj={};
+    for(var i=0; i<ary.length; i++){
+        var cur=ary[i];
+        if(obj[cur]){
+            obj[cur]++;
+        }else{
+            obj[cur]=1;
+        }
+    }
+    var ary=[];
+    for(var attr in obj){
+        ary.push(Number(attr));
+    }
+</script>
+</body>
+</html>

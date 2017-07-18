@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        div{
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            background: #cccccc;
+            float: left;
+            margin: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div index="1">1</div>
+<div index="2">2</div>
+<div index="3">3</div>
+<div index="4">4</div>
+<div index="5">5</div>
+<script>
+    var aDiv=document.getElementsByTagName('div');
+    for(var i=0; i<aDiv.length; i++){
+        //aDiv[i].aa=i;
+        aDiv[i].setAttribute('aa',i);
+        aDiv[i].onclick=function () {
+            alert(this.getAttribute('index'))
+        }
+    }
+</script>
+</body>
+</html>

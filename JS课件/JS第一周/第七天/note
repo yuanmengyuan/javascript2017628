@@ -1,0 +1,289 @@
+### 节点关系
+children
+childNodes
+parentNode
+previousSibling  上一个哥哥节点
+nextSibling  下一个弟弟节点
+firstChild
+lastChild
+
+### DOM的增删改查
+- 动态创建
+    + document.createElement(标签名)
+    + cloneNode(boolean)
+        + boolean=true: 深度克隆，也就是把子子孙孙都克隆下来；
+        + boolean=false：默认的就是false，他是只克隆表面；
+- 动态插入
+    + parent.appendChild(newEle); 把新元素插入到父容器的末尾；
+    + parent.insertBefore(newEle,oldEle); 把新元素插入到指定元素的前面；
+- 动态替换
+    + parent.replaceChild(newEle,oldEle);
+- 删除元素
+    + parent.removeChild(ele);
+
+### dom的属性操作
+- 属性操作用.和[];凡事"."能操作的，[]都能操作；
+    + []能操作数字，变量；但是不能用"."来操作；
+- 属性操作，attribute
+    + getAttribute(属性名)  获取属性
+    + setAttribute(属性名，属性值) 设置属性
+    + removeAttribute(属性名) 移出属性；
+
+- 点和attribute的区别：
+    1、在"获取"的时候:元素标签上的自定义属性，通过"."拿到的是undefined;但是通过 getAttribute(属性名)可以拿到真正的属性值；
+    2、在"设置"的时候：通过"."设置的自定义属性，标签上看不到；但是，通过setAttribute(属性名，属性值)设置的自定义属性，标签上可以看到；
+
+### 扩展作业
+1、拿到第一个子元素 和 最后一个子元素；
+    + getChildren;
+### 本周知识点复习
+### 基础
+- 一个页面包含三部分： html+css+js
+    + 行为样式结构三者相分离
+- js主要包含三部分
+    + ECMAScript:就是JS的一些语法，定义变量，条件判断，循环语句，运算符等等；
+    + DOM  document object model
+    + BOM  browser object model
+- css引入页面的三种方法
+    + 行内
+    + 内嵌  style标签
+    + 外链  link标签  <link href=""/>
+- js引入页面的三种方式
+    + 行内  <div onclick="alert(123)"></div>
+    + 内嵌  <script></script>
+        + 注意：1）一般把script建议放到body的底部
+               2）如果非要把script放入head中，必须加window.onload事件
+    + 外链 <script src='xxxx'></script>
+- js的输出方式，目的用来调试
+    1、alert()
+    2、confirm()  会有两个返回值：true，false
+    3、console.log()
+    4、console.dir()  dir可以打印出对象的属性和方法；
+    5、console.table()  console.info()
+    6、document.write()
+    7、innerHTML和innerText的区别，innerHTML最常用；
+- 循环：
+    1、 for循环，四步：1）定义变量 2）条件 3）语句 4）自增
+        + 使用场景：当循环次数固定的时候，建议使用，比如数组，元素集合
+    2、 while循环，也可以像for循环一样，包含四步：1）定义变量 2）条件 3）语句 4）自增
+        + 使用场景：但循环次数不固定的时候，建议使用
+    3、 for..in循环
+        + 使用场景：用来遍历对象
+- 判断
+    1、 if...elseif()...else...
+    2、 switch...case....
+    3、 三目，也叫做三元表达式：  条件?语句1：语句2；
+- 运算符
+    1、算术运算符： + - * ／ %
+    2、比较运算符：> < >= <= == === != !==
+    3、逻辑运算符： && || ！
+    4、赋值运算符：= += -= *= /= %=
+    ** 运算符的优先级：算术》比较》逻辑》赋值 **
+### Math常用的方法
+- Math.round()
+- Math.floor()
+- Math.ceil()
+- Math.sqrt()
+- Math.pow()
+- Math.abs()
+- Math.max()
+- Math.min()
+- Math.random()
+    + 公式： Math.round(Math.random()*(m-n)+n)
+#### 数组常用的方法：
+- 增加，删除和替换
+    + push() pop() shift() unshift()  splice
+        + splice三种用法：删除(一个参数或两个参数) 增加 替换
+- 克隆和拼接
+    + slice() 截取的功能; 注意，它包前不包后；
+        + 需要：要求拿到第n项到第m项，包含n和m
+            ary.slice(n-1,m)
+    + concat：多个数组拼接
+        + ary.concat(ary2,ary3......)
+- 数组翻转和排序
+    + 翻转 reverse()
+    + 排序 sort()
+        + sort(function(a,b){return a-b})
+            + return a-b 从小到大
+            + return b-a 从大到小
+- 数组转字符串
+    + toString() 转成以逗号分隔的字符串
+    + join(拼接形式) join配合eval可以实现数学运算
+        + eval() 把字符串作为JS代码来执行
+- 数组常用，但不兼容的方法
+    + indexOf()
+    + forEach()
+    + map()
+        + forEach没有返回值，而map有返回值
+### 数组的小总结
+- 给数组末尾增加一项：
+    + push()
+    + ary[ary.length]=xxx;
+    + ary.splice(ary.length,0,xxxx)
+- 删除数组最后一项
+    + pop()
+    + ary.length--
+    + art.length-=1; ary.length=ary.length-1;
+    + ary.splice(ary.length-1,1);
+- 数组的克隆
+    + slice() / slice(0)
+    + ary.splice(0)
+    + concat();
+
+### 字符串常用方法
+- 通过下标找字符
+    + charAt()
+    + charCodeAt() 通过索引找到对应字符的unicode编码；
+- 通过字符找下标
+    + indexOf
+    + lastIndexOf
+- 字符串截取
+    + slice() 取索引n到索引m，包前不包后，但是它可以取赋值
+    + substring() 取索引n到索引m，包前不包后
+    + substr(n,m) 从索引n开始，截取m个；
+- 字符串转大小写
+    + toUpperCase()
+    + toLowserCase()
+- 字符串和正则配合的常用方法
+    + split() 切成数组
+    + replace() 替换
+    + match() 匹配，找到返回数组，找不到返回null
+    + search() 查找，找到返回索引，找不到返回-1；
+
+### 数据类型
+- 基本数据类型： string字符串，number数字，布尔boolean，null，undefined
+- 引用数据类型
+    + 对象数据类型： new Array, object, new Date,new RegExp...
+    + 函数数据类型:function(){}
+### 真和假
+- 除了6个为假，其他都是真：false ,null, undefined, "", 0, NaN;
+
+### 数据类型的转换
+- 其他数据类型，转为number数据类型
+    + "" -》 0
+    + 提供了一个严格转换，两个非严格转换
+        + Number() 严格
+        + 两个非严格： parseInt()  parseFloat()
+        + 转换失败，拿到的是NaN
+        + 判断是否为非有效数字 isNaN()
+    + []->toString转成""->通过Number()转成0
+    + false-》0； true=》1
+    + null-》0； undefined-》NaN;
+### 哪些具有隐式数据类型转换？
+    - * ／ % == 都以隐式数据类型转换；
+
+### 数据类型的比较 ==
+- 对象和对象，比较的是地址 []==[] false ;
+- 对象和数字，转成数字   []==0 true ;
+- 对象和字符串，转成字符串 []=='0' false  []=='' true
+- 对象和布尔，转成数字   []==false true
+- 字符串和数字，转成数字 ''==0 true
+- 字符串和布尔，转成数字 ''==false true ;
+- 数字和布尔    0==false  true ; 1==true  true;
+- null==undefined true; null===undefined false;
+- NaN==NaN false;因为NaN跟任何值都不相等；
+
+### 数据类型的检测
+- typeof
+- constructor
+- instanceof
+- Object.prototype.toString.call()
+### 定时器
+- 隔一段时间，执行一次：setInterval，关闭clearInterval；
+- 只执行一次 ：setTimeout,关闭 clearTimeout;
+
+### 日期对象
+- var oDate=new Date()
+- oDate.getFullYear()
+- oDate.getMonth()+1
+- oDate.getDate()
+- oDate.getDay()
+- oDate.getHours()
+- oDate.getMinutes()
+- oDate.getSeconds()
+
+### Dom元素的获取
+- id,tagName,className,querySelector, querySelectorAll
+### DOM节点
+            nodeType       nodeName      nodeValue
+文本节点         3           #text         文本内容
+元素节点         1          大写的标签名     null
+注释节点         8           #comment       注释内容
+document节点    9            #document     null
+
+### 节点关系
+- children
+- childNodes
+- parentNode
+- previousSibling
+- nextSibling
+- firstChild
+- lastChild
+
+### 函数
+- 函数由两部分组成：定义+调用
+- 定义三步骤
+    1、 开辟一个空间地址
+    2、 把函数体内所有JS代码，作为字符串存在这个空间中
+    3、 把空间地址，赋值给函数名
+- 调用两步骤
+    1、 形成一个私有作用域
+    2、 把内存中的字符串作为JS代码来执行
+### 闭包
+1、当函数被调用的时候，会形成一个私有作用域，保护里面的变量不受外界的干扰，函数的这种保护机制，叫做闭包
+2、子函数可以使用父函数的私有变量
+### 函数的参数
+- 参数：实参，形参；定义了形参，但没有赋值，拿到的是undefined ;
+- 当参数不确定的时候，不需要定义形参，通过函数自带的参数机制arguments来拿
+    + arguments.length 拿到实参的长度
+    + arguments.callee 拿到当前函数本身
+### 函数返回值
+- return，return两个作用
+    1、 返回值
+    2、 阻断程序执行
+### 函数包含有名函数和匿名函数
+- function xxx(){}
+- oDiv.onclick=function(){}
+- 自执行函数
+    + 自执行函数4中写法：
+     (function(){})();  ~function(){}(); +function(){}(); -function(){}();
+
+###  this的小总结
+1、当元素身上的事件被触发的时候，会执行一个函数，函数中的this，指向当前这个元素
+2、自执行函数中的this，永远是window
+3、当函数被调用的时候，点前面是谁，this就谁；
+4、回调函数中的this，一般都是window；
+
+### 实战：
+1、 隔行换色的九九乘法表
+2、 获取随机验证码，里面用了两种思想：1）for 2）while
+3、 去重
+4、 快排，插排，冒排
+5、 选项卡的封装
+6、 时钟
+7、 倒计时
+8、 任意个参数求和
+9、 用setTimeout实现setInterval，递归思想
+10、 toDou();一位数转两位数
+11、 getChildren()
+    - 1)如果没传第二个参数，获取当前容器下所有的子元素  2）如果有第二个参数，有元素过滤的功能
+12、 prev()  next()
+13、 prevAll()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

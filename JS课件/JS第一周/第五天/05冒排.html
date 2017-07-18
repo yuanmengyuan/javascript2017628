@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    var ary=[29,12,3,42,6,8,1];
+    //两重循环，外面的循环，代表轮数，里面的循环代表次数，每次比较的时候，都是用当前项和后一项进行比对，如果前者大于后者，两者交换位置
+    function bubbleSort(ary) {
+        for(var i=0; i<ary.length; i++){
+            for(var j=0; j<ary.length-1-i; j++){
+                //每次比较的时候，都是用当前项和后一项进行比对
+                if(ary[j]>ary[j+1]){
+                    var tmp=ary[j];
+                    ary[j]=ary[j+1];
+                    ary[j+1]=tmp;
+                }
+            }
+        }
+        return ary;
+    }
+    var res=bubbleSort(ary);
+</script>
+</body>
+</html>

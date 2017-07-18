@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+<button id="show">点击显示</button>
+<button  id="hide">点击隐藏</button>
+<div id="div"></div>
+<script>
+    //点击"显示按钮"的时候，div显示；  点击"隐藏按钮"的时候，div隐藏
+    //var 用来定义比变量，变量就是别名  欧阳娜娜-》 娜娜
+    //1:获取元素 ，获取两个按钮，和一个div元素
+    var oShow=document.getElementById('show');
+    var oHide=document.getElementById('hide');
+    var oDiv=document.getElementById('div');
+
+    oShow.onclick=function () {
+        //让div显示
+        oDiv.style.display='block';
+    };
+    oHide.onclick=function () {
+        //让div隐藏
+        oDiv.style.display='none';
+    }
+</script>
+</body>
+</html>

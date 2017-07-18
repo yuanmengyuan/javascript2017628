@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .wrap{
+            height: 300px;
+            float: left;
+            margin: 10px;
+        }
+        .wrap li{
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            float: left;
+            background: #cccccc;
+            border-bottom:1px solid #333;
+            box-sizing: border-box;
+        }
+        .wrap li+li{
+            border-left:1px solid #333;
+        }
+        .wrap li.on{
+            background: #ADD8E6;
+            border-bottom: none;
+        }
+        .wrap div{
+            height: 100%;
+            display: none;
+            background: #add8e6;
+        }
+        .wrap div.show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap" id="tab1">
+    <ul>
+        <li class="on">按钮1</li>
+        <li>按钮2</li>
+        <li>按钮3</li>
+    </ul>
+    <div class="show">内容1</div>
+    <div>内容2</div>
+    <div>内容3</div>
+</div>
+<div class="wrap" id="tab2">
+    <ul>
+        <li class="on">按钮1</li>
+        <li>按钮2</li>
+    </ul>
+    <div class="show">内容1</div>
+    <div>内容2</div>
+</div>
+<div class="wrap" id="tab3">
+    <ul>
+        <li class="on">按钮1</li>
+        <li>按钮2</li>
+        <li>按钮3</li>
+        <li>按钮4</li>
+    </ul>
+    <div class="show">内容1</div>
+    <div>内容2</div>
+    <div>内容3</div>
+    <div>内容4</div>
+</div>
+<script>
+    function tab(id,selectIndex) {
+        //必须限定范围的获取元素
+        var oWrap=document.getElementById(id);
+        var aBtn=oWrap.getElementsByTagName('li');
+        var aDiv=oWrap.getElementsByTagName('div');
+        oWrap.style.width=aBtn.length*200+'px';
+        //思路：点击每个按钮的时候，让所有的按钮都变灭，就让当前按钮点亮，让所有的内容框都隐藏，就让当前按钮对应的内容框显示；
+        //事件属于异步，异步就会有时间差，所以，外面循环中的i值等到事件触发的时候，早都已经循环结束，我们只能拿到最大的i值；而这个i值一定是错误的；
+        //解决方式有两种：1）自定义属性 2）闭包
+        //设置默认的 点亮项
+        selectIndex=selectIndex%aBtn.length||0;//传了按照传的来，没穿默认设置索引0;
+        function show(showIndex) {
+            for(var i=0; i<aBtn.length; i++){
+                aBtn[i].className=null;
+                aDiv[i].className=null;
+            }
+            aBtn[showIndex].className='on';
+            aDiv[showIndex].className='show';
+        }
+        show(selectIndex)
+        for(var i=0; i<aBtn.length; i++){
+            /*//用自定义属性解决事件中的i值问题；
+             aBtn[i].index=i;
+             aBtn[i].onclick=function () {
+             for(var i=0; i<aBtn.length; i++){
+             aBtn[i].className=null;
+             aDiv[i].className=null;
+             }
+             this.className='on';
+             aDiv[this.index].className='show';
+             }*/
+            (function (index) {
+                aBtn[index].onclick=function () {
+                    show(index)
+                }
+            })(i);
+        }
+
+    }
+    tab('tab1')
+    tab('tab2',1)
+    tab('tab3',103)
+</script>
+</body>
+</html>

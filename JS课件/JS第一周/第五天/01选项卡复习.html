@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .wrap{
+            width: 600px;
+            height: 300px;
+            float: left;
+            margin: 10px;
+        }
+        .wrap li{
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            background: #cccccc;
+            text-align: center;
+            float: left;
+            border-bottom:1px solid #333;
+            box-sizing: border-box;
+        }
+        .wrap li.on{
+            border-bottom: none;
+            background: #ADD8E6;
+        }
+        .wrap li+li{
+            border-left:1px solid #333;
+        }
+        .wrap div{
+            height: 100%;
+            background: #add8e6;
+            display: none;
+            text-align: left;
+        }
+        .wrap div.show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap" id="tab1">
+    <ul>
+        <li class="on">按钮1</li>
+        <li>按钮2</li>
+        <li>按钮3</li>
+    </ul>
+    <div class="show">内容1</div>
+    <div>内容2</div>
+    <div>内容3</div>
+</div>
+<div class="wrap" id="tab2">
+    <ul>
+        <li class="on">按钮1</li>
+        <li>按钮2</li>
+    </ul>
+    <div class="show">内容1</div>
+    <div>内容2</div>
+</div>
+<script>
+    function tab(id,selectIndex) {
+        //1:获取需要的元素：需要所有的按钮+所有的内容框;一定要限制范围的获取元素；
+        var oWrap=document.getElementById(id);
+        var aBtn=oWrap.getElementsByTagName('li');
+        var aDiv=oWrap.getElementsByTagName('div');
+        //动态计算wrap容器的宽度
+        oWrap.style.width=aBtn.length*200+'px';
+        //在点击事件触发前，就要设置默认选中项；
+        selectIndex=selectIndex%aBtn.length||0;
+        function select(showIndex) {
+            for(var i=0; i<aBtn.length; i++){
+                aBtn[i].className='';
+                aDiv[i].className='';
+            }
+            aBtn[showIndex].className='on';
+            aDiv[showIndex].className='show';
+        }
+        select(selectIndex);
+        //2:给每个元素添加事件
+        for(var i=0; i<aBtn.length; i++){
+            /*//思路1：自定义属性
+             aBtn[i].index=i;  //对象的设置；我们设置了自定义属性index，对应的值分别是0，1，2
+             //当元素身上的事件被触发的时候，会执行一个函数，函数中的this指向当前这个元素；
+             aBtn[i].onclick=function () {
+             //3：点击事件发生的时候，想做什么事？
+             for(var i=0; i<aBtn.length; i++){
+             aBtn[i].className='';
+             aDiv[i].className='';
+             }
+             aBtn[this.index].className='on';
+             aDiv[this.index].className='show';
+             }*/
+            (function (index) {
+
+                aBtn[index].onclick=function () {
+                    select(index)
+                }
+            })(i);
+
+        }
+    }
+    tab('tab1',1)
+    tab('tab2')
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

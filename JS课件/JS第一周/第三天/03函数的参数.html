@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    //参数： 有实参还有形参；
+    function sum(){//形参
+        //console.log(arguments.callee)
+        var total=0;
+        for(var i=0; i<arguments.length; i++){
+            var n=Number(arguments[i]);//把所有字符串都转成数字；
+            //判断，如果n是个数字，才进行累加，否则不累加；
+            if(!isNaN(n)){
+                total+=n;
+            }
+        }
+        return total;//函数返回值，通过return返回出来
+    }
+    var res=sum(2,3,12,4,4,5,6,7,'78px',9,9)//实参
+</script>
+</body>
+</html>

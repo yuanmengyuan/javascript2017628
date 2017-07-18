@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        li{
+            height: 40px;
+            line-height: 40px;
+            font-size: 28px;
+        }
+        .bg0{
+            background: lightgoldenrodyellow;
+        }
+        .bg1{
+            background: lightcyan;
+        }
+        .bg2{
+            background: lightgreen;
+        }
+        .change{
+            background: purple;
+            color: #ffffff;
+        }
+        li span{
+            display: inline-block;
+            width: 110px;
+        }
+    </style>
+</head>
+<body>
+<ul>
+
+</ul>
+<script>
+    var oUl=document.getElementsByTagName('ul')[0];
+    var aLi=oUl.getElementsByTagName('li');
+    var str='';
+    for(var i=1; i<=9; i++){//外围的循环，决定了行数
+        str+='<li>'
+        for(var j=1; j<=i; j++){//里面的循环，决定了列数
+            str+='<span>'+(j+'*'+i+'='+j*i)+'</span>'
+        }
+        str+='</li>'
+    }
+    oUl.innerHTML=str;
+    //隔行换色，用%的思想：有几种情况就%几
+    for(var i=0; i<aLi.length; i++){
+        aLi[i].className='bg'+i%3;
+        aLi[i].oldBg='bg'+i%3;
+        //移入的时候，改变颜色，移出的时候，恢复原样；
+        aLi[i].onmouseover=function () {
+            this.className='change';
+        };
+        aLi[i].onmouseout=function () {
+            this.className=this.oldBg;
+        }
+    }
+</script>
+</body>
+</html>

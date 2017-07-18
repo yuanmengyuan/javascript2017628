@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            margin:10px;
+        }
+        #div1 span{
+            font-size: 50px;
+        }
+    </style>
+
+    <script>
+        window.onload=function () {
+            var oDiv=document.getElementById('div1');
+            //克隆
+            var oDiv2=oDiv.cloneNode(true);
+            document.body.appendChild(oDiv2);
+            oDiv2.removeAttribute('id');
+        }
+    </script>
+</head>
+<body>
+<div id="div1">
+    <p><span>12234</span></p>
+</div>
+
+</body>
+</html>

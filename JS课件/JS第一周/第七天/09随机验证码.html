@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    var strCode='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    //思路1：for循环
+    var str='';
+    /*for(var i=0; i<4; i++){
+        var rnd=Math.round(Math.random()*61);
+        if(str.indexOf(strCode.charAt(rnd))===-1){
+            str+=strCode.charAt(rnd);
+        }else{
+            i--;
+        }
+
+    }*/
+    while(str.length<4){
+        var rnd=Math.round(Math.random()*61);
+        if(str.indexOf(strCode.charAt(rnd))===-1){
+            str+=strCode.charAt(rnd);
+        }
+    }
+    document.write(str);
+</script>
+</body>
+</html>

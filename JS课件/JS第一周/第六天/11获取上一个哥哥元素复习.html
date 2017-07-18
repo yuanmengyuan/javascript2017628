@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<div><p>第1个p元素</p>
+    <p>第2个p元素</p>
+    <p>第3个p元素</p>
+    <p>第4个p元素</p>
+</div>
+<script>
+    var aP=document.getElementsByTagName('p');
+    //currentElement
+    function pre(curEle) {
+        //如果浏览器支持，直接使用浏览器提供的方法
+        if(curEle.previousElementSibling){
+            return curEle.previousElementSibling;
+        }
+        //如果浏览器不支持，我们自己做兼容处理
+        var prev=curEle.previousSibling;//获取上一个节点
+        while(prev && prev.nodeType !== 1){
+            prev=prev.previousSibling;
+        }
+        return prev;
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

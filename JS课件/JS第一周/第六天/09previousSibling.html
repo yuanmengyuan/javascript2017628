@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<div class="wrap"><div>第1个div</div>
+    111111
+    22222
+    33333
+    <div>第2个div</div>
+    <div>第3个div</div>
+    <div>第4个div</div>
+    <div>第5个div</div>
+</div>
+<script>
+    var oDiv=document.getElementsByTagName('div')[0];
+    var aDiv=oDiv.getElementsByTagName('div');
+    //目的：获取当前元素的上一个哥哥元素；
+    /*
+    * 目的：获取当前元素的上一个哥哥元素；
+    * 参数：当前元素
+    * 返回值：当前元素的上一个哥哥元素；
+    * */
+    /**
+     * 功能：求当前元素的上一个哥哥元素
+     * @param curEle
+     * @returns preEle
+     */
+    function prev(curEle){
+        //如果高级浏览器支持的话，直接使用高级浏览器提供的previousElementSibling
+        if(curEle.previousElementSibling){
+            return curEle.previousElementSibling;
+        }
+        //证明浏览器不支持 previousElementSibling
+        var prev=curEle.previousSibling;
+        //循环的条件：上一个节点，必须是个节点，并且不是元素节点
+        while(prev && prev.nodeType !==1){
+            prev=prev.previousSibling;
+        }
+        return prev;
+    }
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

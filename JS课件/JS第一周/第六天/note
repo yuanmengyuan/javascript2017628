@@ -1,0 +1,50 @@
+
+### DOM: document object model
+- DOM 树
+### DOM中元素获取的方式
+    + id获取：var oDiv=document.getElementById('div1'); 注意，只能用document;
+    + class获取：document.getElementsByClassName('haha'); 可以限定范围的获取元素
+    + tagName:可以限定范围的获取元素
+    + querySelect
+        + tag
+        + #id
+        + .class
+    + querySelectAll; 注意，querySelectAll获取到的是一组元素，即使是页面中唯一的id，也得加[];
+
+#### 节点
+                nodeType     nodeName      nodeValue
+
+文本节点             3         "#text"          文本内容
+元素节点             1          大写的标签名      null
+注释节点             8          #comment        注释内容
+document节点         9          #document       null
+
+### 节点关系
+children    子元素
+    + 一般情况兼容，但是在IE7／8下，如果有注释的话，拿到的是不准确的；
+childNodes  拿到所有的子节点
+parentNode  父元素； 拿的是结构上的父级；
+previousSibling  上一个哥哥节点
+nextSibling  下一个弟弟节点
+
+### 封装
+- getChildren  获取当前容器下，所有的子元素；
+- pre()  获取当前元素的上一个哥哥元素；
+
+### 扩展题+作业
+- 扩展：请自己写出封装下一个弟弟元素的方法；
+- 扩展：请尝试封装：获取所有的哥哥元素；
+- 作业：getChildren，pre
+- 作业：九九乘法表
+    + 鼠标移入两种思想：
+        1、 自定义属性；
+        2、 变量存值；
+
+
+
+
+
+
+
+
+
