@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<button>按钮1</button>
+<button>按钮2</button>
+<button>按钮3</button>
+<button>按钮4</button>
+</body>
+<script>
+    //1:获取所有按钮
+    var aBtn=document.getElementsByTagName('button');
+    for(var i=0; i<aBtn.length;i++){
+        aBtn[i].onclick=function () {
+            //alert(i)
+            for(i=0; i<aBtn.length; i++){
+                aBtn[i].style.background='red';
+            }
+        }
+    }
+
+    /*if(true){
+        function aa(){
+            alert(1)
+        }
+        aa()
+    }else{
+        function aa() {
+            alert(2)
+        }
+        aa()
+    }*/
+</script>
+</html>

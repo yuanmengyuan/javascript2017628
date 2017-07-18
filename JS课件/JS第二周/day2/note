@@ -1,0 +1,114 @@
+### 怎么判断git是否安装成功 git --version
+    只要能打印出版本号，就代表git安装成功；
+### windows+r  -> window;   terminal.app->mac;
+### 如何配置git
+    + git config --global user.name "github的用户名"
+    + git config --global user.email "github的邮箱地址"
+
+### 如何创建本地仓库
+    1、创建一个空文件夹
+    2、把文件夹变成git可以管理的仓库：git init
+       + 如何查看当前文件夹下有哪些子文件 ls -a
+    3、把本地仓库在cmd中打开
+        + 左手按shift+右手点击右键； 选择在此处打开命令行；
+### 关于远程仓库
+- 如何查看链接了哪些远程仓库
+    + git remote -v
+- 链接远程仓库
+    + git remote add 远程通道名称 通道地址
+    远程仓库名称：（自己起的，一般自己的远程仓库，默认是origin）
+    通道地址：从github上复制粘贴过来的；
+    + 移出远程通道 ： git remote rm 通道名称
+### git工作流-》目的：把本地仓库的内容，推送到远程仓库；
+1、 git add .   代表把当前目录下，所有的文件都推送上去；
+2、 git commit -m"注释"   把工作区的内容推送到暂存区
+3、 git push origin master 把暂存区的内容推送到历史区；即推送到GitHub的远程仓库的master分支上去；
+### git克隆
+- git clone
+- 注意：通过git clone之后的文件夹，不能直接进行提交，必须进入clone下来的文件夹，才能运行git工作流
+    + git add .
+    + git commit -m"注释"
+    + git push origin master
+-
+### 涉及一些常见的命令
+- 进入某个文件夹： cd 文件夹的名字
+- 文件夹名字自动补全： 先写上一部分+ tab键自动补全
+- 回退到上一级：cd ../
+
+### 学生更新老师讲义 ： 老师贡献代码；
+1、 把老师发到群里的地址，复制粘贴到自己github的地址栏
+2、 回车后会进入老师的远程仓库，通过fork把项目用叉子叉到自己的远程；
+3、 通过git clone 自己远程仓库的地址； 把自己远程克隆到自己本地；
+4、 建立自己本地和teacher远程之间的联系
+    + git remote add teacher https://github.com/yuanmengyuan/javascript2017628.git
+5、 当老师内容更新的时候，学生需要做2步
+    1、 git remote update teacher
+    2、 git pull teacher master   把远程更新拉到本地
+**小总结：当老师远程内容更新的时候，影响了学生本地**
+### 学生提交作业  ：  学生贡献代码；
+1、 学生更新自己本地的内容：也就是在同学作业文件夹下，添加自己的作业；
+2、 学生把自己本地新内容，提交到自己远程
+    + git add .
+    + git commit -m"xxx"
+    + git push origin master
+3、 点击 new pull request 按钮
+    再点击create pull request 按钮，可以写注释 create pull request
+> 复习今天学过的命令
+- git 配置：
+    ```
+    
+    ```
+- git --version/  -v
+- git工作流
+    + git add .
+    + git commit -m"注释"
+    + git push origin  master
+- git克隆
+    + git clone
+- 如何把别人的项目叉到自己的远程中：fork；
+- 小捷径：喜欢谁的项目，就直接克隆 git clone
+- git remote -v
+- git remote add 通道名称 通道地址
+- git remote rm 通过名称
+- 更新远程项目
+    + git remote add xxx  建立和远程仓库的联系
+    + git remote update 仓库名
+    + git pull 仓库名 master
+
+- 进入某个文件夹：cd
+- 退回上一级： cd ../
+- 查看当前目录下的可视文件 ls   /   dir
+- 清屏 clear / cls
+### 预解释
+- 为什么要学预解释？
+    1、不知道应该把函数／或比变量 定义在哪里？
+    2、不知道为何条件判断中写函数定义阶段，会执行错误的结果；
+    3、同一段函数，在不同的场景下，结果不同；
+    4、方便我们代码调试
+- 概念：在当前作用域下，在js代码执行之前，浏览器会对带var和带function的，进行声明或定义；
+- 带var和带function的，声明和定义不同
+    + 带var：只声明，不定义  var a;
+    + 带function的，声明+定义   var fn=xxff00;
+- 私有变量有2种
+    + 形参
+    + 函数中带var的；
+- 函数定义3步骤
+    1、开辟一个空间地址
+    2、把函数体内的JS代码，作为字符串存在这个空间中
+    3、把空间地址赋值给函数名
+- 函数调用4步骤
+    1、形成一个私有作用域；
+    2、形参赋值
+    3、预解释
+    4、代码从上到下的执行
+### 内存包含：堆内存 和 栈内存
+- 栈内存：提供了一个供JS代码执行的环境
+    包含：全局作用域和私有作用域
+- 堆内存：用来存放引用数据类型的数据
+    + 函数数据类型，在对内存中以"字符串"形式存储
+    + 对象数据类型，以"key:value"的形式存储；
+### 作用域链
+当函数被调用的时候，会形成一个私有作用域，我们查看是否有私有变量n;
+1) 如果有，说明当前函数中，所有的n都是私有变量
+2) 如果没有，往上级作用域进行查找，找不到，继续找，一直找到window全局作用域还没有的话，报错！
+

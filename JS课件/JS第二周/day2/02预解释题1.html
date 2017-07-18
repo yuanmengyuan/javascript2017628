@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    //1：已经声明过的变量不会进行重复声明；
+    //函数被调用的时候：1）形成一个私有作用域-栈 2）形参赋值 3）预解释 4）代码从上到下的执行
+    /*function fn(n) {
+        alert(n);
+        var n=456;
+        alert(n);
+    }
+    fn()*/
+    var n=12;
+    //当函数被调用的时候，会执行一个函数，看函数中是否有私有变量n；1）如果有，说明这个变量是私有变量，同时，该函数中所有的n都是私有变量 2）如果没有，往上级作用域进行查找，找不到，继续找，一直找到window还没有的话，报错！
+    function fn() {
+        //带var的只声明，不定义； var n;
+        alert(n) //undefined;
+        var n=123;
+        alert(n) //123
+    }
+    fn();
+    alert(n)//12
+</script>
+</body>
+</html>
