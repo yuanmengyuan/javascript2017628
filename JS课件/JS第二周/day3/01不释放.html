@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<script>
+    var oDiv=document.getElementsByTagName('div')[0];
+    oDiv.onclick=(function () {
+        var i=0;
+        return function(){
+            i++;
+            console.log(i)
+        }
+    })();
+    oDiv.onclick=null;
+</script>
+</body>
+</html>

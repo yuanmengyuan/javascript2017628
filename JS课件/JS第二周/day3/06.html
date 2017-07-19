@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    /*
+    * 1) 不带var的，进行赋值的时候，赋值给window.f   window.g
+    * 2) 自执行函数不会进行预解释，只有执行到他的时候，声明+定义+调用同步完成
+    * 3）无论条件是否成立，都会进行预解释
+    * 4）运算符的优先级：算术》比较》逻辑》赋值
+    * 5）返回值 return；
+    * */
+    f=function(){return true};
+    g=function(){return false};
+    (function(){
+        //[]==![]  true
+        //g()    true
+        if(g()&&[]==![]){
+            f=function(){return false;}
+            function g(){return true;}
+        }
+    })();
+    alert(f());
+    alert(g());
+</script>
+</body>
+</html>

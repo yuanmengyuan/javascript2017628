@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    /*alert(a);
+    alert(b)
+    var a=b=123; //报错
+    var a,b=123  //两个预解释*/
+/*
+* ready: var fn=xxff00, f;
+* 执行：f=fn()=xxff11;//不释放的问题： i->14  15
+* f(12); 12+13=25
+* f(30)  30+14=44
+* fn()(14); 14+13=27;
+*fn()(10); 10+13=23;
+*fn()(40);  40+13=53;
+*f(20); 20+15=35
+* */
+    //xxff00
+    function fn() {
+        var i = 13;
+        //xxff11
+        return function (n) {
+            console.log(n + (i++));
+        }
+    }
+    var f = fn();
+    f(12);
+    f(30);
+    fn()(14);
+    fn()(10);
+    fn()(40);
+    f(20);
+</script>
+</body>
+</html>
