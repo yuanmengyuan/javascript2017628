@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    function Person(name,age) {
+        // 1)创建一个空对象；
+        var obj={};
+        //2)加工对象：本质就是给对象添加属性和方法；
+        obj.name=name;
+        obj.age=age;
+        obj.showName=function () {
+            //当元素身上的事件，被触发的时候，会执行一个函数，函数中的this，指向当前这个元素；
+            alert('我的名字是'+this.name)
+        }
+        // 3) 返回对象；
+        return obj;
+    }
+
+    var person1=Person('xiaowang',18);
+    var person2=Person('huahua',28);
+    var ary1=new Array(1,2,3,4); //实例
+    var ary2=[1,2,3,4];//字面量
+    /*var person1={
+        name:'xiaowang',
+        age:18,
+        showName:function () {
+            //本模块之间的相互调用；
+            alert('我的名字是'+this.name)
+        }
+    };
+    var person2={
+        name:'huahua',
+        age:28,
+        showName:function () {
+            //本模块之间的相互调用；
+            alert('我的名字是'+this.name)
+        }
+    }*/
+    //person1.showName();
+    //person2.showName();
+</script>
+</body>
+</html>

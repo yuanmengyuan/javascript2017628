@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    function Person(name,age) {
+        //1：创建一个控对象->在构造函数模式中，系统会自动帮你创建一个"空对象"，叫做this；
+        //var obj={};
+        //2:加工对象：给对象添加属性和方法；
+        this.name=name;
+        this.age=age;
+        this.showName=function () {
+            alert('我的名字是'+this.name)
+        };
+        //3:返回对象 return ->在构造函数中，系统会自动帮你返回已经加工好的this；
+        //return obj;
+        return {}
+    }
+    var xiaoming=new Person('小明',8);//类名
+    var huahua=new Person('小花',2);
+    xiaoming.showName()
+    //console.log(xiaoming.showName===huahua.showName)
+
+</script>
+</body>
+</html>

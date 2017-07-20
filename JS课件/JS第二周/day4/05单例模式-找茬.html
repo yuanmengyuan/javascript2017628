@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    var person1={
+        name:'xiaowang',
+        age:18,
+        showName:function () {
+            //本模块之间的相互调用；
+            alert('我的名字是'+this.name)
+        }
+    };
+    var person2={
+        name:'huahua',
+        age:28,
+        showName:function () {
+            //本模块之间的相互调用；
+            alert('我的名字是'+this.name)
+        }
+    }
+    person1.showName();
+    person2.showName();
+</script>
+</body>
+</html>

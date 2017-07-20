@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    function Person(name,age) {
+        //构造函数中存放的，都是私有的属性和方法；
+        this.name=name;
+        this.age=age;
+    }
+    //原型上存放的都是共有的属性和方法；
+    Person.prototype.hobby='吃';
+    Person.prototype.showName=function () {
+        //this，也是实例；
+        alert('我的名字是'+this.name);
+    };
+    var p1=new Person('赵丽颖',31);
+    var p2=new Person('赵丽颖',31);
+   // alert(p1.hobby)
+   // p1.showName();
+    console.log(p1.showName===p2.showName);
+    console.dir(p1);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    //类
+    function Fn() {
+        this.x=100;
+        this.y=200;
+    }
+    //原型
+    /*Fn.prototype.showX=function () {
+        alert(this.x)
+    }*/
+    Fn.prototype={
+        showX:function () {
+            alert(1233);
+        }
+    };
+    Fn.prototype.constructor=Fn;
+    //实例
+    var f1=new Fn;
+
+</script>
+</body>
+</html>
