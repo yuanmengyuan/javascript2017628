@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    Object.create=function(obj1) {
+        //创建一个临时的空类
+        function Tmp() {}
+        Tmp.prototype=obj1;
+        return new Tmp;
+    }
+   /* var obj1={name:'ymy',age:8};
+    var obj2=Object.create(obj1);//把obj1放在了obj2的原型上;
+    //console.log(obj2.__proto__.name)*/
+   function Father() {
+       this.x=100;
+       this.y=200;
+   }
+    Father.prototype.haha=234;
+   Father.prototype.showX=function () {alert(12233)};
+   var f1=new Father();
+   console.log(f1);
+
+   function Son() {
+       //私有通过call继承-call
+       Father.call(this)
+   }
+   //公有通过Object.create()
+   Son.prototype=Object.create(Father.prototype);
+   Son.prototype.constructor=Son;
+   var s1=new Son();
+   s1.showX();
+   console.dir(s1);
+   /*
+   * 私有：
+   *  x:100
+   *  y:200
+   * __proto__
+   * __proto__
+   * constructor:Father
+   * haha:234
+   * showX:function.....
+   *__proto__ Object
+   * */
+
+</script>
+</body>
+</html>

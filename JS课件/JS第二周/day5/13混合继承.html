@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    function extend(obj1,obj2) {
+        for(var attr in obj2){
+            obj1[attr]=obj2[attr];
+        }
+        return obj1;
+    }
+    function Father() {
+        //Father中的this，指向Father new出来的实例；
+        this.x=100;
+        this.y=200;
+    }
+    Father.prototype.haha=123;
+    Father.prototype.showX=function () {}
+    var f1=new Father();
+    
+    function Son() {
+        //子类私有继承父类私有-call
+        Father.call(this);
+    }
+    extend(Son.prototype,Father.prototype);
+    var s1=new Son;
+    Son.prototype.haha=789//兼容
+    s1.__proto__.showX=999;//IE下禁止使用__proto__
+</script>
+</body>
+</html>

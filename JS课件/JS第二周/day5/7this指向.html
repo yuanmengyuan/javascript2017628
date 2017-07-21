@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    /*Function.prototype.call=function () {
+        //this->实例；
+        //1)call把点前面的实例（this-》对象）中的（this关键字-string）改成call的第一个参数；
+        //2)把实例this立即调用； this()  //fn2()
+    };*/
+    /*var obj={};
+    /!*function fn1(n,m){
+        //console.log(this,(n+m));
+        console.log(n+m)
+    }*!/
+    //fn1.call(obj,2,3);
+    //call的作用，是用来改变this指向的； call有两类参数：
+    // 第一个参数，用来改变this指向
+    // 从第二个参数开始，就是给形参从左往右一个个的赋值；*/
+    function f1() {
+        alert(1);
+    }
+    function fn2() {
+        alert(2);
+    }
+    //f1.call(obj)
+    f1.call.call.call.call.call.call(fn2)
+
+</script>
+</body>
+</html>

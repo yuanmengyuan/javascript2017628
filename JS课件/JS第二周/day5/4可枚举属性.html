@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    //私有属性
+    var obj={name:'xiaoqiang',age:8};
+    //公有属性
+    Object.prototype.haha=function () {
+        alert(1223);
+    };
+    for(var attr in obj){
+        //console.log(attr,obj[attr]);
+       /* if(obj.propertyIsEnumerable(attr)){
+            console.log(attr,obj[attr]);
+        }*/
+       if(obj.hasOwnProperty(attr)){
+           console.log(attr,obj[attr]);
+       }
+    }
+</script>
+</body>
+</html>

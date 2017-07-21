@@ -1,0 +1,83 @@
+### 面向对象
+- 类，原型，实例三者打交道
+- 类里面存放的都是私有的属性和方法
+- 原型prototype上存的都是公有的属性和方法
+- 类里面的this，都指向实例；
+- 类里面的this跟var没有任何关系，var是用来预解释的；
+- 类里面会自动的帮我们创建和返回this；
+### 对象：属性 和 方法
+
+### 写面向对象的小巧门：
+- 把全局变量都作为私有属性
+- 把全局函数都作为公有方法
+- 面向对象中的this，永远都指向实例；
+
+### 属性判断：判断某个属性，是否在某个对象上；
+- in 公有+私有："attr" in obj  =>true/false
+- hasOwnProperty 判断是否为私有    f1.hasOwnProperty('attr') =>true/false
+- hasPubProperty 判断是否为公有属性？
+    + 思路：必须是元素身上的属性，并且不是私有属性；
+- isPropertyOf: obj1.isPrototypeOf(obj2)用来判断obj1是否在obj2的原型链上；
+### 循环的遍历
+- for...in循环： 只能遍历自己给对象上添加的私有属性+公有属性，不能遍历对象身上的系统属性；
+- hasOwnProperty和propertyIsEnumerable，都可以遍历自己定义的私有属性；不能遍历公有属性和系统自带的属性；
+
+### 关于Object和Function之间的关系
+- 对象的老大 Object
+- 函数的老大 Function
+- Object是Function的爹
+- Function是Object这个基类的爹
+- Object.prototype 也是 Function.prototype的爹；
+    + 所有的对象，都可以使用Object.prototype上的方法；
+    + 但是，只有函数数据类型，才能使用Function.prototype的方法，因为所有函数数据类型，是Function这个类的实例；
+
+### 函数的三种角色
+- 普通函数：预解释 作用域链 上级作用域 代码从上到下的执行；
+- 类：类，原型，实例，原型链有关
+- 对象：跟普通的对象一样，都可以添加属性方法；
+
+### Function.prototype虽然是个匿名函数，但是它具有普通prototype一样的功能；
+### this： call，apply，bind
+- fn.call():有两类参数
+    1、第一个参数：用来改变call前面的函数中的this关键字；
+    2、从第二个参数开始，就是给call前面的函数从左往右，一个个的传参的；
+    3、call改完this，传完参数之后，函数会"立即执行"
+- fn.apply()功能跟call一样，但是传参形式不同
+    1、第一个参数也是用来改变this指向
+    2、第二个参数是个数组，但是也是给call前面的函数从左往右，一个个的传参的；
+- fn.bind() 预处理机制
+    1、参数跟call一样
+    2、bind()给他前面的函数，改完this，传完参数后，不会立即执行，只会返回一个函数的定义阶段；
+    在我们需要的时候，自己手动调用即可；
+### this的小总结
+1、 但元素身上的事件，被出发的时候，会执行一个函数，函数中的this，指向当前这个元素；
+2、 当函数被调用的，看前面是否有点，点前面是谁，this就是谁；
+3、 自执行函数中的this，永远都是window
+4、 回调函数中的this，一般指向window；
+5、 构造函数中的this，指向实例；
+6、 当遇到call,apply,bind的时候，以上规则都失效，他们三个就是用来更改this指向的；
+
+### 继承
+- call继承：子类只继承父类"私有的"属性和方法；不继承公有；
+- 拷贝继承：子类只继承父类公有的属性和方法；不继承私有；
+- 原型链继承：子类把父类私有和公有的属性和方法，都放在自己公有的prototype上；
+- 混合继承：call继承+拷贝继承
+- 寄生式组合继承
+### 可视区的宽度和高度
+document.documentElement.clientWidth||document.body.clientWidth
+
+document.documentElement.clientHeight||document.body.clientHeight
+
+
+
+
+
+
+
+
+
+
+
+
+
+

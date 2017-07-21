@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    /*var obj1={name:'ymy',age:18};
+    var obj2={};
+    function extend(obj2,obj1) {
+        for(var attr in obj1){
+            obj2[attr]=obj1[attr];
+        }
+        return obj2;
+    }*/
+
+    function extend(obj2,obj1) {
+        for(var attr in obj1){
+            obj2[attr]=obj1[attr];
+        }
+        return obj2;
+    }
+
+    function Father() {
+        //Father中的this，指向Father new出来的实例；
+        this.x=100;
+        this.y=200;
+    }
+    var f1=new Father();
+    Father.prototype.haha=123;
+    Father.prototype.showX=function () {}
+
+    function Son() {}
+    extend(Son.prototype,Father.prototype);
+    var s1=new Son();
+</script>
+</body>
+</html>

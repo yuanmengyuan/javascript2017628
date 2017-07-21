@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    var obj={};
+    function fn(n,m) {
+        console.log(this,(n+m))
+    }
+    //fn.call(obj,2,3)
+    //fn.apply(obj,[2,3])
+    //bind：是预处理机制
+    var res=fn.bind(obj,2,3)
+</script>
+</body>
+</html>

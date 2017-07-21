@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    function Fn() {
+        this.x=123;
+    }
+    Fn.prototype.aa=456;
+    var f1=new Fn;
+
+    // console.log(f1.hasOwnProperty('aa'))
+    function hasPubProperty(attr,obj) {
+        return attr in obj && !obj.hasOwnProperty(attr);
+    }
+    //console.log(hasPubProperty('x',f1));
+    console.log('1111111',Object.isPrototypeOf(f1))
+</script>
+</body>
+</html>

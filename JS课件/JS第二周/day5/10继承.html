@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    function Father() {
+        //Father中的this，指向Father new出来的实例；
+        this.x=100;
+        this.y=200;
+    }
+    Father.prototype.haha=123;
+    var f1=new Father();
+    function Son() {
+        //Son中的this，指向Son new出来的实例；
+        Father.call(this)
+    }
+    var s1=new Son();
+    s1.x=456;
+    console.dir(s1);
+</script>
+</body>
+</html>

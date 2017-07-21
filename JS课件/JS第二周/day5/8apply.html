@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    var obj={};
+    function fn(a,b,c) {
+        console.log(this,(a+b+c))
+    }
+   // fn.call(obj,1,2,3)
+    //fn.apply(obj,[1,2,3]);
+    var ary=[1,2,3,13];
+    //思考题：对ary进行求和，请写出求和的方法；
+    //思路1：for循环
+   /* var num=0;
+    for(var i=0; i<ary.length; i++){
+        num+=ary[i];
+    }*/
+   //思路2：
+   // var total=eval(ary.join('+'));
+    //思路3：
+    function sum() {
+        var total=0;
+        for(var i=0; i<arguments.length; i++){
+            total+=arguments[i];
+
+        }
+        return total;
+    }
+   // var res=sum.apply(window,ary)
+    //思路1：
+    //var max=eval('Math.max('+ary.toString()+')')
+    //思路2：apply
+    var max=Math.max.apply(null,ary);
+</script>
+</body>
+</html>
