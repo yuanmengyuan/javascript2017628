@@ -1,0 +1,101 @@
+### 第一题
+1、sort(function(a,b){return b-a});
+2、 ary.length-- ; ary.length-=1; ary.length=ary.length-1;
+ary.splice(ary.length-1,1); ary.splice(ary.length-1); ary.pop()
+3、 ary.slice(n-1,m);
+4、document.documentElement.clientWidth||document.body.clientWidth;
+5、appendChild insertBefore(newEle,oldEle);
+obj.innerHTML='string';
+6、
+function prev(ele){
+    //1:判断浏览器是否兼容ele.previousElementSibling
+    if('previousElementSibling' in ele){
+        return ele.previousElementSibling;
+    }
+    //2:自己写兼容处理；
+    var pre=ele.previousSibling;//拿到上一个哥哥节点
+    while(pre && pre.nodeType !==1){
+        pre=pre.previousSibling;
+    }
+    return pre;
+
+}
+7、Math.round(Math.random()*(m-n)+n)
+8、 replace();
+10、 true true
+
+### 第二大题
+1、undefined undefined
+2、珠峰，5000 珠峰 undefined;
+3、{age:5000} {name:'中国',age:7}
+4、15 33 48 100;
+5、4 5 14 22;
+6、true  20 NaN Object;
+
+### jquery框架的基本了解
+- 使用jQuery：必须先引入jQuery;
+- $(document).ready跟window.onload的区别
+    + window.onload是等页面所有的内容(dom,音频，视频，图片，gif等等)加载完成的时候，才调用函数
+    + $(document).ready只是DOM加载完成的时候，就开始执行；
+    测试代码如下
+    ```
+    window.onload=function () {
+        alert('javascript')
+    };
+    $(function () {
+        alert('jquery')
+    })
+    ```
+- JS和jQuery的关系；
+    - jquery只是一个工具库，会jquery不一定会JS 但是如果会JS 一定会jquery;
+    - jQuery比JS简单很多，操作元素很方便
+    - jQuery和JS可以相互转换
+        + jquery通过[]或 get()可以转成原生
+        + $(原生)就能转成jquery;
+    - jQuery方法函数化，除了length，我们的常用其他属性，都是方法的调用 $().xxx()
+    - jquery可以进行链式操作：能否进行链式操作，取决于前面函数的返回值；
+    - jquery取值赋值合体
+- 获取元素
+    + $('#el')
+    + 标签名 $('div'); 如果指定某一个元素，使用eq();
+    + $('.xxxx')
+    + * 获取所有标签
+    + 获取多个元素，可以用逗号分隔 $('.wrap div,.wrap p')
+    + 属性选择器 $([attr]) $(div[id=div1]) $([attr1][attr2])
+    + $('div').first() (同理：first,last,eq());
+    + $('div:first') (同理：first,last,eq);
+    + $('div:even') ; even是偶数； odd奇数
+    + $('.wrap').find('p')找的是子子孙孙
+    + $('.wrap').children('p')找的是儿子；
+- jquery中的取值赋值合体
+    + html():普通标签：不传参数，是取值； 传了参数为字符串的话，是设置；
+        + div p ol ul li dl dd dt h1...h6
+        + del i ins span b
+    + val():表单元素通过val来进行取值，赋值，参数跟html一样的；
+        + input  textarea  form
+    + css() //设置样式
+        + 一个参数：如果这个参数是字符串- 获取
+                   如果这个参数是对象-设置一堆
+        + 两个参数：设置一个；
+    + attr() //操作属性
+        + 一个参数：如果这个参数是字符串-是获取属性
+                   如果这个参数是对象-设置一堆属性
+        + 两个参数是设置属性： 设置一组属性 k:v
+- 操作class名
+    + addClass()
+    + removeClass()
+- 事件
+    + on来绑定事件
+    + off来解除绑定
+    + one代表绑定一次
+    + 自动触发 trigger('行为')
+- DOM操作：-- 文档处理
+- 运动--效果
+- 前后台数据交互--$.ajax()
+
+
+
+
+
+
+

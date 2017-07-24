@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    /*
+    * var obj;
+    * run:
+    * obj=xxff00;
+    *
+    *
+    *
+    *
+    * */
+    var obj={name:'珠峰',age:7}; //obj={name:'中国',age:7}
+    ~function(obj){ //obj=xxff00
+        obj.name='中国';
+        obj={};//obj=xxff11;
+        obj.age=5000;//obj={age:5000}
+        console.log(obj);//log({age:5000})
+    }(obj);
+    console.log(obj);//{name:'中国',age:7}
+</script>
+</body>
+</html>

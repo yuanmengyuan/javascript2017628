@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+
+    </style>
+</head>
+<body>
+<input type="button" value="按钮1">
+<input type="button" value="按钮2">
+<input type="button" value="按钮3">
+<script>
+    var inputList=document.getElementsByTagName('input'); //aInput
+    var ary=['red','green','orange'];
+    //思路1：自定义属性
+    for(let i=0; i<inputList.length; i++){
+        let cur=inputList[i];
+        cur.onclick=function () {
+            document.body.style.background=ary[i];
+        }
+    }
+    /*//思路2：闭包
+    for(var i=0; i<inputList.length; i++){
+        var cur=inputList[i];
+        //下规律：在事件里面的i都是错的；但是事件外面，循环里面的i都是正确的；
+        (function (index) {
+            cur.onclick=function () {
+                document.body.style.background=ary[index];
+            }
+        })(i);
+    }*/
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<script src="js/jquery.js"></script>
+<script>
+    /*var oDiv=document.getElementsByTagName('div')[0];
+    //在原生JS中，DOM0级事件：同一个元素，同一个行为上，只能绑定一个方法；后面的方法会覆盖了前面的方法；
+   /!* oDiv.onclick=function () {
+        alert(1)
+    };
+    oDiv.onclick=function () {
+        alert(2)
+    }
+    oDiv.onclick=null;
+    *!/
+   //DOM2级事件：同一个元素，同一个行为上，可以绑定多个不同的方法；但是，他不兼容；在IE浏览器下，需要使用 attachEvent
+    function xiaoming() {
+        alert(1)
+    }
+    function huahua() {
+        alert(2)
+    }
+    oDiv.addEventListener('click',xiaoming);
+    oDiv.addEventListener('click',huahua);
+    oDiv.removeEventListener('click',xiaoming)*/
+    function xiaoming() {
+        alert(1)
+    }
+    function huahua() {
+        alert(2)
+    }
+    $('div').on('click',function () {
+        alert(1)
+    })
+    setTimeout(function () {
+        //自动触发；
+        $('div').trigger('click');
+    },2000)
+    /*$('div').click(xiaoming);
+    $('div').click(function () {
+        alert(2)
+    })*/
+    /*$('div').on('click',xiaoming)
+    $('div').on('click',huahua)
+    setTimeout(function () {
+        $('div').off('click',xiaoming);
+    },1000)*/
+</script>
+</body>
+</html>

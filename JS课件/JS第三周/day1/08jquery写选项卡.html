@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .wrap{
+            display: inline-block;
+            height: 200px;
+        }
+        .wrap li{
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            background: #cccccc;
+            text-align: center;
+            border-bottom:1px solid #333;
+            box-sizing: border-box;
+            float: left;
+        }
+        .wrap li.on{
+            background: lightblue;
+            border-bottom: none;
+        }
+        .wrap li+li{
+            border-left:1px solid #333;
+        }
+        .wrap div{
+            width: 100%;
+            height: 100%;
+            background: lightblue;
+            display: none;
+        }
+        .wrap div.show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <ul>
+        <li class="on">按钮1</li>
+        <li>按钮2</li>
+        <li>按钮3</li>
+    </ul>
+    <div class="show">按钮1</div>
+    <div>按钮2</div>
+    <div>按钮3</div>
+</div>
+<script src="js/jquery.js"></script>
+<script>
+    $('li').click(function () {
+        //点击谁，让谁添加on，让他的兄弟元素们都移出on;
+        $(this).addClass('on').siblings('li').removeClass('on');
+        //点击谁的时候，让他对应的div添加show,同时，让当前div的其他兄弟元素们都移出show;
+        $('.wrap div').eq($(this).index()).addClass('show').siblings('div').removeClass('show');
+    })
+
+</script>
+</body>
+</html>

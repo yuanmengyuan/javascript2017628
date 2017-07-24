@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    var name='中国';
+    var age=5000;
+    age=(function (name,age) {
+        name='珠峰';
+        age=age||this.age;
+        this.name=arguments[0];
+        console.log(name,age) //珠峰，5000
+    })(name,age);
+    console.log(name,age)//珠峰 undefined;
+</script>
+</body>
+</html>
