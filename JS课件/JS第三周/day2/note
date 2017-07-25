@@ -1,0 +1,94 @@
+### todolist项目
+- 下载node： 当在命令行输入node -v只要能出现版本号，就算成功；
+- npm包管理器，就是可以通过npm 下载我们依赖的第三方插件，到当前项目中，同时，他会管理我们下载的第三方插件，把下载好的插件统一放在node_modules文件夹下；
+### 常用的命令
+- 创建文件夹：  mkdir 文件夹的名称
+```
+mkdir myTodo
+```
+- ls：可以查看当前文件夹下有哪些文件和文件夹
+- 进入到某个文件夹下：
+```
+cd myTodo
+```
+- 同时创建三个文件夹(css,js,image)和一个文件(index.html)
+```
+mkdir css js image && touch index.html
+```
+- 快速构建index.html的基本结构： !+ tab
+- 注意：在安装第三方插件的时候，一定要保证，当前项目名称跟第三方插件名称不一样；否则，第三方插件安装失败；
+### 搭建页面结构
+- html
+- css
+- js
+- image：放置图片的
+### package.json
+- npm init --y /npm init  -y
+- 通过package.json可以记录当前项目依赖的第三方插件，这样的话，给git上传项目的时候。就可以不用传node_modules下所有的第三方插件，用户可以通过npm install 来自动安装；
+- 安装第三方插件：npm install jquery --save
+### normalize.css
+- 跟 cssreset的区别：
+    + normalize.css保存有用的样式，把没用的都重置了；
+    + minireset.css 彻底的重置所有的样式；
+
+### css
+- 清除浮动
+ ````
+ .clearfix::after{
+     display:block;
+     content:'';
+     height:0;
+     clear:both;
+ }
+
+ ````
+ - box-sizing:border-box;可以让单独添加padding或border可以看见，但是不占位置
+ - 阴影：box-shadow:inset x轴的偏移量  y轴的偏移量 扩展模糊度 颜色rgba(0,0,0,.8)
+ - 过渡效果：让谁运动，就给谁添加transition
+```
+ transition: 运动属性(all/background) 秒数（.4s）
+```
+- 伪类和伪元素
+   + 伪类用一个冒号： a:hover
+   + 伪元素两个冒号：  a::after{}   a::before{}
+- 真和假
+    + 除了假都是真：false,0,NaN,'',null,undefined
+- && 和 ||
+### 事件对象：e
+- jquery中不需要考虑兼容问题；
+- 原生里面：e=> e=e||window.event;
+- 阻止默认事件：
+    + jquery:e.peventDefault()
+    + 原生：e.peventDefault?e.preventDefault:e.returnValue=false;
+### 刚才总结的三大问题：
+- 事件：
+    + submit 提交：必须是表单 form 提交
+- 事件对象：
+    + e：兼容和不兼容 e=e||window.event;
+    + 阻止默认事件： e.preventDefault();
+- 客户端存储数据 store.js
+    + 存数据 store.set('名字',[{},{},{}])
+    + 取数组 store.get('名字')
+    + 清除数据 store.clear(); store.remove('名字')
+### 踩的坑
+- 刚才拿到的数据，不管是几条，数据展示的都是一样的？
+    + 因为我们把对象建立成了全局对象，全局对象指向的是一个地址；
+    解决：所以应该，每触发一次submit事件，都创建一个新的对象；
+- 每次拿到的数组都是依赖空数组进行存储的，倒是存过的数据一直被覆盖；
+    + 解决：如果能拿到存数据的数组，就依据这个数组，进行后续的存储，如果拿不到数据，才用空数组；
+- 模版渲染的时候，会爆红：
+    + 第一种： ''+''+
+    + 第二种： \
+
+
+
+
+
+
+
+
+
+
+
+
+

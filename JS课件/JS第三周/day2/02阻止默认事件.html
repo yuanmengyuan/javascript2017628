@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        body{
+            width: 100%;
+            height: 100%;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+<a href="https://www.baidu.com/">点击后跳到百度页面</a>
+<script>
+    var oA=document.getElementsByTagName('a')[0];
+/*document.oncontextmenu=function (e) {
+    e.preventDefault();
+    alert(1)
+}*/
+    oA.onclick=function (e) {
+        e=e||window.event;//对事件对象的兼容处理
+        //阻止默认事件的兼容处理；
+        console.dir(e);
+       e.preventDefault?e.preventDefault():e.returnValue=false;
+       alert(e.preventDefault)
+    }
+</script>
+</body>
+</html>

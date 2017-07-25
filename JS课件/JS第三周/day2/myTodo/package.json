@@ -1,0 +1,17 @@
+{
+  "name": "myTodo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^2.1.3",
+    "normalize.css": "^7.0.0",
+    "store.js": "^1.0.4"
+  }
+}
