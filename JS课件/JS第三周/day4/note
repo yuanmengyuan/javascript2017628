@@ -1,0 +1,46 @@
+### jquery元素的获取
+- $('#id')  $('.task_list')  $('input[type=text]')
+- $task_list.find('.task_item') find找的是子子孙孙
+- 事件：jquery中的事件，没有=，没有on
+oDiv.onclick=function(){alert(1111!)}
+oDiv.click(function(){})  DOM2级事件，无法解除绑定
+所以，我们建议的写法是，oDiv.on('click',function(){});
+### html5本地存储，存到浏览器；
+local
+
+### 事件
+- click 点击事件
+- submit 表单提交事件
+- dblclick 双击事件
+
+### 报错
+- 404：代表文件没找到；
+
+### 详情页的思路
+- 点击详情按钮的时候，出来详情框；
+    + 点击详情显示
+    + 双击task_item也显示；
+- 在这个详情框中，需要存储我们更改的数据； content，textarea,data
+    1、 更改数组中的数据
+    2、 利用新更改的数组更改localstorage
+    3、 当localstorage发生更改的时候，需要重新的渲染页面；
+        + 详情页
+        + task_list页面也需要渲染；
+- 隐藏：
+    1、点击更新按钮之后，detail隐藏
+    2、点击遮罩层，detail隐藏；
+
+- 注意：时时刻刻都要注意元素的获取，只有等元素插入页面之后，才能获取成功；
+- bok=false   提交过了以后bok=true;
+
+
+
+
+
+
+
+
+
+
+
+

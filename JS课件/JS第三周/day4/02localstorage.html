@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    //window.JSON 有两个属性：
+    // stringify 把JSON格式的数据对象，转成JSON格式的字符串
+    // parse  把JSON格式的字符串，转成JSON格式的对象；
+
+    //store.js
+    var obj={"name":"leilei","age":18,"hobby":"eat"};
+    obj=JSON.stringify(obj);//把JSON格式的数据转成JSON格式的字符串；
+    localStorage.setItem('name',obj);
+    var data=localStorage.getItem('name');
+    data=JSON.parse(data);
+   for(var attr in data){
+       console.log(attr)
+   }
+    //localStorage.removeItem('name')
+    //alert(localStorage.getItem('name'))
+</script>
+</body>
+</html>

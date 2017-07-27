@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        button{
+            display: block;
+            width: 200px;
+            height: 40px;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+<button type="button">点击我运动</button>
+<div></div>
+<script src="jquery.js"></script>
+<script>
+    //hide()  show() toggle()
+    // slideDown() slideUp() slideToggle()
+    //fadeIn()  fadeOut() fadeToggle()
+    //animate
+    //快速点击的时候，运动会出问题，用.stop()来解决
+
+
+    /*$('button').click(function () {
+        //函数什么时候执行：等运动结束的时候执行函数；
+        $('div').stop().fadeToggle(2000,function () {
+            $(this).css('background','green');
+        });
+    })*/
+    $('button').click(function () {
+        $('div').animate({
+            opacity: 1,
+            marginLeft: 500,
+            marginTop: 400
+        }, 1000)
+    });
+
+</script>
+</body>
+</html>

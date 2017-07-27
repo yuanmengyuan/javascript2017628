@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<script src="jquery.js"></script>
+<script>
+    //jquery DOM2级事件封装的；但是他无法解除事件绑定；所以，在使用jquery事件绑定的时候，不这么写！需要使用on和off
+    /*$('div').click(function () {
+        alert(1)
+    })
+    $('div').click(function () {
+        alert(2)
+    })*/
+    function f1() {
+        alert(1)
+    }
+    $('div').on('click',f1);
+    $('div').off('click',f1);
+   /* var oDiv=document.getElementsByTagName('div')[0];
+    //在DOM0级事件中，同一个元素，同一个行为下，只能绑定一个方法；后面的方法会覆盖前面的方法；
+    oDiv.onclick=function () {
+        alert(1111)
+    }
+    oDiv.onclick=function () {
+        alert(22222)
+    }*/
+</script>
+</body>
+</html>
