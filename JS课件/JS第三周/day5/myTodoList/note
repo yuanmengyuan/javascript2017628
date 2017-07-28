@@ -1,0 +1,68 @@
+### 详情
+- 点击详情按钮的时候，
+    + 获取详情按钮； 拿到索引； V
+    + 显示详情框;
+        + 详情框动态插入进来；V
+        + 设为显示； V
+- 双击内容区域的时候，把它变成一个可以输入的文本框； V
+    - 链式操作
+- 需要把填充的内容提交-》数组-》localstorage  V
+    + 通过"更新按钮"进行提交  submit事件 V
+- 取出客户端数据，并且重新渲染
+    + 详情框 V
+    + 列表 task_item; V
+- 详情框的隐藏：
+    + 点击更新按钮以后，进行隐藏 V
+    + 点击遮罩，进行隐藏； V
+- 坑：
+如果提交过的，不会进行重复提交，通过boolean来解决的；
+var bok=false;
+如果提交过了，bok=true;
+每次进行提交的时候，都判断bok是否为true ,如果是true，说明已经提交过了，直接return即可；
+### 给行内元素添加上宽度和高
+1、display:block;
+2、display:inline-block;
+3、float浮动 left right
+4、定位： position：absolute；
+    - 如果找不到有定位的父级，默认找到的就是body；
+### 任务完成设置
+- 多选框是否被选中，取决于checked
+### 知识点：
+- 表格排序：剪切，排序。。。
+    + ajax
+- 正则
+
+- 运动 花瓣网：瀑布流 回到顶部 图片懒加载
+- jquery;
+
+- 事件：常用的事件  事件对象  事件配合面向对象写很多东西；
+- 订阅发布；
+
+- html5+css3
+    + QQ音乐
+    + css3  过渡 animation关键帧
+    + html5 localstorage 运用
+    + 手机页面+pullpage.js
+- bootstrap:响应式开发
+- node express mongodb  react  vue
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
