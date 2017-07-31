@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        table{
+            width: 600px;
+            margin:30px auto;
+            border-radius: 4px;
+            box-shadow: 0 0 4px #333;
+            padding: 10px;
+        }
+        table caption{
+            line-height: 40px;
+            font-size: 30px;
+            letter-spacing: 1px;
+        }
+        table tr{
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 20px;
+        }
+        table thead tr{
+            background: darkgreen;
+            color: #ffffff;
+        }
+        table tbody tr.bg0{
+            background: lightgoldenrodyellow;
+        }
+        table tbody tr.bg1{
+            background: lightcyan;
+        }
+        table tbody tr.bg2{
+            background: pink;
+        }
+        table tbody tr.changebg{
+            background: purple;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<table border="1px" cellpadding="0" cellspacing="0">
+    <caption>表格排序</caption>
+    <thead>
+    <tr class="bg0">
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>武力值</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="bg1">
+        <td>郭靖</td>
+        <td>18</td>
+        <td>0</td>
+        <td>98</td>
+    </tr>
+    <tr class="bg2">
+        <td>黄蓉</td>
+        <td>16</td>
+        <td>1</td>
+        <td>88</td>
+    </tr>
+    <tr class="bg0">
+        <td>郭靖</td>
+        <td>18</td>
+        <td>0</td>
+        <td>98</td>
+    </tr>
+    <tr class="bg1">
+        <td>黄蓉</td>
+        <td>16</td>
+        <td>1</td>
+        <td>88</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

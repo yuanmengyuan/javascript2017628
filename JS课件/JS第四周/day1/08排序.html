@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        li{
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>18</li>
+    <li>29</li>
+    <li>6</li>
+    <li>2</li>
+    <li>24</li>
+</ul>
+<script src="utils.js"></script>
+<script>
+    var oUl=document.getElementsByTagName('ul')[0];
+    var aLi=document.getElementsByTagName('li');
+    //1:类数组转数组；
+    var ary=utils.makeArray(aLi);
+    //2:使用sort排序
+    ary.sort(function (a,b) {
+        return a.innerHTML-b.innerHTML;
+    });
+    //3:把数组所有的元素插入到页面中去；
+    for(var i=0; i<ary.length; i++){
+        oUl.appendChild(ary[i]);//利用DOM映射，实现了剪切功能；
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

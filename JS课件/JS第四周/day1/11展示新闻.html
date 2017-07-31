@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        ul{
+            width: 400px;
+            border-radius: 4px;
+            box-shadow: 0 0 4px #333;
+            margin:100px auto;
+            padding:10px;
+        }
+        ul li{
+            height: 40px;
+            line-height: 40px;
+            background: #eee;
+            padding: 10px 5px 10px 30px;
+            font-size: 25px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 10px;
+        }
+        ul li em{
+            display: inline-block;
+            font-style: normal;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: lightgreen;
+            text-align: center;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>
+        <a href="#">
+            <em>1</em> 中国马路边就能发射火箭 比西方国家足足快7倍
+        </a>
+    </li>
+</ul>
+<script src="utils.js"></script>
+<script>
+
+    var data;
+    var oUl=document.getElementsByTagName('ul')[0];
+    var aLi=document.getElementsByTagName('li');
+    for(var i=0; i<aLi.length; i++){
+        aLi[i].onmouseover=function () {
+            this.style.background='pink';
+        };
+        aLi[i].onmouseout=function () {
+            this.style.background='#eee';
+        }
+    }
+    //1：获取数据；
+    function  getData() {
+        //1:创建对象
+        var xml=new XMLHttpRequest();
+        //2：打开地址
+        xml.open('GET','./data2.txt',false);
+        //3:响应请求
+        xml.onreadystatechange=function () {
+            if(xml.readyState===4 && /^2\d{2}$/.test(xml.status)){
+                //获取后台的数据；
+                data=utils.jsonParse(xml.responseText);
+            }
+        };
+        //4:发送请求
+        xml.send(null);
+    }
+    getData()
+    //2:绑定数据
+    /*function bind() {
+        var str="";
+        for(var i=0; i<data.length; i++){
+            str+='<li>\
+                <a href="#">\
+                <em>'+(i+1)+'</em>'+data[i].title+'</a>\
+            </li>';
+        }
+        oUl.innerHTML=str;
+    }*/
+    /*function bind() {
+        for(var i=0; i<data.length; i++){
+            var oLi=document.createElement('li');
+            oLi.innerHTML='<a href="#">\
+                <em>'+(i+1)+'</em>'+data[i].title+'</a>';
+            oUl.appendChild(oLi);
+        }
+    }*/
+    function bind() {
+        var frg=document.createDocumentFragment();//文档碎片 塑料袋
+        for(var i=0; i<data.length; i++){
+            var oLi=document.createElement('li');
+            oLi.innerHTML='<a href="#">\
+                <em>'+(i+1)+'</em>'+data[i].title+'</a>';
+            frg.appendChild(oLi);
+        }
+        //等循环结束的时候，一次性的把文档碎片插入到oUl中去；
+        oUl.appendChild(frg);
+        frg=null;
+    }
+    bind();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

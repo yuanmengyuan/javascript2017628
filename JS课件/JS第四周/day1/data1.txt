@@ -1,0 +1,1 @@
+[{"name":"xiaoming","age":18,"sex":0,"hobby":"吃饭"},{"name":"小花花","age":28,"sex":1,"hobby":"化妆"},{"name":"xiaoqiang","age":35,"sex":0,"hobby":"挣钱"}]

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    //产品-设计UI-前端-后台-测试
+    var obj=[{name:'ymy',age:8}];
+    var json='[{"name":"ymy","age":8}]';
+    //console.log(json instanceof Object)
+    console.log(json)
+    //console.log(JSON.stringify(json)) //把对象转字符串；
+    //console.log(JSON.parse(json));
+    console.log(eval('('+json+')'))//注入攻击
+</script>
+</body>
+</html>

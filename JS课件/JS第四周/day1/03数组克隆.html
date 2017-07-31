@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    var ary1=[1,2,3,4];
+    Array.prototype.slice=function () {
+        //this:实例
+        var ary=[];
+        for(var i=0; i<this.length; i++){
+            ary.push(this[i]);
+        }
+        return ary;
+    }
+    var res=ary1.splice()
+</script>
+</body>
+</html>

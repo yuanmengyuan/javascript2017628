@@ -1,0 +1,122 @@
+### 1:类数组转数组
+- 类数组：
+    1）arguments:用来接收实参的
+    2）htmlcollection：获取元素集合
+- 类数组转数组；
+    Array.prototype.slice.call(arguments) --完全兼容；
+    htmlcollection不兼容：
+- 浏览器异常捕获；
+    + 工作用，不用finally，因为无论成功或失败，finally都会走；
+    + 适用场景：解决报错后，程序无法执行的问题；
+    + 如果在try...catch中还希望阻断程序执行：throw new Error('报错')
+```
+try{
+
+}catch(e){
+
+}finally{
+
+}
+```
+- window.JSON有两个属性
+    + JSON.parse
+    + JSON.stringify 把JSON格式的数据(对象)，转成JSON格式的字符串；
+
+- 如何浏览器是否支持
+    1、 try...catch....
+    2、 属性判断  window.JSON
+    3、 in : "JSON" in window
+- DOM映射：指的是html页面结构和获取到的元素之间，存在一一对应的关系；
+### 2：排序三步走
+1、类数组转数组
+2、sort排序
+3、把排好序的数组，重新插入页面；
+
+### 3:ajax请求数据4步走：
+1、创建一个对象 var xml=new XMLHttpRequest()
+2、打开地址 xml.open('GET',"请求地址","是否异步")
+3、响应请求
+```
+xml.onreadystatechange=function(){
+    //1：xml.readyState==4   2: /^2\d{2}$/.test(xml.status)
+    if(xml.readyState==4 && /^2\d{2}$/.test(xml.status){
+        var data=xml.responseText();
+        //解析文本；
+    }
+}
+```
+4、发送请求
+xml.send(null)
+
+### 绑定数据，常用的有两种
+- 字符串拼接：简单，很快；
+    + 缺点，如果页面中，有的元素身上有事件，那么，通过字符串拼接之后，所有的事件都没了；(可以忽略)
+
+
+========================
+### 今天知识点总结
+- makeArray 类数组转数组
+    + 浏览器异常捕获
+ ```
+ function  makeArray(arg){
+    var ary=[];
+    try{
+       //ary=Array.prototype.slice.call(arg)
+       ary=[].slice.call(arg);
+    }catch(e){
+        for(var i=0; i<arg.length; i++){
+            ary.push(arg[i])
+        }
+    }
+    return ary;
+ }
+ ```
+ - JSON: "JSON" in window ->true
+    + JSON.parse()
+    + JSON.stringify()
+ - jsonParse()
+ ```
+ function jsonParse(jsonStr){
+    return "JSON" in window? JSON.parse(jsonStr):eval('('+jsonStr+')');
+ }
+ ```
+- 排序三步走：
+    1、类数组转数组
+    2、sort排序
+    3、把排好序的数组，重新插入页面
+- 求平均数：
+    1、类数组转数组
+    2、sort排序
+    3、 掐头去尾
+    4、 (eval + join)+ toFixed
+- ajax数据请求：
+    1、创建对象 var xml=new XMLHttpRequest()
+    2、打开地址 xml.open(请求方式，请求地址，是否异步)
+    3、响应请求：1）准备好了xml.readyState==4 2)响应成功
+    4、发送请求 xml.send(null);
+- 常用的请求方式：
+    1、GET请求：前端通过地址栏给后台传递数据
+    2、POST请求：前端通过请求体给后台传递数据
+    3、JSONP
+- http状态码：
+    - 2XX：成功
+    - 3XX：重定向
+    - 4XX:请求错误  404
+    - 5X:服务器的错误
+- 绑定数据：
+    1、字符串拼接
+    2、动态创建-文档碎片
+### 作业
+- 明天默写：数组常用的方法 字符串常用的方法
+- 默写：makeArray   jsonParse
+- 思考题：
+    1、自己造假数据
+    2、获取数据
+    3、绑定数据
+    4、隔行换色 %
+    5、表格排序
+
+
+
+
+

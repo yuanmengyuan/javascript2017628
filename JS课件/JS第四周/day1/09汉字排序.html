@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        li{
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>乔峰</li>
+    <li>扫地僧</li>
+    <li>钟灵</li>
+    <li>段誉</li>
+    <li>阿紫</li>
+</ul>
+<script src="utils.js"></script>
+<script>
+    var aLi=document.getElementsByTagName('li');
+    var oUl=document.getElementsByTagName('ul')[0];
+    //1:类数组转数组
+    var arr=utils.makeArray(aLi);
+    //2:sort排序
+    arr.sort(function (a,b) {
+        return a.innerHTML.localeCompare(b.innerHTML);//汉字排序：从小到大排
+    })
+    //3:把排好序的数组，重新插入页面；
+    for(var i=0; i<arr.length; i++){
+        oUl.appendChild(arr[i]);
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script src="utils.js"></script>
+<script>
+    //ajax
+    //1:创建一个ajax对象
+    var xml=new XMLHttpRequest();
+    //2:打开地址
+    xml.open('GET','data1.txt',false);
+    //3:响应请求
+    xml.onreadystatechange=function () {
+        //准备好了  4   响应状态码 2xx
+        if(xml.readyState==4 && /^2\d{2}$/.test(xml.status)){
+            var data=xml.responseText;
+            data=utils.jsonParse(data);
+            console.log(data)
+        }
+    };
+    //4:发送请求；
+    xml.send(null)
+</script>
+</body>
+</html>

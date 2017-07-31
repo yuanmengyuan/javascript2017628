@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    var obj={};
+    //call,apply,bind都是用来改变this指向的；
+    function fn(n,m) {
+        console.log(this,(n+m))
+    }
+    //fn.call(obj,2,3); //当函数被调用的时候，看前面是否有点，没点就是window，有点的时候，看点前面是谁，this就是谁；
+    //fn.apply(obj,[2,3]);
+    var res=fn.bind(obj,2,3)
+    //bind属于预处理机制；call,apply改完this指向，传完参数之后，都会立即执行，但是bind是改完this指向，传完参数之后，会返回一个改好的函数，需要用户手动调用，才能执行；
+    res();
+
+</script>
+</body>
+</html>
