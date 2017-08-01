@@ -1,0 +1,1 @@
+[{"name":"郭靖","age":18,"force":98,"sex":0},{"name":"黄蓉","age":16,"force":88,"sex":1},{"name":"洪七公","age":88,"force":100,"sex":0},{"name":"欧阳锋","age":86,"force":98,"sex":0},{"name":"华筝","age":14,"force":60,"sex":1},{"name":"穆念慈","age":12,"force":99,"sex":1}]

@@ -1,0 +1,79 @@
+### 原生JS和Jquery在DOM映射部分的区别；
+- 在原生JS中，有DOM映射
+- 在Jquery中没有DOM映射，只有等元素插入到页面之后，才能获取；
+### jquery中数据获取  $.ajax({})
+```
+$.ajax({
+    type:'GET／POST/JSONP',  //请求方式
+    jsonp:'cb'
+    url:'请求地址',
+    async:false  //是否异步
+    cache:false  //是否缓存
+    dataType:'json'  //决定后台返回的数据类型
+    complete:function(){
+        //请求成功，不关心是否拿到数据
+    },
+    success:function(val){
+        //val就是请求成功的数据
+    },
+    error:function(){
+        //请求失败
+    }
+})
+```
+https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=张蕾&cb=jQuery110209211993336998685_1501575309769
+1501575603247
+
+### 主要知识点回顾
+- 表格布局：表格的标题   表头 表体以及他们的JS获取方式；
+    + 获取table还是通过id来获取
+    + thead=oTab.tHead;//获取表头
+    + tBody=oTab.tBodies[0]//获取表体
+    + $cells=thead.rows[0].cells; //获取某一行下所有的列
+    + $aRows=tBody.rows;//获取所有的行；
+- 原生JS中ajax的获取方式：重点4步骤；
+- 复习隔行换色
+- 排序：重要思想的运用：-1思想；
+    + 主要涉及两个自定义属性： flg=-1； index=i;
+- jquery：
+    + jquery中的元素获取；
+    + jquery中数据交互；
+    ```
+     $.ajax({
+        type:'GET/POST/JSONP',
+        url:'请求地址',
+        data:{}//前端传给后台的数据
+        dataType:'json',
+        success:function(val){},
+        error:function(){}
+     })
+    ```
+    + jquery隔行换色
+        + each() -> 一个回调，在这个回调中，有两个参数，index,item
+        + each中的item,this是原生的，$(item)  $(this)
+        + addClass  removeClass
+        + hover(function(){},function(){})
+
+### 任务：
+- 完整的写完隔行换色的表格排序；5步；必须
+- 扩展：请用jquery完成表格排序；
+### 预告
+- 正则：火星文
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
