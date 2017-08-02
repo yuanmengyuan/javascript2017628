@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        textarea{
+            font-size: 30px;
+        }
+        button{
+            display: inline-block;
+            width: 100px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+        }
+    </style>
+</head>
+<body>
+<textarea id="t1" cols="30" rows="10">
+    <div>“精神系异能者，哼，可惜还差了点！”</div>
+    <p>一名鹤发童颜的老者冷哼，雄浑的真气震荡而出。</p>
+    <p>赶到的几尊强者同时出手了，摆明了是想将叶尘一击格杀。</p>
+    <span>叶尘身形爆退，施展出精妙的刀法，想要化解几尊强者的攻击。</span>
+</textarea>
+<button id="btn">点击切换</button>
+<textarea id="t2" cols="30" rows="10"></textarea>
+<script>
+    var oT1=document.getElementById('t1');
+    var oBtn=document.getElementById('btn');
+    var oT2=document.getElementById('t2');
+    oBtn.onclick=function () {
+        //拿到t1的内容，做处理，放到t2中去；
+        var str=oT1.value;
+        var reg=/<[^<>]+>/g;
+        oT2.value=str.replace(reg,'');
+    }
+</script>
+</body>
+</html>
