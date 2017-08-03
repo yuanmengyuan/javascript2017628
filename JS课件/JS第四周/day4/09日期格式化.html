@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    //日期格式化及封装
+    var strCode='2016-6-23 6:42:00';
+    //完成此需求，需要补充两块：1）模版 2）数组；
+    var tmpl='{0}年{1}月{2}日 {3}时{4}分{5}秒'; //模版
+    //var ary=strCode.match(/\d+/g);
+    //var ary=strCode.split(/[^\d]/g);
+    var ary=strCode.split(/\D/g);
+    //从模版中提炼出数组的索引，拿到数组对应的内容；
+    tmpl=tmpl.replace(/{(\d+)}/g,function ($0,$1) {
+        var n=ary[$1]
+        n=n>=0 && n<10?'0'+Number(n):''+n;
+        return n;
+    })
+    //思考：str.formatDate() -> //"2016年06月23日 06时42分00秒"
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var str='ymyhuigu2016zhanwang2018luoshi2017';
+    //1:原型  2：正则的捕获 exec；
+    var reg=/(\d+)/g;
+    String.prototype.myMatch=function (reg) {
+        //this-》str；
+        //返回的是谁:数组
+        var res=reg.exec(this);
+        var ary=[];
+        while(res){
+            ary.push(res[0]);
+            res=reg.exec(this);
+        }
+        return ary;
+    };
+    //console.log(str.myMatch(reg))
+    console.log(reg.exec(str))
+    console.log(str.match(reg))
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var str='ymyhuigu2016zhanwang2018luoshi2017';
+    var reg=/\d+/g;
+    String.prototype.myMatch=function (reg) {
+        var res=reg.exec(this);//拿到第一次符合条件的内容
+        //判断是否有g；
+        /*if(reg.toString().indexOf('g')===-1){//无g;
+            return res;
+        }else{//有g;
+            var ary=[];
+            while(res){
+                ary.push(res[0]);
+                res=reg.exec(this);
+            }
+            return ary;
+        }*/
+        if(reg.global){
+            var ary=[];
+            while(res){
+                ary.push(res[0]);
+                res=reg.exec(this);
+            }
+            return ary;
+        }else{
+            return res;
+        }
+    };
+    //console.log(str.match('2017'))
+    console.log(str.match(reg));
+    console.log(str.myMatch(reg))
+</script>
+</body>
+</html>

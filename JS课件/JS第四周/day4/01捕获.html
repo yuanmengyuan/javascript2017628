@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    //exec这个方法，返回的一个数组；这个数组在没有小分组的情况下，数组的长度为3；
+    /*
+    * 1： 跟大正则匹配的内容
+    * 2：找到内容的索引
+    * 3：原始字符串
+    *
+    * */
+    //在有小分组的情况下，小分组从索引为1的时候开始，依次往后累加；
+    //正则捕获的特性：1）懒惰性->解决措施：用全局g;
+    //lastIndex：代表开始查找位置，加了全局g以后，就从找到内容的下一项内容的索引开始查找；
+    var str='ymyhuigu2016zhanwang2018luoshi2017'; //[2016，2017，2018]；
+    var reg=/(\d+)/g; //规则是用来提取数字的；
+    var res=reg.exec((str));//放第一次找到的；
+    var ary=[];
+    while (res){
+        ary.push(res[0]);
+        res=reg.exec((str));//找第二次，第三次....
+    }
+    //console.log(ary)
+    console.log(str.match(reg)) ;//请封装一个match；
+    //考查点：1）原型  2）正则捕获 exec;
+
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    /*var str='my name is {0},my age is {1} , i come form {2}';
+    var ary=['ymy',18,'beijing'];
+    str=str.replace(/{(\d)}/g,function ($1,$2) {
+        return ary[$2];
+    })*/
+    /*var str='20160514';
+    var ary=['零','壹','贰','叁','肆','伍','陆','柒','捌','玖'];
+    str=str.replace(/\d/g,function ($1) {
+        return ary[$1];
+    })*/
+
+    /*var str='全日制第七期学费:18800';
+    var ary=['零','壹','贰','叁','肆','伍','陆','柒','捌','玖'];
+    str=str.replace(/\d/g,function ($1) {
+        return ary[$1]
+    })*/
+    //日期格式化及封装
+    var strCode='2016-6-23 6:41:30';
+    //问题，如何拿到数组？？
+    var ary=strCode.match(/\d+/g);
+    var templ='{0}年{1}月{2}日 {3}点{4}分{5}秒';
+    templ=templ.replace(/{(\d)}/g,function ($1,$2) {
+        return ary[$2]
+    })
+    console.log(templ);
+
+    //2016年6月23 6点41分30秒
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

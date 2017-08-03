@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        input,button{
+            display: inline-block;
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+        }
+        button{
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+<input type="text" id="t1" placeholder="必须输入内容">
+<button type="button" id="btn">提交</button>
+<script>
+    var oT1=document.getElementById('t1');
+    var oBtn=document.getElementById('btn');
+
+    oBtn.onclick=function () {
+        var reg=/^\s*$/g;
+        //有内容才能提交；
+        var str=oT1.value;
+        if(!reg.test(str)){
+            alert('('+str.trim()+')')
+        }else{
+            alert('哥们，必须有内容')
+        }
+    }
+
+</script>
+</body>
+</html>

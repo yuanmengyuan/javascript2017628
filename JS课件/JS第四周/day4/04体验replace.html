@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        textarea{
+            font-size: 30px;
+        }
+        button{
+            width: 200px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<textarea id="t1" cols="30" rows="10">
+    7月26日，习近平总书记在省部级主要领导干部“学习习近平总书记重要讲话精神，迎接党的十九大”专题研讨班开班式上发表重要讲话。“7·26”讲话强调，我们党要明确宣示举什么旗、走什么路、以什么样的精神状态、担负什么样的历史使命、实现什么样的奋斗目标。
+</textarea>
+<button id="btn">过滤关键词</button>
+<textarea  id="t2" cols="30" rows="10"></textarea>
+<script>
+    var oT1=document.getElementById('t1');
+    var oBtn=document.getElementById('btn');
+    var oT2=document.getElementById('t2');
+    //需求：点击按钮的时候，把t1的内容，过滤到t2;
+    oBtn.onclick=function () {
+        var str=oT1.value;
+        var reg=/重要|习近平|历史使命/g;
+        oT2.value=str.replace(reg,function ($1){
+            //replace中回调函数拿到的参数跟exec一模一样；
+            var str='';
+            for(var i=0; i<$1.length; i++){
+                str+='🍊';
+            }
+            return str;
+        })
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    var str='    理科生江东父老开始   ';
+    //myTrimLeft  myTrimRight;
+    /*String.prototype.myTrim=function () {
+        //参数：没有； 返回值：去除首位空格的字符串；
+        var reg=/^\s+|\s+$/g;
+        var res=this.replace(reg,'');
+        return res;
+    };*/
+    String.prototype.myTrimLeft=function () {
+        //var reg=/^ +/; //去除左空格
+        var reg=/ +$/;//去除右空格
+        return this.replace(reg,'');
+    }
+    str=str.myTrimLeft();
+    console.log('('+str+')')
+</script>
+</body>
+</html>

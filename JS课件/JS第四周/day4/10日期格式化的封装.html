@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    var str='2016-6-23 6:42:00';
+    String.prototype.formatDate=function () {
+        var tmpl='{0}年{1}月{2}日 {3}时{4}分{5}秒';
+        var ary=this.match(/\d+/g);
+        tmpl=tmpl.replace(/{(\d+)}/g,function ($0,$1) {
+            var n=ary[$1];
+            return n>=0 && n<10? '0'+Number(n):''+n;
+        })
+        return tmpl;
+    };
+    var res=str.formatDate();
+</script>
+</body>
+</html>
