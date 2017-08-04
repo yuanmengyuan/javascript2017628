@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    var str='http://image.baidu.com/search/index?name=zhanglei&password=123123';
+    /*var reg=/([^=?&]+)=([^=?&]+)/g;
+    var obj={};
+    str.replace(reg,function ($0,$1,$2) {
+        obj[$1]=$2;
+    });*/
+    //解析前端传给后台的参数；
+    String.prototype.queryURLParameter=function () {
+        var reg=/([^&?=]+)=([^&?=]+)/g;
+        var obj={};
+        this.replace(reg,function ($1,$2,$3) {
+            obj[$2]=$3;
+        });
+        return obj;
+    };
+    var res=str.queryURLParameter();
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+### BOM的知识-window.location
+- 网站的地址构成：
+    + 协议+域名+端口号+pathname+'?k=v&k=v'参数+'#haha'哈希值
+    protocol：http／https
+    host:域名
+    port：端口号
+    pathname：文件路径
+    search:?k=v&k=v
+    hash:哈希值；
+    href：完整的地址；
+    reload：重新加载页面；
+- 强制数据类型转换的
+    1、 比较运算符 ==
+    0==''   null==undefined   []==0 ![]==false
+    ```
+    function fn(aa){
+        if(aa==null){
+            //jquery源码；
+        }
+    }
+    ```
+    2、算术运算符  - * ／ %
+    3、逻辑运算符
+    ```
+    fn && fn();
+    this.Arg||window;
+    ```
+    4、条件判断语句：
+    - 除了false的都是true：false,0,NaN,'',null,undefined
+### 下周一考试：
+1）表格排序：js 动态创建 + 工具库自己写；
+2）map
+3) 日期格式化的封装   地址栏参数的解析封装     map的封装；

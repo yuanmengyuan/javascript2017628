@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+   /*
+    1：forEach有两个参数：1）callback 2）thisArg
+   *2:回调被调用多少次？ 被调用的次数取决于数组this的长度
+   *3：回调函数可以修改this 指向，指向thisArg;
+   *4:回调函数是否被传参； 传了3个参数：1）item 2）index 3）input
+   *5:forEach没有返回值；
+   *6：有浏览器支持forEach：支持了就按照支持的来，不支持自己再做兼容处理
+   *
+   * */
+    var ary=[100,200,300,400];
+    var obj={};
+    Array.prototype.myForEach=function (cb,thisArg) {
+        //thisArg传了按照传的来，没传就是window；
+        thisArg=thisArg||window;
+        //浏览器支持，就按照支持的来，不支持我们自己写兼容
+        if('forEach' in Array.prototype){
+            this.forEach(cb,thisArg);
+            return;//阻断程序执行的作用；
+        }
+        //自己做兼容处理；
+        for(var i=0; i<this.length; i++){
+            cb.call(thisArg,this[i],i,this);
+        }
+    };
+   var res=ary.myForEach(function (item,index,input) {
+        console.log(this===obj)//默认情况下是window；
+    },obj)
+</script>
+</body>
+</html>

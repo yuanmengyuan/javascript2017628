@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    var ary=[100,200,300,400,500];
+    var obj={};
+    /*
+    * 1:forEach 有两个参数，1）cb 2）thisArg
+    * 2:回调函数中的this一般是window，可以修改为thisArg;
+    * 3:系统支持的按照系统支持的来；如果不支持，自己做兼容处理；
+    *
+    * */
+    Array.prototype.myForEach=function (cb,thisArg) {
+        thisArg=thisArg||window;
+        //系统支持的按照系统支持的来；
+        /*if(Array.prototype.forEach){
+            this.forEach(cb,thisArg);
+            return; //阻断程序执行的作用；
+        }*/
+        //如果不支持，自己做兼容处理；
+        for(var i=0; i<this.length; i++){
+            cb.call(thisArg,this[i],i,this);
+        }
+    }
+    var res=ary.myForEach(function () {
+        console.log(arguments)
+    },obj)
+</script>
+</body>
+</html>

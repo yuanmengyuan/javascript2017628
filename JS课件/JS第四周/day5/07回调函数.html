@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    //回调函数：就是把函数的定义阶段作为参数，传给另一个函数
+    /*
+    *1: 回调函数a什么时候被调用，取决于b里面的条件；
+    *2：回调函数可以被调用多次；
+    *3：回调函数中的this一般是window，但是回调函数中的this，可以被修改 call apply
+    *4: 回调函数可以被传参，当回调函数不知道自己有哪些参数的时候，可以通过arguments来查看
+    * */
+
+    var obj={};
+    function a(n,m) {
+        console.log(this,(n+m))
+        //console.log(arguments)
+    }
+    function b(n,thisArg) {
+        //如果n是个函数的话，就让其执行
+        //n && n();  //n-》a    a()
+        for(var i=0; i<4; i++){
+            n.call(thisArg,2,3);
+        }
+    }
+    b(a,obj);
+</script>
+</body>
+</html>

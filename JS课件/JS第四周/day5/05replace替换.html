@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    var str='my name is {0},my age is {1} , i come form {2}';
+    var ary=['ymy',18,'beijing'];
+    str=str.replace(/{(\d)}/g,function ($1,$2) {
+        return ary[$2]
+    })
+</script>
+</body>
+</html>

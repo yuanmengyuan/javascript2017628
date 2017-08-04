@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    var ary=[100,200,300,400];
+    var obj={};
+    Array.prototype.myMap=function (cb,thisArg) {
+        thisArg=thisArg||window;
+        //系统支持按照系统的来
+        if(typeof Array.prototype.map==='function'){
+            return this.map(cb,thisArg);//1)返回值 2）阻断程序执行
+        }
+        //系统不支持，自己做兼容处理；
+        var ary=[];
+        for(var i=0; i<this.length; i++){
+            var res=cb.call(thisArg,this[i],i,this);
+            ary.push(res);
+        }
+        return ary;
+    };
+    var res=ary.myMap(function () {
+            console.log(this)
+    })
+
+</script>
+</body>
+</html>

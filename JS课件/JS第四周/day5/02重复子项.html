@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    var str='aabBBBbcccbbdaaaCCCCCCAAAddddAAADDDDDD';
+    str=str.split('').sort(function(a,b){return a.localeCompare(b)}).join('');
+    var max=0,maxStr='';
+    str.replace(/(\w)\1+/gi,function ($1,$2) {
+            if($1.length>max){
+                max=$1.length;
+                maxStr=$2;
+            }else if($1.length==max){
+                maxStr+=$2;
+            }
+    });
+</script>
+</body>
+</html>

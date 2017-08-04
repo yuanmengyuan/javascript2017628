@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        .wrap{
+            max-width: 800px;
+            margin:20px auto;
+        }
+        table{
+            width: 100%;
+            text-align: center;
+        }
+        table caption{
+            font-size: 40px;
+            line-height: 50px;
+        }
+        table tr{
+            height: 40px;
+            line-height: 40px;
+            font-size: 25px;
+        }
+        table thead tr{
+            background: darkgreen;
+            color: #ffffff;
+        }
+        table tbody tr.bg0{
+            background: lightgoldenrodyellow;
+        }
+        table tbody tr.bg1{
+            background: lightcyan;
+        }
+        table tbody tr.bg2{
+            background: lightpink;
+        }
+        table tbody tr.changebg{
+            background: purple;
+            color: #ffffff;
+        }
+        .cursor{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <table id="tab" border="1" cellspacing="0" cellpadding="0">
+        <caption>表格排序</caption>
+        <thead>
+        <tr>
+            <th class="cursor">name</th>
+            <th class="cursor">age</th>
+            <th class="cursor">force</th>
+            <th>sex</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--<tr class="bg0">
+            <td>郭靖</td>
+            <td>18</td>
+            <td>96</td>
+            <td>0</td>
+        </tr>-->
+        </tbody>
+    </table>
+</div>
+<script src="https://cdn.bootcss.com/jquery/2.1.3/jquery.js"></script>
+<script src="index2.js"></script>
+</body>
+</html>
