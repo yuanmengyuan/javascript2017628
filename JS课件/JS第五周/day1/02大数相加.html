@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    /*
+    * 1:字符串转数组再反转
+    * 2：按照数组长的进行循环
+    * 3：
+    *
+    * */
+    function add(a,b) {
+        a=a.split('').reverse();//["5", "4", "3", "3", "2", "1"]
+        b=b.split('').reverse();//["6", "5", "4", "3"]
+        c=0; //c是进制
+        var res=[];
+        //求出数组中比较长的长度；
+        var max=Math.max(a.length,b.length);
+        for(var i=0; i<max; i++){
+            var tmp= +(a[i]||0) + +(b[i]||0)+c;
+            c=0;
+            if(tmp>=10){
+                c=1;
+                tmp=tmp-10;
+            }
+            res.push(tmp);
+        }
+        if(c===1){
+            res.push(c);
+        }
+        return res.reverse().join('');
+    }
+    var res=add('123345','900456');
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

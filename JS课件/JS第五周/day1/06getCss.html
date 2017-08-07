@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            left:200px;
+            background: #ff0000;
+            z-index:-1;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box"></div>
+<script>
+    var oDiv=document.getElementById('box');
+    //功能：获取当前元素的非行间样式：width，height等
+    //参数有几个：
+    function getCss(curEle,attr) {
+        var value;
+        //1:window.getComputedStyle 2:in 3:typeof xxx==='function'
+        if(typeof window.getComputedStyle==='function'){//属性判断；
+            //标准浏览器
+            value=getComputedStyle(curEle,'哈哈')[attr];
+        }else{
+            //IE低级浏览器
+            value=curEle.currentStyle[attr];
+        }
+        return value;
+    }
+    var res=getCss(oDiv,'width');
+    alert(res)
+</script>
+</body>
+</html>
+
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        html{
+            height: 100%;
+        }
+        body{
+            height: 300%;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+11111111111111111111
+</body>
+<script>
+    //获取有返回值，设置没有返回值；
+    //获取属性：clientWidth   clientHeight   scrollTop scrollLeft ...
+    //设置  doucment.documentElement.xxxx=xxx
+    function win(attr,value) {
+        //1) value==null; 2)value===undefined; 3)typeof value === 'undefined';
+        if(typeof value === 'undefined'){//没传value，功能就是获取，获取就有返回值；
+            return document.documentElement[attr]||document.body[attr];
+        }
+        //设置功能
+        document.documentElement[attr]=document.body[attr]=value;
+    };
+
+</script>
+</html>

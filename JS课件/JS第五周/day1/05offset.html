@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" id="html">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        div{
+            font-size: 30px;
+            border: 20px solid #333;
+        }
+        .box1{
+            padding:200px;
+            background: #ff0000;
+            position: absolute;
+        }
+        .box2{
+            padding: 100px;
+            background: #0000ff;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+        .box3{
+            padding: 60px;
+            background: #00ff00;
+            left: 200px;
+            top: 200px;
+        }
+    </style>
+</head>
+<body id="body">
+<div class="box1" id="box1">
+    box1
+    <div class="box2" id="box2">box2
+        <div class="box3" id="box3">box3</div>
+    </div>
+</div>
+<script>
+    //1：找到box3的所有结构父级；请用代码来实现？
+    //结构上最大的标签是html；
+    var oDiv3=document.getElementById('box3');
+    /*var par=oDiv3.parentNode;
+    while(par){
+        alert(par.id)
+        par=par.parentNode;
+    }*/
+    /*var par=oDiv3.offsetParent;
+    while(par){
+        //alert(par.id);
+        par=par.offsetParent;
+    }*/
+    function offset(cur) {
+        var par=cur.offsetParent;
+        var l=cur.offsetLeft;
+        var t=cur.offsetTop;
+        while(par){
+            //只有非IE8浏览器才需要累加边框；
+            if(window.navigator.userAgent.indexOf('MSIE 8.0')===-1){
+                l+=par.clientLeft;
+                t+=par.clientTop;
+            }
+            l+=par.offsetLeft;
+            t+=par.offsetTop;
+            par=par.offsetParent;
+        }
+        return {left:l,top:t}
+    }
+    var res=offset(oDiv3);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    // "12345678443556223" + "12786578443556132" 求和函数 add;
+    //返回的值也是字符串
+    function add(a,b) {
+        //1:把a和b都变成数组
+        a=a.split('');
+        b=b.split('');
+        var c=0;//进制  如果a+b的结果>9 (>=10)的时候，进1；
+        var res='';//保存
+        while(a.length||b.length||c){
+            c =~~a.pop()+~~b.pop()+c; //14
+            res=c%10+res;
+            c=c>9;//boolean数据类型
+        }
+        return res.replace(/^0+/,'')
+
+    }
+    var res=add('233455','1233')
+</script>
+</body>
+</html>
