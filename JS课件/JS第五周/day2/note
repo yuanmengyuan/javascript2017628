@@ -1,0 +1,141 @@
+### 区分标准浏览器和ie低级浏览器的方法
+- 属性判断
+	+ obj.xxx
+	+ "xxx" in obj
+	+ typeof obj.xxx === "function"
+- 正则
+	+ var reg=/MSIE (6|7|8)\.0/g;
+	+ reg.test(window.navigator.userAgent)
+	+ window.navigator.userAgent.match(reg)  //数组 null->false
+	+ window.navigator.userAgent.search(reg)!==-1
+- try..catch 主要用在会报错的情况
+```
+try{
+	return getComputedStyle(curEle,false)[attr]
+}catch(e){
+	return curEle.currentStyle[attr];
+}
+```
+### git 操作
+    + git add .
+    + git commit -m"注释"
+    + git push origin master
+    + git remote -v
+    + git remote add origin 通道地址
+    + git remote rm teacher(远程通道名称)
+    + git status 查看当前状态
+    + git diff 文件有哪些变动
+    + git pull origin master 当远程更新的时候，把本地进行更新
+    + git branch 查看当前所在的分支
+    + git checkout -b <branch>（创建并且切换到一个新的分支）
+    + git checkout 分支名称(切换到一个新的分支上去)
+    + git merge <branch>分支名称
+    + 注意merge完成一定要重新推送到远程上去；
+    + git rm 文件名  （删除仓库中的某个文件）
+
+###  操作vim文本编辑器
+	+ 创建并且打开一个新的文件： vi 文件名;
+	+ 输入i才能进入编辑状态
+    + A 就是可以把光标切换到当前行的末尾
+	+ dd 剪切当前所在行,删除当前所在行的功能；
+	+ yy 复制当前所在行
+	+ p粘贴到当前行的下一行
+	+ 保存并退出  esc + :wq
+	+ 查看文件内容  cat 文件名
+    + u 撤销
+### 常用的Linux命令
+- 删除文件： rm 文件名
+### 透明度获取中需要注意点
+- 标准浏览器获取透明度：opacity
+- IE低级浏览器获取透明度：filter
+- 如果正则加全局g,需要注意
+    + 如果加了全局g，test和exec都会影响lastIndex的查找位置；第一次从0开始查找，下一次从找到内容的下一项内容的索引开始查找；所以，会报错
+    + 如果不佳全局g，lastIndex永远从索引0开始查找，属于正则捕获的懒惰型；
+    + 如果非要加g，可以使用正则类的静态属性 RegExp.$1 获取的是第一个小分组，最多只能获取到$9;
+    当然，无论正则是否有g，都能用 RegExp.$n;
+### 复习上午知识
+- getCss
+```
+function getCss(curEle,attr) {
+    //1:判断浏览器
+    var val,reg;
+    if('getComputedStyle' in window){//标准浏览器
+        val=getComputedStyle(curEle,false)[attr];
+    }else{
+        if(attr==='opacity'){
+            val=curEle.currentStyle['filter'];
+            reg=/^alpha\(opacity[=:](\d+)\)$/;
+            return reg.test?reg.exec(val)[1]/100:1;
+        }
+        val=curEle.currentStyle[attr];
+    }
+    //2：去掉单位
+    reg=/^([+-]?(\d|([1-9]\d+))(\.\d+)?)(px|pt|rem|em)$/g;
+    return reg.test(val)?parseFloat(val):val;
+}
+```
+- 判断浏览器的思想
+    + 属性判断
+        1、 obj.xxx
+        2、 'xxx' in obj
+        3、 typeof obj.xxx==='function'
+    + 正则判断 var reg=/msie (6|7|8)/gi;    var reg=/^MSIE (6|7|8)\.0$/g;
+        1、 reg.test(window.navigator.userAgent)
+        2、 window.navigator.userAgent.match(reg)  //[] null->false
+        3、 window.navigator.userAgent.search(reg)  //索引 -1；
+    + 如果有报错，可以使用浏览器异常捕获
+        try....catch(e).....
+
+- vim编辑器常用的命令
+    + vi 文件名
+    + i
+    + A
+    + dd
+    + yy
+    + p
+    + x
+    + esc + :wq
+    + cat 文件名
+- git常用的命令： github   coding.net
+    + git init
+    + git add .
+    + git commit -m""
+    + git push origin master
+    + git remote -v
+    + git remote add
+    + git remote rm xxx
+    + git status
+    + git branch
+    + git checkout
+    + git checkout -b
+    + git diff
+    + git rm 文件名
+    + git merge
+
+### http请求状态
+- 2XX 成功
+    + 201
+    + 204
+- 3XX 重定向
+    + 304
+- 4XX 前端请求失败
+    + 404 文件没找到 not found
+- 5XX 服务器错误；
+    + 500
+### 今晚任务
+1、很熟悉git，vim常用命令
+2、完成多张图片的延迟加载
+3、熟练默写getCss
+
+
+
+
+
+
+
+
+
+
+
+
+

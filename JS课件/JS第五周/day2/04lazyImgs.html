@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            border: 0;
+        }
+        p{
+            width: 400px;
+            height: 200px;
+            background: url("./img2/default.gif") no-repeat center #eee;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+        p img{
+            width: 100%;
+            box-sizing: content-box;
+        }
+    </style>
+</head>
+<body>
+<div style="height: 1000px;"></div>
+<p><img src="" data-realImg="img2/1.jpg" alt=""></p>
+<p><img src="" data-realImg="img2/2.jpg" alt=""></p>
+<p><img src="" data-realImg="img2/333333.jpg" alt=""></p>
+<p><img src="" data-realImg="img2/4444444.jpg" alt=""></p>
+<p><img src="" data-realImg="img2/5.jpg" alt=""></p>
+<script src="util.js"></script>
+<script>
+    var aImg=document.getElementsByTagName('img');
+    var aP=document.getElementsByTagName('p');
+    //触发window.onscroll滚动条事件
+    window.onscroll=function () {
+        //scrollBottom
+        var scrollBottom=util.win('scrollTop')+util.win('clientHeight');
+        for(var i=0; i<aImg.length; i++){
+            var cur=aImg[i];
+            // 求出每张图片的位置
+            var oImgPos=util.offset(aP[i]).top+util.getCss(aP[i],'height');
+            if(oImgPos<=scrollBottom){
+                lazyImg(cur);
+            }
+        }
+    }
+    function lazyImg(img) {
+        if(img.loaded) return;
+        //1:创建临时图片对象
+        var tmpImg=new Image;
+        //2: 赋值地址
+        tmpImg.src=img.getAttribute('data-realImg');
+        //3:验证地址
+        tmpImg.onload=function () {
+            img.src=this.src;
+            img.loaded=true;
+            img.parentNode.style.height=img.offsetHeight+'px';
+            tmpImg=null;
+        };
+        tmpImg.onerror=function () {
+            img.src='img2/error.gif';
+            img.parentNode.style.background='#eee';
+            img.loaded=true;
+        }
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

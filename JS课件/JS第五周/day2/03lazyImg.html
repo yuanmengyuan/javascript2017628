@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        html{
+            height: 100%;
+        }
+        body{
+            height: 200%;
+        }
+        p{
+            width: 400px;
+            height: 200px;
+            background: url("img2/default.gif") no-repeat center #eee;
+            position: absolute;
+            top:1000px;
+        }
+        p img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<p><img src="" data-realImg="img2/1.jpg" alt=""></p>
+<script src="util.js"></script>
+<script>
+    //图片的显示条件： curEle.offsetTop+curEle.offsetHeight<=scrollTop+clientHeight
+    var oImg=document.getElementsByTagName('img')[0];//DOM缓存
+    var oP=document.getElementsByTagName('p')[0];
+    //oP.style.height=oImg.offsetHeight+'px';
+    //1:显示条件：当图片距离body顶部的位置+自身的高度<=浏览器卷去高度+可视区的高度的时候
+    window.onscroll=function () {
+        var scrollBottom=util.win('scrollTop')+util.win('clientHeight');
+        var imgPos=util.offset(oP).top+util.getCss(oP,'height');
+        if(imgPos<=scrollBottom){
+            lazyImg();
+        }
+    };
+    function lazyImg() {
+        if(oImg.loaded) return;
+        //1:需要先找一个临时的图片对象
+        var tmpImg=new Image(); //document.createElement('img')
+        //2:给临时图片对象赋值地址；
+        tmpImg.src=oImg.getAttribute('data-realImg');
+        //3:验证：如果地址正确，赋值给img对象正确地址
+        tmpImg.onload=function () {
+            //把正确的地址赋值给img对象
+            oImg.src=this.src;
+            oImg.parentNode.style.height=oImg.offsetHeight+'px';
+            tmpImg=null;
+            oImg.loaded=true; //利用布尔值；
+        };
+        //4:验证：如果地址错误，赋值给img一个显示错误的图片
+        tmpImg.onerror=function () {
+            oImg.src='img/error.gif';
+            oImg.loaded=true;
+            tmpImg=null;
+        }
+    }
+
+</script>
+</body>
+</html>

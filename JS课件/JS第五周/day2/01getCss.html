@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .wrap{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            margin:10px;
+            opacity: 0.3;
+            filter:alpha(opacity:30)
+        }
+    </style>
+</head>
+<body>
+<div class="wrap" id="wrap"></div>
+<script>
+    //先区分标准浏览器和普通浏览器，区分方式有：
+    /*
+    * 1:属性判断：
+    *   1） obj.xxxx    window.getComputedStyle
+    *   2) "xxx" in obj;  "getComputedStyle" in window
+    *   3) typeof;      typeof window.getComputedStyle === 'function'
+    * 2: 正则
+    *
+    *
+    * */
+    //浏览器判断： window.navigator.userAgent
+    //var reg=/MSIE (6|7|8)\.0/g;
+    //alert(reg.test(window.navigator.userAgent))
+    //console.log(!!window.navigator.userAgent.match(reg))
+    //alert(window.navigator.userAgent.search(reg)!==-1)
+    var oDiv=document.getElementById('wrap');
+    function  getCss(curEle,attr) {
+        //浏览器判断
+        var reg=/MSIE (6|7|8)/g;
+        var val,reg;
+        if(!reg.test(window.navigator.userAgent)){//标准浏览器
+            val=getComputedStyle(curEle,false)[attr];
+        }else{
+            //在IE浏览器下，需要判断opacity他的单独处理；
+            if(attr==='opacity'){//说明他想拿的是filter的值
+                val=curEle.currentStyle.filter;
+                //需要验证拿到的值是 "alpha(opacity=30)"->30/100
+                reg=/alpha\(opacity[=:](\d+)\)/;
+                //坑：test和exec都会影响lastIndex的查找位置；
+                //return reg.test(val)?reg.exec(val)[1]/100:1;
+                //RegExp.$1能拿到第一个小分组，注意，最大只能拿到RegExp.$9，以后就无法获取到了；
+                return reg.test(val)?RegExp.$1/100:1;
+            }else{
+                val=curEle.currentStyle[attr];
+            }
+        }
+        //升级1：去除单位的处理
+        reg=/^[+-]?((\d|([1-9]\d+))(\.\d+)?)(px|pt|rem|em)$/g;
+        return reg.test(val)? parseFloat(val):val;
+    }
+    var res=getCss(oDiv,'opacity');
+    alert(res)
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
