@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        li{
+            list-style: none;
+            font-size: 30px;
+        }
+        .wrap{
+            width: 1260px;
+            margin:0 auto;
+        }
+        .wrap ul{
+            float: left;
+            width: 18%;
+            margin:0 1%
+        }
+        .wrap ul img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <ul>
+        <img src="img2/10.jpg" alt="">
+    </ul>
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+</div>
+<script src="util.js"></script>
+<script>
+    var oImg=document.getElementsByTagName('img')[0];
+    var aUl=document.getElementsByTagName('ul');
+    var n=0;
+    //动态创建一个元素:width 100%,高：随机，背景：随机；
+    function createLi() {
+        var oLi=document.createElement('li');
+        oLi.style.height=util.rnd(100,300)+'px';
+        oLi.style.background='rgb('+util.rnd(0,255)+','+util.rnd(0,255)+','+util.rnd(0,255)+')';
+        return oLi;
+    }
+    //动态创建50个；
+    function li50() {
+        for(var i=0; i<50; i++){
+            var oLi=createLi();
+            oLi.innerHTML=++n;
+            //思考：如何把oLi插入到最短的ul中去；
+            //1：类数组转数组
+            var ary=util.makeArray(aUl);
+            //2:sort排序
+            ary.sort(function (a,b) {
+               return util.getCss(a,'height')-util.getCss(b,'height');
+            });
+            //3:把oLi插入到最短的ul中去；
+            ary[0].appendChild(oLi);
+        }
+    }
+    li50();
+    window.onscroll=function () {
+        var scrollBottom=util.win('scrollTop')+util.win('clientHeight');
+        if(scrollBottom+100>=document.body.scrollHeight){
+            li50();
+        }
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

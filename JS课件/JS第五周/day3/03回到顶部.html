@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        html,body{
+            height: 400%;
+            background:-webkit-linear-gradient(lightgreen,lightcyan,lightpink,lightskyblue);
+            font-size: 40px;
+        }
+        a{
+            display: block;
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            width: 80px;
+            height: 80px;
+            background: darkgreen;
+            color: #ffffff;
+            font-size: 18px;
+            text-align: center;
+            line-height: 80px;
+            border-radius: 40px;
+            text-decoration: none;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+回来啦！！！！！
+<a href="javascript:;" id="btn">回到顶部</a>
+<script src="util.js"></script>
+<script>
+    //参考数值：target duration  interval  求出每次走多远
+    //定时器：1）每次拿到最新的位置 2）用新位置-=step 3)设置最新位置；
+    var oBtn=document.getElementById('btn');
+    //第一屏没有回到顶部的按钮，超过一屏才有回到顶部；
+    window.onscroll=computedDisplay;
+    function computedDisplay() {
+        //比较：scrollTop>clientHeight
+        if(util.win('scrollTop')>util.win('clientHeight')){
+            oBtn.style.display='block';
+        }else{
+            oBtn.style.display='none';
+        }
+    };
+    oBtn.onclick=function () {
+        //点击按钮立即隐藏；
+        oBtn.style.display='none';
+        window.onscroll=null;
+        //target 路程； duration:总时间 ； interval=频率；
+        //计算步长：target/duration*interval
+        var target=util.win('scrollTop');
+        var duration=1000;
+        var interval=30;
+        var step=target/duration*interval;
+        var timer=setInterval(function () {
+            //用当前最新的位置-=step；
+            var curT=util.win('scrollTop');
+            if(curT<=0){
+                clearInterval(timer);
+                window.onscroll=computedDisplay;
+                util.win('scrollTop',0);
+                return;//下面不再执行
+            }
+            curT-=step;
+            util.win('scrollTop',curT);
+        },interval)
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

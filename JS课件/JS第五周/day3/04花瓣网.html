@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .wrap{
+            width: 1260px;
+            margin:0 auto;
+        }
+        .wrap ul{
+            width: 18%;
+            margin:0 1%;
+            float: left;
+        }
+        a{
+            text-decoration: none;
+            width: 80px;
+            height: 80px;
+            border-radius:40px;
+            background: darkgreen;
+            color: #ffffff;
+            text-align: center;
+            line-height: 80px;
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            display: none;
+        }
+        .wrap ul li{
+            background: url("img2/default.gif") no-repeat center #eee;
+            margin-bottom: 15px;
+        }
+        .wrap ul li img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <ul>
+        <!--<li>
+            <img src="" data-realImg="" alt="">
+        </li>-->
+    </ul>
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+</div>
+<a href="javascript:;">toTop</a>
+<script src="util.js"></script>
+<script>
+    var aUl=document.getElementsByTagName('ul');
+    var aImg=document.getElementsByTagName('img');
+    var aLi=document.getElementsByTagName('li');
+    var oBtn=document.getElementsByTagName('a')[0];
+    var bok;
+    var timer;
+    var data=[
+        {"imgSrc":"img2/1.jpg","height":127.86},
+        {"imgSrc":"img2/2.jpg","height":150.92},
+        {"imgSrc":"img2/3.jpg","height":170.09},
+        {"imgSrc":"img2/4.jpg","height":162.97},
+        {"imgSrc":"img2/5.jpg","height":152.38},
+        {"imgSrc":"img2/6.jpg","height":218.17},
+        {"imgSrc":"img2/7.jpg","height":127.61},
+        {"imgSrc":"img2/8.jpg","height":150.81},
+        {"imgSrc":"img2/9.jpg","height":151.95},
+        {"imgSrc":"img2/10.jpg","height":169.88}
+    ];
+    //1:创建一个对象li
+    function createLi(){
+        var oLi=document.createElement('li');
+        var rnd=util.rnd(0,9);//通过索引抽取数据
+        oLi.style.height=data[rnd].height+'px';
+        oLi.innerHTML='<img src="#" data-realImg="'+data[rnd].imgSrc+'" alt="">';
+        return oLi;
+    }
+    //每批动态创建n个li；
+    function liN(n) {
+        for(var i=0; i<n;i++){
+            var oLi=createLi();
+            //把li插入到最短的ul中去；
+            var ary=util.makeArray(aUl);
+            ary.sort(function (a,b) {
+                return a.offsetHeight-b.offsetHeight;
+            });
+            ary[0].appendChild(oLi);
+        }
+    }
+    //图片延迟加载；
+    function showImg() {
+        var scrollBottom=util.win('scrollTop')+util.win('clientHeight');
+        for(var i=0; i<aLi.length; i++){
+            var curImg=aImg[i];
+            var curLi=aLi[i];
+            var imgPos=curImg.offsetTop+curLi.offsetHeight;
+            if(imgPos<=scrollBottom){
+                lazyImg(curImg);
+            }
+        }
+    }
+    function lazyImg(img) {
+        //1:创建临时图片对象
+        var tmpImg=new Image;
+        //2:给临时对象赋值地址；
+        tmpImg.src=img.getAttribute('data-realImg');
+        //3:验证地址的正确性
+        tmpImg.onload=function () {
+            img.src=this.src;
+            img.parentNode.style.height=img.offsetHeight+'px';
+        }
+    }
+
+    liN(30);
+    showImg();
+
+    window.onscroll=function () { //机器+手动
+        if(bok) clearInterval(timer);
+        bok=true;
+        console.log(bok);
+        var scrollBottom=util.win('scrollTop')+util.win('clientHeight');
+        if(document.body.scrollHeight<=scrollBottom+100){
+            liN(30);
+        }
+        if(util.win('scrollTop')>util.win('clientHeight')){
+            oBtn.style.display='block';
+        }else{
+            oBtn.style.display='none';
+        }
+        showImg();
+    };
+    oBtn.onclick=function () {
+        var target=util.win('scrollTop');
+        var duration=1000;
+        var interval=30;
+        var step=target/duration*interval;
+        timer=setInterval(function () { //机器运动
+            //1：获取最新位置
+            var curT=util.win('scrollTop');
+            //2:用最新位置-=step
+            curT-=step;
+            if(curT<=0){
+                clearInterval(timer);
+                return;//必须阻断程序的执行；
+            }
+            //3:重新赋值
+            util.win('scrollTop',curT);
+            bok=false;
+            console.log(bok);
+        },interval);
+    };
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

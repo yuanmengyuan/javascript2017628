@@ -1,0 +1,20 @@
+### 今天要学的效果
+- 回到顶部
+- 回到顶部 - 随时停下版
+- 瀑布流
+- 跑马灯
+- 瀑布流+回到顶部+图片懒加载 一起来使用；
+
+### 瀑布流
+1、首先创建一个li元素，宽度100%，高度随机，颜色随机； rnd
+2、创建50个li，每次插入最短的ul;
+    + 创建50个li:for循环
+    + 每次插入最短的ul：1）类数组转数组 2）sort排序 3）动态插入；
+3、触发滚动条事件，判断何时继续加载内容
+    + 判断：document.body.scrollHeight<scrollTop+clientHeight
+### 回到顶部
+1、 如何来计算步长：target总路程，duration总时间 ，interval频率
+    + 步长：10分钟能走多远    step=target/duration*interval;
+    + 涉及知识点：定时器，记住一定要关闭定时器
+    + 第一屏按钮隐藏，大于一屏按钮显示； 比较：scrollTop>clientHeight
+    + 点击按钮立即隐藏；要释放到window.onscroll绑定是事件；等定时器被关掉的时候，重新绑定；
