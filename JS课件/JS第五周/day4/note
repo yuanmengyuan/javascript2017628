@@ -1,0 +1,56 @@
+### 今天要学的主要内容
+- 跑马灯
+- 完成工具库：DOM库
+
+### dom常见知识
+- 元素的获取
+    + id,className,tagName,querySelector,querySelectorAll
+    clientWidth clientHeight
+- DOM节点的关系
+    + parentNode childNodes children previousSibling nextSibling firstChild lastChild
+- dom节点的动态操作
+    + 创建：1）document.createElement 2)curEle.cloneNode
+    + 动态插入：1）appendChild 2)insertBefore
+    + 动态删除和替换
+        + 删除： removeChild()
+        + 替换：replaceChild()
+
+- 属性操作：
+    + []和.
+    + attribute系列的
+        + 获取 getAttribute
+        + 设置 setAttribute
+        + 删除 removeAttribute;
+- dom封装参考
+获取
+    1、 getByClass 通过class名来获取元素
+    2、 hasClass  判断某个class名是否存在
+    3、 addClass 添加class
+    4、 removeClass 移出某个class名
+    5、 getCss  获取样式
+    6、 setCss 设置一个样式
+    7、 setGroupCss 设置一组样式
+    8、 css 三合一：获取，设置一个，设置一组
+    9、 win
+    10、 offset 获取当前盒子的偏移量 x,y
+DOM节点
+    1、getChildren  获取当前容器下的所有子元素
+    2、prev 上一个哥哥元素
+    3、next 下一个弟弟元素
+    4、prevAll 所有的哥哥元素
+    5、nextAll 所有的弟弟元素
+    6、sibling 相邻元素
+    7、siblings 所有的兄弟姐妹
+    8、index
+    9、firstChild
+    10、lastChild
+makeArray jsonParse rnd
+元素的动态操作
+    1、appendChild 从当前容器的末尾插入；
+    2、prependChild  从当前容器的开始位置插入；
+    3、insertBefore  插入到指定元素的前面；
+    4、insertAfter  插入到指定元素的后面；
+
+### 本周末作业
+1、花瓣网：1）瀑布流 2）图片懒加载 3）回到顶部
+2、DOM库：27方法；

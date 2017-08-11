@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div class="box1 box2 box3 box4"></div>
+<div class="      box1         box2          box3      "></div>
+<div class="box1 box2"></div>
+<div class="box1 "></div>
+<p class="box1 box2 box3 box4"></p>
+<p class="box1 box1 box2 box3"></p>
+<script src="util.js"></script>
+<script>
+    //var aDiv=document.getElementsByClassName('box2 box3 box4');
+    //console.log(aDiv)
+    //功能：通过class来获取元素； 参数：1个 ； 返回值：一个数组
+    function getByClass(strClass,parent) {
+        parent=parent||document;
+        if('getComputedStyle' in window){//标准浏览器
+            return Array.prototype.slice.call(parent.getElementsByClassName(strClass));
+        }
+        //1:把字符串去除首尾空格
+        strClass=strClass.replace(/^ +| +$/g,'');
+        //2:把字符串转成数组；
+        var aryClass=strClass.split(/\s+/g);
+        //3：获取父容器下，所有的元素；
+        var nodeList=parent.getElementsByTagName('*');
+        var ary=[];
+        //需要验证每个元素身上，是否包含数组中每个class名;
+        for(var i=0; i<nodeList.length; i++){
+            var cur=nodeList[i];
+            var bok=true; //我先假设每个元素都合格；
+            //过滤的作用；
+            for(var j=0; j<aryClass.length; j++){
+                var reg=new RegExp('\\b'+aryClass[j]+'\\b','g');
+                if(!reg.test(cur.className)){
+                    bok=false;
+                }
+            }
+            if(bok){
+                ary.push(cur);
+            }
+        }
+        return ary;
+    }
+    //var aDiv=getByClass('              box1                 box2    box3   box4         ')
+    var aDiv=util.getByClass('box1       box2    box3     ');
+    console.log(util.hasClass(aDiv[0],'box4'))
+    util.addClass(aDiv[1],'      leilei           ymy             ');
+    util.removeClass(aDiv[1],'box2 box3')
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .box2{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            margin-bottom: 10px;
+            opacity: 0.3;
+            filter:alpha(opacity:30)
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="box1 box2 box3 box4"></div>
+    <div class="box1 box2 box3"></div>
+    <div class="box1 box2"></div>
+    <div class="box1"></div>
+</div>
+<script src="util.js"></script>
+<script>
+    var oWrap=document.getElementsByTagName('div')[0];
+    var aDiv=util.getByClass('box2 box3',oWrap);
+    /*//console.log(util.hasClass(aDiv[0],'box6'))
+    //util.addClass(aDiv[0],'leilei        ymy')
+    //util.removeClass(aDiv[0],'leilei ymy')
+    var res=util.getCss(aDiv[0],'opacity');
+    alert(res);*/
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body{
+            height: 100%;
+        }
+        div{
+            height: 200px;
+            width: 200px;
+            background: #ff0000;
+            margin-bottom: 10px;
+            display: inline-block;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+<div>
+    sldfjskldfjlskdfjlskdjflskdjflsdkjflskdfj
+    <p>0</p>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <span></span><span></span>
+</div>
+<script src="util.js"></script>
+<script>
+    var oDiv=document.getElementsByTagName('div')[0];
+    var aP=document.getElementsByTagName('p');
+   /* util.setCss(oDiv,'height','100%');
+    util.setCss(oDiv,'padding','10')
+    util.setCss(oDiv,'opacity','0.3')*/
+   util.setGroupCss(oDiv,{
+       width:'100%',
+       backgroundColor:'purple',
+       color:'#fff',
+       fontSize:18
+   });
+    console.log(util.siblings(aP[2]))
+</script>
+</body>
+</html>
