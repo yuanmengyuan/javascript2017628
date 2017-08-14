@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        button{
+            width: 200px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+        }
+        div.move{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            position: absolute;
+            left: 0;
+            top: 50px;
+        }
+        .target{
+            width: 1px;
+            height: 300px;
+            background: #000000;
+            position: absolute;
+            left: 1000px;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">点击运动</button>
+<div class="move" id="move"></div>
+<div class="target"></div>
+<script>
+    var oBtn=document.getElementById('btn');
+    var oDiv=document.getElementById('move');
+    var target=1000;
+    var timer;
+    oBtn.onclick=function () {
+        setTimeout(function () {
+            var curL=oDiv.offsetLeft;
+            curL+=20;
+            if(curL>=target){
+                oDiv.style.left=target+'px';
+                clearInterval(timer);
+                return;
+            }
+            oDiv.style.left=curL+'px';
+            setTimeout(arguments.callee,30);
+        },30)
+    }
+</script>
+</body>
+</html>

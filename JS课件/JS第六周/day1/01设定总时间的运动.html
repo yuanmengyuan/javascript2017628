@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        button{
+            width: 200px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+        }
+        div.move{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            position: absolute;
+            left: 0;
+            top: 50px;
+        }
+        .target{
+            width: 1px;
+            height: 300px;
+            background: #000000;
+            position: absolute;
+            left: 1000px;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">点击运动</button>
+<div class="move" id="move"></div>
+<div class="target"></div>
+<script>
+    var oBtn=document.getElementById('btn');
+    var oDiv=document.getElementById('move');
+    var duration=1000; //1000ms
+    var target=1000;//目标值
+    var interval=30;
+    var step=target/duration*interval;
+    var timer=null;
+    oBtn.onclick=function () {
+        timer=setInterval(function () {
+            //每次获取div最新的位置；在最新的位置上不断的累加step；
+            var curL=oDiv.offsetLeft;
+            curL+=step;
+            if(curL>=target){//预测再走一步，就会超过
+                oDiv.style.left=target+'px';
+                clearInterval(timer);
+                return;
+            }
+            oDiv.style.left=curL+'px';
+        },interval);
+    }
+</script>
+</body>
+</html>

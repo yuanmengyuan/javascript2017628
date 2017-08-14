@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        button{
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background: #ff0000;
+            position: absolute;
+            left: 300px;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+<button id="left">想左走</button>
+<button id="right">向右走</button>
+<div id="div"></div>
+<script>
+    var oLeft=document.getElementById('left');
+    var oRight=document.getElementById('right');
+    var oDiv=document.getElementById('div');
+    var timer;
+
+    oRight.onclick=function () {
+        move(1000);
+    };
+    oLeft.onclick=function () {
+        move(0);
+    };
+    //1:边界值判断
+    //2:当页面为多个定时器争执的时候，可以把这个定时器作为全局
+    //3：开启定时器前，先关闭没用过得定时器； ---常规律
+    //4：定时器中无数个不销毁的私有作用域-- _move
+    function move(target) {
+        _move();
+        function _move() {
+            clearTimeout(timer);
+            //判断运动的方向
+            var curPos=oDiv.offsetLeft;
+            if(curPos<target){//right
+                curPos+=10;
+                if(curPos>=target){
+                    oDiv.style.left=target+'px';
+                    clearTimeout(timer);
+                    return;
+                }
+            }else{//left
+                curPos-=10;
+                if(curPos<=target){
+                    oDiv.style.left=target+'px';
+                    clearTimeout(timer);
+                    return;
+                }
+            }
+            oDiv.style.left=curPos+'px';
+            timer=setTimeout(_move,30)
+        }
+    }
+</script>
+</body>
+</html>

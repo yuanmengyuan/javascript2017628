@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background: #ff0000;
+            position: absolute;
+            left: 100px;
+            top: 30px;
+        }
+    </style>
+</head>
+<body>
+<div id="div"></div>
+<script src="util.js"></script>
+<script src="move.js"></script>
+<script>
+var oDiv=document.getElementById('div');
+animate(oDiv,{
+    left:1000,
+    top:400
+},100,function () {
+    this.style.background='green';
+})
+</script>
+<!--<script>
+    function Linear(t,b,c,d) {
+        return b+c/d*t;
+    }
+    //left 1000 top:400
+    var oDiv=document.getElementsByTagName('div')[0];
+    //1:就是为参数做准备；
+    var targetL=1000,targetT=400;
+    var beginL=oDiv.offsetLeft,beginT=oDiv.offsetTop;
+    var changeL=targetL-beginL,changeT=targetT-beginT;
+    var duration=1000;
+    var time=0;
+    var timer=setInterval(function () {
+        time+=10;
+        if(time>=duration){
+            util.css(oDiv,{
+                left:targetL,
+                top:targetT
+            });
+            clearInterval(timer);
+            alert('运动结束');
+            util.css(oDiv,{"background":'green'});
+            return;
+        }
+        var curL=Linear(time,beginL,changeL,duration);
+        var curT=Linear(time,beginT,changeT,duration);
+        util.css(oDiv,{
+            left:curL,
+            top:curT
+        })
+    },10)
+
+</script>-->
+</body>
+</html>

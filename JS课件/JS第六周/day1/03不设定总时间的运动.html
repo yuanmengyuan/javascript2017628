@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        button{
+            width: 200px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+        }
+        div.move{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            position: absolute;
+            left: 300px;
+            top: 50px;
+        }
+        .target{
+            width: 1px;
+            height: 300px;
+            background: #000000;
+            position: absolute;
+            left: 1000px;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">点击运动</button>
+<div class="move" id="move"></div>
+<div class="target"></div>
+<script>
+    //t:不断累加的时间
+    //b: begin 起始位置  300
+    //c:change  要走的距离 700
+    //d：duration 总时间 1000
+    function Linear(t,b,c,d) {
+        return c/d*t+b;
+    }
+    var oBtn=document.getElementById('btn');
+    var oDiv=document.getElementById('move');
+    var begin=oDiv.offsetLeft;
+    var target=1000;
+    var duration=1000;
+    var change=target-begin;
+    var timer;//定时器的名称
+    var time=null; //要累加的时间
+    oBtn.onclick=function () {
+        timer=setInterval(function () {
+            //不断的累加时间
+            time+=10;
+            if(time>=duration){
+                oDiv.style.left=target+'px';
+                clearInterval(timer);
+                return;
+            }
+            //不断的计算最新的位置，并设置最新的位置
+            var curPos=Linear(time,begin,change,duration);
+            //设置最新的位置
+            oDiv.style.left=curPos+'px';
+        },10)
+    }
+</script>
+</body>
+</html>
