@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: #ff0000;
+            position: absolute;
+            left: 300px;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="div"></div>
+<script src="util.js"></script>
+<script src="move2.js"></script>
+<script>
+    var oDiv=document.getElementsByTagName('div')[0];
+    /*animate(oDiv,{
+        left:1000,
+        top:300
+    },['Bounce','easeOut'],function () {
+        this.style.background='green';
+    },2000)*/
+    //id target   duration effect cb
+    animate({
+        id:'div',  //传的是id
+        duration:1000,
+        cb:function () {
+            this.style.background='green';
+        },
+        target:{
+            left:1000,
+            top:400
+        }
+    })
+</script>
+</body>
+</html>

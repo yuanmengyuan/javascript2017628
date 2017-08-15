@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            list-style: none;
+        }
+        .wrap{
+            width: 1000px;
+            height: 340px;
+            margin:40px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .wrap .boxInner{
+            width: 4000px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .wrap img{
+            float: left;
+            width: 1000px;
+        }
+        .wrap ul{
+            position: absolute;
+            width: 100px;
+            border-radius:16px;
+            background: rgba(255,255,255,.4);
+            overflow: hidden;
+            padding:0 10px;
+            left:50%;
+            margin-left: -50px;
+            bottom:20px;
+        }
+        .wrap ul li{
+            width: 19%;
+            height: 20px;
+            background: #eee;
+            border-radius: 50%;
+            float: left;
+            margin:3%;
+        }
+        .wrap ul li.on{
+            background: #f00;
+        }
+        a{
+            text-decoration: none;
+            position: absolute;
+            top: 50%;
+            height: 60px;
+            width: 30px;
+            margin-top: -30px;
+            background: rgba(0,0,0,.2);
+            text-align: center;
+            line-height: 60px;
+            color: #ffffff;
+            font-size: 20px;
+            display: none;
+        }
+        a:hover{
+            background: rgba(0,0,0,1);
+        }
+        a.left{
+            left: 0;
+        }
+        a.right{
+            right:0;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap" id="wrap">
+    <div class="boxInner">
+        <img src="img/banner1.jpg" alt="">
+        <img src="img/banner2.jpg" alt="">
+        <img src="img/banner3.jpg" alt="">
+        <img src="img/banner4.jpg" alt="">
+    </div>
+    <ul>
+        <li class="on"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <a class="left" href="javascript:;"><</a>
+    <a class="right" href="javascript:;">></a>
+</div>
+<script src="util.js"></script>
+<script src="move2.js"></script>
+<script src="Tab.js"></script>
+<script>
+    var oWrap=document.getElementById('wrap');
+    var tab1=new Tab(oWrap)
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

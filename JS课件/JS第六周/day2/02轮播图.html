@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+            list-style: none;
+        }
+        .wrap{
+            width: 1000px;
+            height: 340px;
+            margin:40px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .wrap .boxInner{
+            width: 4000px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .wrap img{
+            float: left;
+            width: 1000px;
+        }
+        .wrap ul{
+            position: absolute;
+            width: 100px;
+            border-radius:16px;
+            background: rgba(255,255,255,.4);
+            overflow: hidden;
+            padding:0 10px;
+            left:50%;
+            margin-left: -50px;
+            bottom:20px;
+        }
+        .wrap ul li{
+            width: 19%;
+            height: 20px;
+            background: #eee;
+            border-radius: 50%;
+            float: left;
+            margin:3%;
+        }
+        .wrap ul li.on{
+            background: #f00;
+        }
+        a{
+            text-decoration: none;
+            position: absolute;
+            top: 50%;
+            height: 60px;
+            width: 30px;
+            margin-top: -30px;
+            background: rgba(0,0,0,.2);
+            text-align: center;
+            line-height: 60px;
+            color: #ffffff;
+            font-size: 20px;
+            display: none;
+        }
+        a:hover{
+            background: rgba(0,0,0,1);
+        }
+        a.left{
+            left: 0;
+        }
+        a.right{
+            right:0;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap" id="wrap">
+    <div class="boxInner">
+        <img src="img/banner1.jpg" alt="">
+        <img src="img/banner2.jpg" alt="">
+        <img src="img/banner3.jpg" alt="">
+        <img src="img/banner4.jpg" alt="">
+    </div>
+    <ul>
+        <li class="on"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <a class="left" href="javascript:;"><</a>
+    <a class="right" href="javascript:;">></a>
+</div>
+<script src="util.js"></script>
+<script src="move2.js"></script>
+<script>
+    var oWrap=document.getElementById('wrap');
+    var oBoxInner=oWrap.getElementsByTagName('div')[0];
+    var aImg=oWrap.getElementsByTagName('img');
+    var aLi=oWrap.getElementsByTagName('li');
+    var oLeft=oWrap.getElementsByTagName('a')[0];
+    var oRight=oWrap.getElementsByTagName('a')[1];
+    var timer;
+    var n=0;
+    //给boxinner增加第一张图片
+    oBoxInner.innerHTML+='<img src="img/banner1.jpg" alt="">';
+    oBoxInner.style.width=aImg[0].offsetWidth*aImg.length+'px';
+    //通过定时器，不断的改变了left的值； -=xx;
+    //1:自动轮播
+    clearInterval(timer);
+    timer=setInterval(move,2000);
+    function move() {
+        if(n>=aImg.length-1){
+            n=0;
+            //这句话是瞬间拉回，人眼看不到，利用肉眼的误差
+            util.css(oBoxInner,{left:-n*1000})
+        }
+        n++;
+        animate({
+            el:oBoxInner,
+            target:{
+                left:-n*1000
+            },
+            effect:3
+        })
+        bannerTip();
+    }
+    //2:焦点自动轮播；
+    function bannerTip() {
+        for(var i=0; i<aLi.length; i++){
+            aLi[i].className= i==n%aLi.length ? 'on':null;
+        }
+    }
+    //3:移入移出效果
+    overout();
+    function overout() {
+        oWrap.onmouseover=function () {
+            oLeft.style.display=oRight.style.display='block';
+            clearInterval(timer);
+        };
+        oWrap.onmouseout=function () {
+            oLeft.style.display=oRight.style.display='none';
+            timer=setInterval(move,2000);
+        };
+    }
+    //4:点击焦点，手动切换
+    handleBanner();
+    function handleBanner() {
+        for(var i=0; i<aLi.length; i++){
+            (function (index) {
+                aLi[i].onclick=function () {
+                    n=index;
+                    animate({
+                        el:oBoxInner,
+                        target:{
+                            left:-n*1000
+                        },
+                        effect:2
+                    });
+                    bannerTip();
+                }
+            })(i);
+        }
+    }
+    //5:点击左右按钮进行切换
+    oRight.onclick=move;
+    oLeft.onclick=function () {
+        if(n<=0){
+            n=aImg.length-1;
+            util.css(oBoxInner,{left:-n*1000})
+        }
+        n--;
+        animate({
+            el:oBoxInner,
+            target:{
+                left:-n*1000
+            },
+            effect:3
+        })
+        bannerTip();
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
