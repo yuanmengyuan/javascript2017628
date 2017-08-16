@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+        .wrap{
+            width: 1000px;
+            height: 340px;
+            margin:30px auto;
+            position: relative;
+            background: url("img/default.gif") no-repeat center #ccc;
+        }
+        .wrap .boxInner{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .wrap .boxInner img{
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            opacity: 0;
+            filter:alpha(opacity:0);
+            z-index: 0;
+        }
+        .wrap ul {
+            width: 100px;
+            overflow: hidden;
+            background: rgba(255,255,255,0.4);
+            position: absolute;
+            left: 50%;
+            margin-left: -50px;
+            z-index: 9;
+            bottom: 30px;
+            border-radius: 16px;
+            padding: 4px;
+        }
+        .wrap ul li{
+            width: 20%;
+            margin:0 2.5%;
+            height: 20px;
+            border-radius:50%;
+            background: #cccccc;
+            float: left;
+        }
+        .wrap ul li.on{
+            background: #ff0000;
+        }
+        .wrap a{
+            width: 30px;
+            height: 60px;
+            text-align: center;
+            line-height: 60px;
+            position: absolute;
+            top: 50%;
+            margin-top: -30px;
+            background: rgba(0,0,0,.2);
+            z-index: 9;
+            color: #ffffff;
+            font-size: 20px;
+            text-decoration: none;
+            display: none;
+        }
+        .wrap a:hover{
+            background: rgba(0,0,0,.8);
+        }
+        .wrap a.left{
+            left: 0;
+        }
+        .wrap a.right{
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap" id="wrap">
+    <div class="boxInner">
+        <img src="img/banner1.jpg" alt="">
+        <img src="img/banner2.jpg" alt="">
+        <img src="img/banner3.jpg" alt="">
+        <img src="img/banner4.jpg" alt="">
+    </div>
+    <ul>
+        <li class="on"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <a href="javascript:;" class="left"><</a>
+    <a href="javascript:;" class="right">></a></div>
+</body>
+<script src="util.js"></script>
+<script src="move.js"></script>
+<script src="Opacity.js"></script>
+<script>
+    var oWrap=document.getElementById('wrap');
+    new Opacity(oWrap);
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
