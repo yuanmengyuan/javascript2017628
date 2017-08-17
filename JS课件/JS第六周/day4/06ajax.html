@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        input{
+            width: 200px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+<input type="text" id="btn">
+<script src="https://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<script>
+    /*$.ajax({
+        url:'./data1.txt',
+        type:'GET',
+        async:false,
+        dataType:'json',
+        cache:false,
+        success:function (val) {
+            console.log(val)
+        }
+    })*/
+    $('input').on('keydown',function () {
+        var $txt=$(this).val();
+        $.ajax({
+            url:'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
+            data:"wd="+$txt,
+            type:'jsonp',
+            jsonp:'cb',
+            dataType:'jsonp',
+            success:function (val) {
+                console.log(val.s)
+            }
+
+        })
+    });
+    $('.wrap').find();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

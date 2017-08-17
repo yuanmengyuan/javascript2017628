@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<button index="lala">Clone Me!</button>
+<input type="text" id="btn">
+<script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.js"></script>
+<script>
+    $('button').dblclick(function () {
+        //$(this).clone(true).insertAfter($(this))
+       // alert($(this).attr('index'))
+        //$(this).attr('name','balalbl')
+       // $(this).removeAttr('index');
+        alert(1233)
+    })
+    /*$('input').click(function () {
+        alert(1)
+    })
+    $('input').click(function () {
+        alert(2)
+    })*/
+    function fn() {
+        alert(1)
+    }
+    $('input').one('click',fn);
+    $('input').off('click',fn)
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

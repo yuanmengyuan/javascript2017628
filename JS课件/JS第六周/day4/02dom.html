@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        button{
+            width: 200px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+        .el{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="boxInner">
+        <p>我是第1个p</p>
+        <p>我是第2个p</p>
+        <p>我是第3个p</p>
+        <p>我是第4个p</p>
+    </div>
+    <ul>
+        <li>
+            列表1
+        </li>
+        <li>列表2</li>
+        <li>列表3</li>
+    </ul>
+</div>
+<script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.js"></script>
+<script>
+   /* console.log($('.boxInner p:eq(3)').prevAll())*/
+   //var $div=$('<div class="el">1111111</div>');
+   //$div.appendTo($('.wrap'))
+    //$('.wrap').prepend($div)
+    /*$('p').click(function () {
+        $(this).remove();
+    })*/
+    $('ul').clone(true).prependTo($('.wrap'));
+</script>
+<script>
+</script>
+</body>
+</html>

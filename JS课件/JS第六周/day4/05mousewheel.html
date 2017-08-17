@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<script src="https://cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-mousewheel/3.1.12/jquery.mousewheel.js"></script>
+<script>
+    $(document).on('mousewheel',function (e) {
+        //事件对象，包含了对当前行为的详细信息
+        console.dir(e)
+        if(e.originalEvent.wheelDelta<0){//up
+            var curh=$('div').height();
+            curh-=10;
+            if(curh<=0){
+                $('div').css({
+                    height:0
+                })
+                return;
+            }
+            $('div').css({
+                height:curh
+            })
+        }else{//down
+            var curh=$('div').height();
+            curh+=10;
+            $('div').css({
+                height:curh
+            })
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        button{
+            width: 200px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">点击运动</button>
+<div id="div"></div>
+<script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.js"></script>
+<script>
+    $('button').mouseover(function () {
+        $('div').slideUp(function () {
+            alert('运动结束')
+        })
+    });
+    setTimeout(function () {
+        //一秒钟之后，系统帮我们自动触发button的点击事件
+        $('button').trigger('mouseover')
+    },1000)
+</script>
+</body>
+</html>

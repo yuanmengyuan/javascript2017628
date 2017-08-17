@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        button{
+            width: 200px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">点击运动</button>
+<div id="div"></div>
+<script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.js"></script>
+<script>
+    $('button').click(function () {
+        //$('div').stop().fadeToggle();
+        //$('div').stop().slideToggle();
+        /*$('div').stop().animate({
+            width:400
+        },function () {
+            $(this).css('background','green')
+        })*/
+    })
+</script>
+</body>
+</html>
