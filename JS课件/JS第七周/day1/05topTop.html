@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        html,body{
+            height: 300%;
+            background: -webkit-linear-gradient(top,lightblue,lightcyan,lightgoldenrodyellow,lightgreen);
+            font-size: 40px;
+        }
+        a{
+            width: 80px;
+            height: 80px;
+            background: #0000ff;
+            text-align: center;
+            line-height: 80px;
+            border-radius: 50%;
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            font-size: 20px;
+            text-decoration: none;
+            color: #ffffff;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+回来了
+<a href="javascript:;">toTop</a>
+<script src="https://cdn.bootcss.com/jquery/2.0.3/jquery.js"></script>
+<script src="Totop.js"></script>
+<script>
+    var $a=$('a');
+    var toTop=new Totop({
+        el:$a,
+        duration:1000
+    });
+</script>
+</body>
+</html>

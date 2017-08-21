@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{
+            padding: 100px;
+            font-size: 40px;
+        }
+        #box1{
+            background: #ff0000;
+        }
+        #box2{
+            background: #ff00ff;
+        }
+        #box3{
+            background: #0000ff;
+        }
+    </style>
+</head>
+<body id="body">
+<div id="box1">box1
+    <div id="box2">box2
+        <div id="box3">box3</div>
+    </div>
+</div>
+<script>
+    var oBox1=document.getElementById('box1');
+    var oBox2=document.getElementById('box2');
+    var oBox3=document.getElementById('box3');
+    /*oBox1.onclick=function () {
+        alert(this.id);
+    };
+    oBox1.onclick=function () {
+        alert(123);
+    };*/
+//    oBox2.onclick=function () {
+//        alert(this.id);
+//    };
+//    oBox3.onclick=function () {
+//        alert(this.id);
+//    };
+    oBox1.addEventListener('click',function () {
+        alert(this.id)
+    },false);
+    oBox2.addEventListener('click',function () {
+        e=e||window.event;
+        alert(this.id)
+    },false)
+    oBox3.addEventListener('click',function (e) {
+        alert(this.id)
+        e.stopPropagation?e.stopPropagation():e.cancelBubble=true;
+    },false)
+    //IE
+    /*oBox1.attachEvent('onclick',function () {
+        alert(this===window)
+        alert(this.id)
+    });
+    oBox2.attachEvent('onclick',function () {
+        alert(this.id)
+    })
+    oBox3.attachEvent('onclick',function () {
+        alert(this.id)
+    })*/
+
+</script>
+</body>
+</html>

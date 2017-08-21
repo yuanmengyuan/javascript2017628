@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body,html{
+            height: 200%;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<input type="text">
+<div id="div">
+    <a href="javascript:;">阿链接老师的开发商代理反馈就是</a><br/>
+    <a href="javascript:;">阿链接老师的开发商代理反馈就是</a><br/>
+    <a href="javascript:;">阿链接老师的开发商代理反馈就是</a><br/>
+    <a href="javascript:;">阿链接老师的开发商代理反馈就是</a><br/>
+    <a href="javascript:;">阿链接老师的开发商代理反馈就是</a>
+</div>
+<script>
+    var oDiv=document.getElementById('div');
+    //对oDiv添加鼠标事件中onmouseover行为；
+     /*oDiv.onclick=function (e) {
+         //事件对象的兼容处理
+         e=e||window.event;
+         console.log('client:x:'+e.clientX+',y:'+e.clientY)
+         //console.log('page:x:'+e.pageX+',y:'+e.pageY)
+         e.pageY=e.clientY+(document.documentElement.scrollTop||document.body.scrollTop);
+         e.pageX=e.clientX+(document.documentElement.scrollLeft||document.body.scrollLeft);
+         //console.log('page:x:'+e.pageX+',y:'+e.pageY)
+         //console.dir(window.event.type)
+         //事件源
+         console.log(e.target)
+     }*/
+     /*oDiv.onclick=function (e) {
+         e=e||window.event;
+         console.dir(e);
+         e.target=e.target||e.srcElement;
+         if(e.target.tagName.toLowerCase()==='a'){
+             this.removeChild(e.target);
+         }
+     }*/
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

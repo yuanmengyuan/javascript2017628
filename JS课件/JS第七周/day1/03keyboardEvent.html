@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        html,body{
+            height: 100%;
+        }
+        input{
+            width: 200px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+<input type="text" id="txt">
+<a href="https://www.baidu.com/">跳往百度</a>
+<script>
+    var oTxt=document.getElementById('txt');
+    var oA=document.getElementsByTagName('a')[0];
+    /*oTxt.onkeydown=function (e) {
+        e=e||window.event;
+        console.log(e.keyCode)
+    }*/
+    //点击a不进行链接的跳转
+    /*oA.onclick=function (e) {
+        alert(1)
+        e=e||window.event;
+        //阻止a的默认事件
+        e.preventDefault?e.preventDefault():e.returnValue=false;
+    };
+    document.body.oncontextmenu=function (e) {
+        e=e||window.event;
+        alert(1234)
+        e.preventDefault?e.preventDefault():e.returnValue=false;
+    }*/
+    //只能给input输入和操作数字，不能输入其他字母；
+    //除了数字和select删除键之外的其他字母，都不能输入到文本框，也就是我们阻止它们字母输入的默认事件；
+    oTxt.onkeydown=function (e) {
+        e=e||window.event;
+        if(!(e.keyCode>=48 && e.keyCode<=57) && e.keyCode!=8){
+            e.preventDefault?e.preventDefault():e.returnValue=false;
+        }
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
