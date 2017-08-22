@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        html,body{
+            height: 100%;
+            -webkit-user-select: none;
+        }
+        #box{
+            width: 200px;
+            height: 50px;
+            background: #cccccc;
+            position: relative;
+            margin:100px auto;
+            font-size: 30px;
+            text-align: center;
+            line-height: 50px;
+        }
+        #menu{
+            width: 500px;
+            height: 300px;
+            position: absolute;
+            background: lightblue;
+            left: 0;
+            top: 40px;
+            line-height: 300px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="box">购物车
+    <div id="menu">购物车中还没有商品，赶紧选购吧！</div>
+</div>
+<script>
+    var oBox=document.getElementById('box');
+    var oMenu=document.getElementById('menu');
+    /*oBox.onmouseover=function () {
+        oMenu.style.display='block';
+    };
+    oBox.onmouseout=function () {
+        oMenu.style.display='none';
+    };*/
+    //需求：点击box的时候menu显示，在点击，menu隐藏； 点击页面任何地方，menu隐藏；
+    /*document.body.onclick=function (e) {
+        e=e||window.event;
+        var target=e.target||e.srcElement;
+        //如果id等于box的时候，点击显示，再点击隐藏；
+        if(target.id==='box'){
+            if(oMenu.style.display==='block'){
+                oMenu.style.display='none';
+            }else{
+                oMenu.style.display='block';
+            }
+        }
+        //除了box和munu之外的其他元素，都让munu隐藏
+        if(target.id !=='box' && target.id !=='menu'){
+            oMenu.style.display='none';
+        }
+    }*/
+    document.body.onclick=function (e) {
+        e=e||window.event;
+        var target=e.target||e.srcElement;
+        //如果id等于box的时候，点击显示，再点击隐藏；
+        if(target.id==='box'){
+            if(oMenu.style.display==='block'){
+                oMenu.style.display='none';
+            }else{
+                oMenu.style.display='block';
+            }
+            return;
+        }
+        //思路2：如果是munu，就让menu显示，同时阻断程序的执行
+        /*if(target.id==='menu'){
+            oMenu.style.display='block';
+            return;
+        }*/
+        //思路3：如果是menu，阻止冒泡；同时阻断程序的执行；
+        if(target.id==='menu'){
+            e.stopPropagation?e.stopPropagation():e.cancelBubble=true;
+            return;
+        }
+        oMenu.style.display='none';
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #wrap{
+            width: 500px;
+            height: 400px;
+            background: #cccccc;
+            margin:50px auto;
+            position: relative;
+            cursor: all-scroll;
+        }
+        #mask{
+            width: 100px;
+            height: 100px;
+            background: green;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap"></div>
+<script>
+    var oWrap=document.getElementById('wrap');
+    var mask=null;
+    /*oWrap.onmouseover=function () {
+        mask=document.createElement('div');
+        mask.id='mask';
+        oWrap.appendChild(mask);
+        mask.onmouseover=function (e) {
+            e=e||window.event;
+            e.stopPropagation?e.stopPropagation():e.cancelBubble=true;
+        }
+    };
+    oWrap.onmousemove=function (e) {
+        //移动的时候，需要拿到鼠标的坐标
+        e=e||window.event;
+        mask.style.left=e.clientX-this.offsetLeft+'px';
+        mask.style.top=e.clientY-this.offsetTop+'px';
+    };
+    oWrap.onmouseout=function () {
+        this.removeChild(mask);
+        mask.onmouseout=function (e) {
+            e=e||window.event;
+            e.stopPropagation?e.stopPropagation():e.cancelBubble=true;
+        }
+    }*/
+    /*oWrap.onmouseenter=function () {
+        mask=document.createElement('div');
+        mask.id='mask';
+        oWrap.appendChild(mask);
+    };
+    oWrap.onmousemove=function (e) {
+        //移动的时候，需要拿到鼠标的坐标
+        e=e||window.event;
+        mask.style.left=e.clientX-this.offsetLeft+'px';
+        mask.style.top=e.clientY-this.offsetTop+'px';
+    };
+    oWrap.onmouseleave=function () {
+        this.removeChild(mask);
+    }*/
+    oWrap.onmouseover=function (e) {
+        e=e||window.event;
+        var oTo=e.fromElement||e.relatedTarget;
+        /*if(!this.contains(oTo)){
+            mask=document.createElement('div');
+            mask.id='mask';
+            this.appendChild(mask);
+        }*/
+        if(this.contains(oTo)) return;
+        mask=document.createElement('div');
+        mask.id='mask';
+        this.appendChild(mask);
+
+    };
+    oWrap.onmousemove=function (e) {
+        e=e||window.event;
+        mask.style.left=e.clientX-this.offsetLeft-mask.offsetWidth/2+'px';
+        mask.style.top=e.clientY-this.offsetTop-mask.offsetHeight/2+'px';
+    };
+    oWrap.onmouseout=function (e) {
+        e=e||window.event;
+        var oTo=e.toElement||e.relatedTarget;
+        if(this.contains(oTo)) return;
+        this.removeChild(mask);
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

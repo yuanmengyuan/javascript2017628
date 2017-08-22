@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            -webkit-user-select: none;
+        }
+        .wrap{
+            width: 500px;
+            background: -webkit-linear-gradient(top,lightblue,lightcyan,lightgoldenrodyellow,lightpink);
+            padding: 20px;
+        }
+        .wrap li{
+            line-height: 40px;
+            font-size: 20px;
+            text-indent: 1em;
+        }
+        .wrap li p{
+            position: relative;
+        }
+        .wrap li p:hover{
+            cursor: pointer;
+        }
+        .wrap li em{
+            font-weight: normal;
+            /*background: url("img/icon.png") -42px -28px no-repeat;*/
+            background: url("img/icon.png") -60px -28px no-repeat;
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            top:12px;
+            left: 0;
+        }
+        .two,.three,.four,.five{
+            display: none;
+        }
+        .two{
+            padding-left:20px;
+        }
+        .three{
+            padding-left:40px;
+        }
+        .four{
+            padding-left:60px;
+        }
+        .five{
+            padding-left:80px;
+        }
+    </style>
+</head>
+<body>
+<ul class="wrap">
+    <li>
+        <p><em></em>第一级第一个</p>
+        <ul class="two">
+            <li>
+                <p><em></em>第二级第一个</p>
+                <ul class="three">
+                    <li>第三级第一个</li>
+                    <li>
+                        <p><em></em>第三级第二个</p>
+                        <ul  class="four">
+                            <li>第四级第一个</li>
+                            <li>
+                                <p><em></em>第四级第二个</p>
+                                <ul class="five">
+                                    <li>第五级第一个</li>
+                                    <li>第五级第二个</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p><em></em>第四级第三个</p>
+                                <ul class="five">
+                                    <li>第五级第一个</li>
+                                    <li>第五级第二个</li>
+                                </ul>
+                            </li>
+                            <li>第四级第四个</li>
+                        </ul>
+                    </li>
+                    <li>第三级第三个</li>
+                    <li>第三级第四个</li>
+                </ul>
+            </li>
+            <li>
+                <p><em></em>第二级第二个</p>
+                <ul class="three">
+                    <li>第三级第一个</li>
+                    <li>
+                        <p><em></em>第三级第二个</p>
+                        <ul  class="four">
+                            <li>第四级第一个</li>
+                            <li>
+                                <p><em></em>第四级第二个</p>
+                                <ul class="five">
+                                    <li>第五级第一个</li>
+                                    <li>第五级第二个</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p><em></em>第四级第三个</p>
+                                <ul class="five">
+                                    <li>第五级第一个</li>
+                                    <li>第五级第二个</li>
+                                </ul>
+                            </li>
+                            <li>第四级第四个</li>
+                        </ul>
+                    </li>
+                    <li>第三级第三个</li>
+                    <li>第三级第四个</li>
+                </ul>
+            </li>
+            <li>
+                <p><em></em>第二级第三个</p>
+                <ul class="three">
+                    <li>第三级第一个</li>
+                    <li>第三级第二个</li>
+                    <li>
+                        <p><em></em>第三级第三个</p>
+                        <ul class="four">
+                            <li>
+                                <p><em></em>第四级第一个</p>
+                                <ul class="five">
+                                    <li>第五级第一个</li>
+                                    <li>第五级第二个</li>
+                                    <li>第五级第三个</li>
+                                </ul>
+                            </li>
+                            <li>第四级第二个</li>
+                            <li>第四级第三个</li>
+                            <li>第四级第四个</li>
+                        </ul>
+                    </li>
+                    <li>第三级第四个</li>
+                </ul>
+            </li>
+            <li>
+                <p><em></em>第二级第四个</p>
+                <ul class="three">
+                    <li>
+                        <p><em></em>第三级第一个</p>
+                        <ul class="four">
+                            <li>第四级第一个</li>
+                            <li>第四级第二个</li>
+                            <li>第四级第三个</li>
+                            <li>第四级第四个</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><em></em>第三级第二个</p>
+                        <ul class="four">
+                            <li>第四级第一个</li>
+                            <li>第四级第二个</li>
+                            <li>第四级第三个</li>
+                            <li>第四级第四个</li>
+                        </ul>
+                    </li>
+                    <li>第三级第三个</li>
+                    <li>
+                        <p><em></em>第三级第四个</p>
+                        <ul class="four">
+                            <li>第四级第一个</li>
+                            <li>第四级第二个</li>
+                            <li>第四级第三个</li>
+                            <li>第四级第四个</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <p><em></em>第一级第二个</p>
+        <ul class="two">
+            <li>
+                <p><em></em>第二级第一个</p>
+                <ul class="three">
+                    <li>第三级第一个</li>
+                    <li>
+                        <p><em></em>第三级第二个</p>
+                        <ul  class="four">
+                            <li>第四级第一个</li>
+                            <li>
+                                <p><em></em>第四级第二个</p>
+                                <ul class="five">
+                                    <li>第五级第一个</li>
+                                    <li>第五级第二个</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p><em></em>第四级第三个</p>
+                                <ul class="five">
+                                    <li>第五级第一个</li>
+                                    <li>第五级第二个</li>
+                                </ul>
+                            </li>
+                            <li>第四级第四个</li>
+                        </ul>
+                    </li>
+                    <li>第三级第三个</li>
+                    <li>第三级第四个</li>
+                </ul>
+            </li>
+            <li>
+                第二级第二个
+                <ul class="three">
+                    <li>第三级第一个</li>
+                    <li>
+                        <p><em></em>第三级第二个</p>
+                        <ul  class="four">
+                            <li>第四级第一个</li>
+                            <li>
+                                <p><em></em>第四级第二个</p>
+                                <ul class="five">
+                                    <li>第五级第一个</li>
+                                    <li>第五级第二个</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <p><em></em>第四级第三个</p>
+                                <ul class="five">
+                                    <li>第五级第一个</li>
+                                    <li>第五级第二个</li>
+                                </ul>
+                            </li>
+                            <li>第四级第四个</li>
+                        </ul>
+                    </li>
+                    <li>第三级第三个</li>
+                    <li>第三级第四个</li>
+                </ul>
+            </li>
+            <li>
+                <p><em></em>第二级第三个</p>
+                <ul class="three">
+                    <li>第三级第一个</li>
+                    <li>第三级第二个</li>
+                    <li>
+                        <p><em></em>第三级第三个</p>
+                        <ul class="four">
+                            <li>
+                                <p><em></em>第四级第一个</p>
+                                <ul class="five">
+                                    <li>第五级第一个</li>
+                                    <li>第五级第二个</li>
+                                    <li>第五级第三个</li>
+                                </ul>
+                            </li>
+                            <li>第四级第二个</li>
+                            <li>第四级第三个</li>
+                            <li>第四级第四个</li>
+                        </ul>
+                    </li>
+                    <li>第三级第四个</li>
+                </ul>
+            </li>
+            <li>
+                <p><em></em>第二级第四个</p>
+                <ul class="three">
+                    <li>
+                        <p><em></em>第三级第一个</p>
+                        <ul class="four">
+                            <li>第四级第一个</li>
+                            <li>第四级第二个</li>
+                            <li>第四级第三个</li>
+                            <li>第四级第四个</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p><em></em>第三级第二个</p>
+                        <ul class="four">
+                            <li>第四级第一个</li>
+                            <li>第四级第二个</li>
+                            <li>第四级第三个</li>
+                            <li>第四级第四个</li>
+                        </ul>
+                    </li>
+                    <li>第三级第三个</li>
+                    <li>
+                        <p><em></em>第三级第四个</p>
+                        <ul class="four">
+                            <li>第四级第一个</li>
+                            <li>第四级第二个</li>
+                            <li>第四级第三个</li>
+                            <li>第四级第四个</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+<script src="https://cdn.bootcss.com/jquery/2.1.3/jquery.js"></script>
+<script>
+    $('.wrap').on('click',function (e) {
+        var target=e.target;
+        if(target.tagName.toLowerCase()==='p' || target.tagName.toLowerCase()=='em'){
+            var $parent=$(target).parents('li').eq(0);
+            var $p=$parent.children('p');
+            var $em=$p.children('em');
+            var $ul=$parent.children('ul');
+            var $allEm=$parent.find('em');
+            var $aUl=$parent.find('ul');
+            if($ul){
+                if($ul[0].style.display==='block'){
+                    //隐藏的时候，让当前元素的父元素下，所有的ul都隐藏，所有的em都编程+
+                    $aUl.css('display','none');
+                    $allEm.css('background','url("img/icon.png") -60px -28px no-repeat')
+                }else{
+                    $ul.css('display','block');
+                    $em.css('background','url("img/icon.png") -42px -28px no-repeat')
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{
+            float: left;
+            width: 150px;
+            height: 100px;
+            background: #ff0000;
+            margin: 10px;
+        }
+        div a{
+            font-size: 20px;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+<script>
+    //容器中有30个div，点击每个div里面的a链接，可以删除当前div;
+    var frg=document.createDocumentFragment();
+    for(var i=0; i<30; i++){
+        var oDiv=document.createElement('div');
+        oDiv.innerHTML='<a href="javascript:;">我是第'+(i+1)+'个div</a>'
+        frg.appendChild(oDiv);
+    }
+    document.body.appendChild(frg);
+    frg=null;
+    document.body.onclick=function (e) {
+        e=e||window.event;
+        var target=e.target||e.srcElement;
+        if(target.tagName.toLowerCase()==='a'){
+            this.removeChild(target.parentNode)
+        }
+    }
+</script>
+</body>
+</html>

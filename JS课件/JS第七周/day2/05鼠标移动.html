@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .wrap{
+            width: 880px;
+            margin:50px auto;
+            box-shadow: 0 0 10px  #ccc;
+            position: relative;
+        }
+        .wrap::after{
+            display: block;
+            height: 0;
+            content:'';
+            clear: both;
+        }
+        .wrap > img{
+            width: 200px;
+            float: left;
+            padding: 10px;
+        }
+        .wrap p img{
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <img src="img/apple_1.jpg" data-realImg="img/apple_1_bigger.jpg" alt="">
+    <img src="img/apple_2.jpg" data-realImg="img/apple_2_bigger.jpg" alt="">
+    <img src="img/apple_3.jpg" data-realImg="img/apple_3_bigger.jpg" alt="">
+    <img src="img/apple_4.jpg" data-realImg="img/apple_4_bigger.jpg" alt="">
+    <p>
+        <img src="img/apple_1_bigger.jpg" alt="" id="bigImg">
+    </p>
+</div>
+<script src="https://cdn.bootcss.com/jquery/2.1.2/jquery.js"></script>
+<script>
+    var $bigImg=$('#bigImg');
+    var $pos=$('.wrap').offset();
+    //把所有要添加事件，都委托给它们共同的父级wrap上；
+    $('.wrap').on('mouseover mousemove',function (e) {
+        //l\t计算大图应该在的位置；
+        var l=e.clientX-$pos.left+20;
+        var t=e.clientY-$pos.top+20;
+        //获取每个事件源正确的地址
+        var imgSrc=$(e.target).data('realimg');
+        //让大图显示，并且赋值对应的图片的地址
+        $bigImg.fadeIn().attr('src',imgSrc).css({
+            left:l,
+            top:t
+        })
+    }).on('mouseout',function () {
+        $bigImg.hide();
+    })
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
