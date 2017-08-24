@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+            outline: none;
+        }
+        html,body{
+            height: 100%;
+        }
+        button,input{
+            border: none;
+        }
+        .wrap{
+            text-align: center;
+        }
+        img{
+            width: 270px;
+            margin-top: 106px;
+            margin-bottom: 34px;
+        }
+        .wrap div{
+            width: 640px;
+            margin:0 auto;
+            position: relative;
+        }
+        .wrap input{
+            width: 540px;
+            height: 40px;
+            float: left;
+            box-sizing: border-box;
+            border:1px solid #b6b6b6;
+            -webkit-user-select: text;
+            padding:2px 10px;
+            font-size: 16px;
+        }
+        .wrap input:hover{
+            border-color:#b9b9b9;
+        }
+        .wrap input:focus{
+            border-color:#3385ff;
+        }
+        .wrap button{
+            width: 100px;
+            height: 40px;
+            float: left;
+            background: #3385ff;
+            color: #ffffff;
+            text-align: center;
+            line-height: 40px;
+            font-size: 16px;
+        }
+        .wrap div ul{
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 40px;
+            border:1px solid #b6b6b6;
+            box-shadow: 0 1px 4px rgba(0,0,0,.3);
+            border-top: 0;
+            box-sizing: border-box;
+            display: none;
+        }
+        .wrap div ul li{
+            height: 40px;
+            line-height: 40px;
+            text-align: left;
+        }
+        .wrap div ul li.on{
+            background: #eeeeee;
+        }
+        .wrap div ul li a{
+            color: #333333;
+            display: block;
+            padding-left: 10px;
+        }
+        /*.wrap div ul li a:hover{
+            background: #eeeeee;
+        }*/
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <img src="img/bd_logo1.png" alt="">
+    <div>
+        <input type="text">
+        <button>百度一下</button>
+        <ul>
+            <!--<li><a href="javascript:;">前端Javascript</a></li>
+            <li><a href="javascript:;">node.js学习</a></li>
+            <li><a href="javascript:;">bootstrap框架学习</a></li>
+            <li><a href="javascript:;">express框架搭建</a></li>-->
+        </ul>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
+<script>
+    //https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=1&cb=jQuery110205882703336450068_1503548848100
+    //ul显示：当input聚焦并且有内容的时候，或 编辑内容的时候；ul都显示
+    //ul隐藏:当input聚焦时，内容为空，或编辑内容为空的时候，ul隐藏；
+    //ul隐藏：点击页面任何地方，ul隐藏
+    //当点击列表内容的时候，内容框搜索内容改变，并且开始进行搜索；同时ul隐藏；
+    //点击"百度一下"的时候，开始搜索；
+    //当按键盘上下键的时候，内容框的内容同步走； 背景进行切换
+    var $input=$('input')
+        ,$btn=$('button')
+        ,$ul=$('ul')
+        ,$aLi=null
+        ,n=-1
+        ,oldValue
+    ;
+    //页面加载进来的时候，input自动聚焦；
+    $input.focus();
+    //聚焦和编辑内容的时候，ul显示
+    $input.on('keyup',getData);
+    $input.on('keyup focus',function (e) {
+        //有内容才显示ul
+        var $txt=$(this).val().replace(/(^ +| +$)/g,'');
+        //假：""，0，NaN,null,undefined,false
+        if($txt){
+            $ul.show();
+        }else{
+            $ul.hide();
+        }
+    });
+    $input.on('keydown',function (e) {//40 down; 38 up ; 13 enter
+        //判断上下键
+        /*if(e.keyCode===40){
+            if(n>=$aLi.length-1){
+                n=-2;
+            }
+            n++;
+            console.log(n)
+            aa.call($(this),n);
+        }else if(e.keyCode===38){
+            n--;
+            if(n<=-2){
+                console.log('卡卡')
+                n=$aLi.length-1;
+            }
+            aa.call($(this),n)
+        }else if(e.keyCode===13){
+            search()
+        }
+*/
+        switch (e.keyCode){
+            case 40:
+                if(n>=$aLi.length-1){
+                    n=-2;
+                }
+                n++;
+                aa(n);
+                break;
+            case 38:
+                e.preventDefault();
+                n--;
+                if(n<=-2){
+                    console.log('卡卡')
+                    n=$aLi.length-1;
+                }
+                aa(n);
+                break;
+            case 13:
+                search();
+        }
+        function aa(n) {
+            //先保存以前的值；
+            if(!oldValue){
+                oldValue=$input.val();
+            }
+            //让所有的li都没有背景
+            $aLi.removeClass('on')
+            if(n==-1){
+                $input.val(oldValue);
+            }else{
+                $input.val($aLi.eq(n).text());
+                $aLi.eq(n).addClass('on');
+                $input.off('keyup',getData);
+            }
+        }
+    });
+    //点击事件的委托；
+    $('body').on('click',function (e) {
+        if(e.target.tagName.toLowerCase()==='input'){
+            return;
+        }
+        if(e.target.tagName.toLowerCase()==='button'){
+            search()
+            return;
+        }
+        $ul.hide();
+    });
+    function getData() {
+        $.ajax({
+            url:'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
+            data:'wd='+$(this).val(),
+            type:'jsonp',
+            jsonp:'cb',
+            dataType:'jsonp',
+            success:function (val) {
+                var data=val.s;
+                var str='';
+                for(var i=0; i<data.length; i++){
+                    str+='<li><a href="javascript:;">'+data[i]+'</a></li>';
+                }
+                $ul.html(str);
+                $aLi=$ul.find('li');
+                $aLi.on('mouseover',function () {
+                    $(this).addClass('on').siblings('li').removeClass('on');
+                    n=$(this).index();
+                })
+            }
+        });
+    }
+    function search() {
+        window.open('https://www.baidu.com/s?wd='+$input.val(),'_self');
+        $ul.hide();
+        $input.val('');
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

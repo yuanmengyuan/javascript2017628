@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+<div id="wrap"></div>
+<script>
+    /*
+    * 1、bind在哪里封装
+    * 2、bind有返回值吗？ 返回值是函数定义阶段：函数的this，参数已经被改变了；
+    * 3、bind中的this  实例；
+    * 4、兼容就使用兼容的，不兼容，自己再做处理
+    * */
+    var obj={name:'lei'};
+    function fn(a,b,c) {
+        console.log(a,b,c.type)
+    }
+    var oWrap=document.getElementById('wrap');
+    //封装
+    Function.prototype.myBind=function (thisArg) {
+        var outArg=Array.prototype.slice.call(arguments,1); // [ ]
+        //判断浏览器兼容
+        if('bind' in Function.prototype){
+            return this.bind.apply(this,[thisArg].concat(outArg));
+        }
+        //浏览器不支持
+        var _this=this; //fn
+        return function (e) {
+            e=e||window.event;
+            _this.apply(thisArg,outArg.concat(e));
+        }
+    };
+    oWrap.onclick=fn.myBind(obj,1,2); //  fn.bind(thisArg,arg2,arg3,arg4....);
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
