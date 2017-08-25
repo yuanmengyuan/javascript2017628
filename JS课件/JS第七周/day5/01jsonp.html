@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // 1:创建全局函数名。并拼接地址
+    // 2：通过script的src属性发起跨域请求
+    // 3:通过全局函数的参数，接收别人传进来的数据
+
+    //https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=d&cb=jQuery01654406899281009
+    //1:需要自己创建一个全局函数名；
+    var url='https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=d';
+    var fnName='jQuery'+Math.random();
+    fnName=fnName.replace('.','');
+    window[fnName]=function (val) {
+        //3:接收别人传进来的参数
+        console.log('leileilei',val.s);
+        document.body.removeChild(oS);
+    };
+    url+='&cb='+fnName;
+    //2:创建script标签，进行跨域请求
+    var oS=document.createElement('script');
+    oS.src=url;
+    document.body.appendChild(oS);
+
+</script>
+</body>
+</html>

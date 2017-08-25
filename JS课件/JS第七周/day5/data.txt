@@ -1,0 +1,1 @@
+[{"imgSrc":"img/banner1.jpg","title":"广告1"},{"imgSrc":"img/banner2.jpg","title":"广告2"},{"imgSrc":"img/banner3.jpg","title":"广告3"},{"imgSrc":"img/banner4.jpg","title":"广告4"}]

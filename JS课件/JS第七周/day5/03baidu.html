@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+            outline: none;
+        }
+        html,body{
+            height: 100%;
+        }
+        button,input{
+            border: none;
+        }
+        .wrap{
+            text-align: center;
+        }
+        img{
+            width: 270px;
+            margin-top: 106px;
+            margin-bottom: 34px;
+        }
+        .wrap div{
+            width: 640px;
+            margin:0 auto;
+            position: relative;
+        }
+        .wrap input{
+            width: 540px;
+            height: 40px;
+            float: left;
+            box-sizing: border-box;
+            border:1px solid #b6b6b6;
+            -webkit-user-select: text;
+            padding:2px 10px;
+            font-size: 16px;
+        }
+        .wrap input:hover{
+            border-color:#b9b9b9;
+        }
+        .wrap input:focus{
+            border-color:#3385ff;
+        }
+        .wrap button{
+            width: 100px;
+            height: 40px;
+            float: left;
+            background: #3385ff;
+            color: #ffffff;
+            text-align: center;
+            line-height: 40px;
+            font-size: 16px;
+        }
+        .wrap div ul{
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 40px;
+            border:1px solid #b6b6b6;
+            box-shadow: 0 1px 4px rgba(0,0,0,.3);
+            border-top: 0;
+            box-sizing: border-box;
+            display: none;
+        }
+        .wrap div ul li{
+            height: 40px;
+            line-height: 40px;
+            text-align: left;
+        }
+        .wrap div ul li.on{
+            background: #eeeeee;
+        }
+        .wrap div ul li a{
+            color: #333333;
+            display: block;
+            padding-left: 10px;
+        }
+        /*.wrap div ul li a:hover{
+            background: #eeeeee;
+        }*/
+    </style>
+</head>
+<body>
+<div class="wrap" id="wrap">
+    <img src="img/bd_logo1.png" alt="">
+    <div>
+        <input type="text">
+        <button>百度一下</button>
+        <ul>
+            <!--<li><a href="javascript:;">前端Javascript</a></li>
+            <li><a href="javascript:;">node.js学习</a></li>
+            <li><a href="javascript:;">bootstrap框架学习</a></li>
+            <li><a href="javascript:;">express框架搭建</a></li>-->
+        </ul>
+    </div>
+</div>
+<script src="event.js"></script>
+<script src="ajax.js"></script>
+<script src="bd.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
