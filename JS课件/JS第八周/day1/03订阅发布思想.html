@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<script src="event.js"></script>
+<script>
+    //属性：1）系统属性 2）自定义属性；
+    //行为：1）系统行为 2）自定义行为；
+    var zhangzhi=document.getElementsByTagName('div')[0];
+    on(zhangzhi,'myjiehun',zhaoliying);
+    on(zhangzhi,'myjiehun',liudehua);
+    on(zhangzhi,'myjiehun',hongbao);
+    function zhaoliying() {
+        console.log('赵丽颖跳舞')
+    }
+    function liudehua() {
+        console.log('刘德华唱歌')
+    }
+    function hongbao() {
+        console.log('朋友们开始送红包')
+    }
+    /*setTimeout(function () {
+        console.log('结婚这件事真的发生了');
+        fire.call(zhangzhi,'myjiehun');
+    },2000)*/
+    zhangzhi.onclick=function () {
+        fire.call(this,'myjiehun')
+    }
+</script>
+</body>
+</html>

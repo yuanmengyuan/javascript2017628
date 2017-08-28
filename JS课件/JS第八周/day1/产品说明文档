@@ -1,0 +1,11 @@
+### 产品：拖拽
+- 产品属性：
+- 产品方法：
+- 能够实现的基本功能：
+### 客户端如何进行产品升级：
+为了让产品有更多的功能，我们暴露了三个接口，供客户端按需升级；
+使用方法如下：
+var oDiv=document.getElementById('id');
+oDiv.on('myDown',fn)
+oDiv.on('myMove',fn)
+oDiv.on('myUp',fn)

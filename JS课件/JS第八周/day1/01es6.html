@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+class Fn{
+    constructor(){//constructor中写私有的属性和方法
+        this.name='lei';
+        this.sex='girl';
+    }
+    //下面的都是prototype上公有的属性和方法；
+    getName(){
+        alert(this.name);
+    }
+}
+class Son extends Fn{
+    constructor(){
+        super();
+    }
+    getName(){
+        alert('11111');
+    }
+}
+var f1=new Fn();
+var s1=new Son();
+/*console.dir(f1);
+console.dir(s1);*/
+s1.__proto__.__proto__.getName=3333;
+//s1.getName();
+/*
+* name:'lei'
+* sex:'girl'
+* __prototype__:
+*   constructor:Fn
+*   getName:function(){}
+*
+* */
+</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            position: absolute;
+            font-size: 40px;
+        }
+        .div2{
+            background: #00ff00;
+        }
+        .div3{
+            background: #0000ff;
+        }
+    </style>
+</head>
+<body>
+<div class="div1">div1</div>
+<div class="div2">div2</div>
+<div class="div3">div3</div>
+<script src="event.js"></script>
+<script src="Drag.js"></script>
+<script>
+   var aDiv=document.getElementsByTagName('div');
+   var index=0;
+   for(var i=0; i<aDiv.length; i++){
+       var curDiv=new Drag({
+           el:aDiv[i]
+       })
+       curDiv.on('myDown',creaseIndex);
+       if(i==1){
+           curDiv.on('myMove',function () {
+               limitMove.call(this,{
+                   l:0,
+                   r:500,
+                   t:100,
+                   b:400
+               })
+           })
+       }
+   }
+   //对所有的元素，都点击增加层级；
+   function creaseIndex() {
+       // ++i 先++再运算；
+       //i++ 先运算，后++；++后的结果不参与运算
+        this.el.style.zIndex=index++;
+   }
+   //对索引为1的元素，限定范围的拖拽
+    function limitMove(opt) {
+       var l=this.el.offsetLeft;
+       var t=this.el.offsetTop;
+       if(l<opt.l){
+           l=opt.l;
+       }else if(l>opt.r){
+           l=opt.r;
+       }
+       if(t<opt.t){
+           t=opt.t;
+       }else if(t>opt.b){
+           t=opt.b;
+       }
+       //设置位置
+        this.el.style.left=l+'px';
+        this.el.style.top=t+'px';
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        #id{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+<div id="id"></div>
+<script src="event.js"></script>
+<script src="drag2.js"></script>
+<script>
+    var oDiv=document.getElementById('id');
+    var drag=new Drag({
+        el:oDiv
+    });
+    drag.on('myDown',fn1).on('myDown',fn2).on('myDown',fn3)
+    function fn1() {
+        console.log(11111)
+    }
+    function fn2() {
+        console.log(22222)
+    }
+    function fn3() {
+        console.log(33333)
+    }
+</script>
+</body>
+</html>

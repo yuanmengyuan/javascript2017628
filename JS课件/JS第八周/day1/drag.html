@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        #id{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+<div id="id"></div>
+<script src="event.js"></script>
+<script src="drag.js"></script>
+<script>
+    var oDiv=document.getElementById('id');
+    var drag1=new Drag({
+        el:oDiv
+    })
+    //订阅
+    /*on(oDiv,'myDown',fn1);
+    on(oDiv,'myDown',fn2);
+    on(oDiv,'myDown',fn3);*/
+    /*on(oDiv,'myMove',fn2);
+    on(oDiv,'myMove',fn3);*/
+    /*on(oDiv,'myUp',fn3);
+    on(oDiv,'myUp',fn1);*/
+    function fn1() {
+        console.log(1)
+    }
+    function fn2() {
+        console.log(2)
+    }
+    function fn3() {
+        console.log(3)
+    }
+</script>
+</body>
+</html>
