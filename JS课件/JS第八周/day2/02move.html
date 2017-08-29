@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="div"></div>
+<script src="event.js"></script>
+<script src="util.js"></script>
+<script src="move2.js"></script>
+<script>
+    var oDiv=document.getElementById('div');
+    on(oDiv,'myMove',fn1);
+    on(oDiv,'myMove',fn2);
+    on(oDiv,'myMove',fn3);
+    animate({
+        el:oDiv,
+        target:{
+            left:500,
+            top:400
+        }
+    })
+    function fn1() {
+       this.style.background='green';
+    }
+    function fn2() {
+        this.style.width='600px';
+    }
+    function fn3() {
+        this.style.opacity=0.4;
+    }
+</script>
+</body>
+</html>

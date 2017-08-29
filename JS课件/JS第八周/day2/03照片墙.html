@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .wrap{
+            width: 510px;
+            background: #cccccc;
+            margin:30px auto;
+            height: 680px;
+            padding: 10px;
+        }
+        .wrap li{
+            width: 160px;
+            height: 160px;
+            float: left;
+            background: lightblue;
+            margin:5px;
+        }
+        .wrap li img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <li><img src="img/1.png"></li>
+    <li><img src="img/2.png"></li>
+    <li><img src="img/3.png"></li>
+    <li><img src="img/4.png"></li>
+    <li><img src="img/5.png"></li>
+    <li><img src="img/6.png"></li>
+    <li><img src="img/7.png"></li>
+    <li><img src="img/8.png"></li>
+    <li><img src="img/9.png"></li>
+    <li><img src="img/10.png"></li>
+    <li><img src="img/11.png"></li>
+    <li><img src="img/12.png"></li>
+</div>
+<script src="util.js"></script>
+<script src="move2.js"></script>
+<script src="event.js"></script>
+<script src="Drag.js"></script>
+<script>
+    let aLi=document.getElementsByTagName('li');
+    let zIndex=0;
+    //浮动布局，转定位布局；
+    for(let i=aLi.length-1; i>=0; i--){
+        let cur=aLi[i];
+        let l=(cur.l)=cur.offsetLeft;
+        let t=(cur.t)=cur.offsetTop;
+        cur.style.left=l+'px';
+        cur.style.top=t+'px';
+        cur.style.position='absolute';
+        cur.style.margin=0;
+    }
+    //操作每个li元素
+    for(var i=0; i<aLi.length; i++){
+        var cur=aLi[i];
+        //给每个li元素都增加拖拽的功能；
+        var drag=new Drag({
+            el:cur
+        });
+        drag.on('myDown',creaseIndex).on('myMove',kicked).on('myUp',changePos).on('myUp',goHome);
+    }
+    //当按下的时候，增加当前元素的层级；
+    function creaseIndex() {
+        this.el.style.zIndex=++zIndex;
+    }
+    //当鼠标抬起的时候，让元素动态的回到它以前的位置；
+    function goHome() {
+        /*this.el.style.left=this.el.l+'px';
+        this.el.style.top=this.el.t+'px';*/
+        animate({
+            el:this.el,
+            target:{
+                left:this.el.l,
+                top:this.el.t
+            },
+            effect:3,
+            duration:500
+        })
+    }
+    function iskicked(l,r) {
+        //算数：+ - * / %
+        //比较运算：> < >= <= == != === !==
+        //逻辑运算符： & || ！
+        //赋值运算符：=  += -= *= /= %=
+        //算数运算符》比较运算符》逻辑运算符》赋值运算符
+        if((l.offsetLeft+l.offsetWidth < r.offsetLeft) || (l.offsetTop+l.offsetHeight < r.offsetTop) || (l.offsetLeft>r.offsetLeft+r.offsetWidth) || (l.offsetTop>r.offsetTop+r.offsetHeight)){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    function kicked() {
+        this.arr=[];
+        for(var i=0; i<aLi.length; i++){
+            //判断：如果遇到自己，就不进行比较
+            var cur=aLi[i];
+            if(this.el==cur) continue;
+            if(iskicked(this.el,cur)){
+                this.arr.push(cur);
+                cur.style.backgroundColor='red';
+            }
+        }
+    }
+    function changePos() {
+        //this.arr能拿到当前碰撞到的元素；
+        let arr=this.arr;
+        for(let i=0; i<arr.length; i++){
+            let cur=arr[i];
+            cur.dis=Math.pow(this.el.offsetLeft-cur.offsetLeft,2)+Math.pow(this.el.offsetTop-cur.offsetTop,2);
+            cur.style.background='lightBlue';
+        }
+        arr.sort(function (a,b) {
+            return a.dis-b.dis;
+        })
+        let shortest=arr[0];
+        shortest.style.background='purple';
+        this.el.style.background='purple';
+        animate({
+            el:this.el,
+            target:{
+                left:shortest.l,
+                top:shortest.t
+            },
+            effect:3,
+            duration:500
+        });
+        animate({
+            el:shortest,
+            target:{
+                left:this.el.l,
+                top:this.el.t
+            },
+            effect:3,
+            duration:500
+        });
+        var tmp={};
+        tmp.l=this.el.l;
+        tmp.t=this.el.t;
+        this.el.l=shortest.l;
+        this.el.t=shortest.t;
+        shortest.l=tmp.l;
+        shortest.t=tmp.t;
+
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

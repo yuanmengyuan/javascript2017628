@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .div{
+            width: 100px;
+            height: 100px;
+            background: #ff0000;
+            position: absolute;
+            left: 0;
+            top: 0;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<div id="drag" class="div"></div>
+<script src="event.js"></script>
+<script src="Drag.js"></script>
+<script>
+    var oDiv=document.getElementById('drag');
+    var drag1=new Drag({
+        el:oDiv
+    });
+    drag1.on('myDown',clearTimer).on('myMove',getSpeed).on('myUp',flyX).on('myUp',flyY);
+    function clearTimer() {
+        clearTimeout(this.Xtimer);
+        clearTimeout(this.Ytimer);
+    }
+    function getSpeed(e) {
+        //当前鼠标坐标，减去上一次鼠标坐标，求出距离，即速度；
+        if(!this.preX){
+            this.preX=e.clientX;
+        }else{
+            this.speedX=e.clientX-this.preX;
+            this.preX=e.clientX;
+        }
+    }
+    function flyX(e) {
+        clearTimeout(this.Xtimer);
+        this.speedX*=.93;
+        let l=this.el.offsetLeft+this.speedX;
+        let maxL=(document.documentElement.clientWidth||document.body.clientWidth)-this.el.offsetWidth;
+        if(l<0){
+            l=0;
+            this.speedX*=-1;
+        }else if(l>maxL){
+            l=maxL;
+            this.speedX*=-1;
+        }
+        //边界范围限制；
+        if(Math.abs(this.speedX)>0.5){
+            this.el.style.left=l+'px';
+            this.Xtimer=setTimeout(processThis(arguments.callee,this),10);
+        }
+    }
+    function flyY() {
+        clearTimeout(this.Ytimer);
+        let g=9.8;
+        if(!this.speedY){
+            this.speedY=g;
+        }else{
+            this.speedY+=g;
+        }
+        this.speedY*=.93;
+        let t=this.el.offsetTop+this.speedY;
+        let maxT=(document.documentElement.clientHeight||document.body.clientHeight)-this.el.offsetHeight;
+        if(t>maxT){//落下来了
+            t=maxT;
+            this.speedY*=-1;
+            ++this.flg;
+        }else{//弹上去了
+            this.flg=0;
+        }
+        if(this.flg<2){
+            this.el.style.top=t+'px';
+            this.Ytimer=setTimeout(processThis(arguments.callee,this),10);
+        }
+        //console.log(this.flg)
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
