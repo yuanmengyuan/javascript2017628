@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            background: #ccc;
+            position: absolute;
+        }
+        .div2{
+            background: green;
+        }
+        .div3{
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+<div class="div1"></div>
+<div class="div2"></div>
+<div class="div3"></div>
+<script src="event.js"></script>
+<script src="Drag.js"></script>
+<script>
+    //let 和var的区别：1）let不会进行预解释  2）let 会形成块级作用域
+    let aDiv=document.getElementsByTagName('div');
+    for(let i=0; i<aDiv.length; i++){
+        let drag=new Drag({
+            el:aDiv[i]
+        });
+        drag.creaseIndex();
+        //当索引为0的时候，让当前的这个div有限定范围的功能；
+        if(i==2){
+            drag.limit({
+                l:0,
+                t:0,
+                r:500,
+                b:400
+            })
+        }
+        if(i==1){
+            drag.jump();
+        }
+        if(i==0){
+            drag.dashed();
+        }
+    }
+
+</script>
+</body>
+</html>
