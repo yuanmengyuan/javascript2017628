@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<form action="" enctype="application/x-www-form-urlencoded"></form>
+<script src="js/ajax.js"></script>
+<script>
+    /*ajax({
+        url:'',//请求地址
+        type:'get',   //get post jsonp
+        data:{},  //前端传给后台的参数
+        jsonp:'cb', //默认的是callback
+        dataType:'json',
+        fnLoading:function () {
+
+        },
+        complete:function () {
+
+        },
+        success:function(){
+
+        },
+        error:function () {
+
+        },
+        timeout:500
+    })*/
+    //
+    ajax({
+        url:'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',
+        type:'jsonp',
+        data:{wd:"王者荣耀"},
+        jsonp:'cb',
+        dataType:'json',
+        success:function (val) {
+            console.log(val)
+        }
+    })
+</script>
+</body>
+</html>

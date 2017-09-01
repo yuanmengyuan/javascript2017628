@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    /*fetch('data.txt')
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (jsonData) {
+            console.log(jsonData)
+        })
+        .catch(function (err) {
+            console.log(err)
+        })*/
+    /*function getData(cb) {
+        var xml=new XMLHttpRequest();
+        xml.open('GET','data.txt',false);
+        xml.onreadystatechange=function () {
+            if(xml.readyState===4){
+                if(/^2\d{2}$/.test(xml.status)){
+                    cb && cb(JSON.parse(xml.responseText))
+                }else{
+                    cb && cb(xml.statusText)
+                }
+            }
+        }
+        xml.send();
+    }
+
+    getData(function (data) {
+        console.log(data);
+    })*/
+
+function getData(url) {
+    var promise=new Promise(function (resolve,reject) {
+        var xml=new XMLHttpRequest();
+        xml.open('GET',url,false);
+        xml.onreadystatechange=function () {
+            if(xml.readyState===4){
+                if(/^2\d{2}$/.test(xml.status)){
+                    //cb && cb(JSON.parse(xml.responseText))
+                    resolve(JSON.parse(xml.responseText))
+                }else{
+                    //cb && cb(xml.statusText)
+                    reject(xml.status)
+                }
+            }
+        }
+        xml.send();
+    })
+    return promise;
+}
+
+    getData('data.txt')
+    .then(data=>{
+        console.log(data)
+        return getData('data2.txt')
+    })
+    .then(data=>{
+        console.log(data)
+        return getData('data3.txt')
+    })
+    .then(data=>{
+        console.log(data)
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+
+</script>
+</body>
+</html>

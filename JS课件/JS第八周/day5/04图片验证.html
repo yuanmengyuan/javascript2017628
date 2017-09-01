@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<form action=""  enctype="application/x-www-form-urlencoded"></form>
+<script>
+    /*function validate(url) {
+        return new Promise((resolve,reject)=>{
+            var tmpImg=new Image;
+            tmpImg.src=url;
+            tmpImg.onload=resolve;
+            tmpImg.onerror=reject;
+        })
+
+    }
+    validate('img/111111.png')
+        .then(()=>{
+        console.log('地址正确')
+        })
+        .catch(()=>{
+        console.error('地址错误')
+            //throw new Error('地址错误')
+        })*/
+/*fetch('data.txt?name=leilei&sex=gril')
+    .then(res=>{
+        console.dir(res)
+        /!*res.headers.forEach(function(item){
+            console.log(arguments)
+        })*!/
+        console.log(res.headers.get('content-type'));
+        console.log(res.headers.get('date'));
+        return res.json()
+    })
+    .then(data=>console.log(data))
+    .catch(error=>console.log(error));*/
+fetch('data.txt',{
+    method:'POST',
+    headers:{
+        "Content-Type":"application/x-www-form-urlencoded"
+    },
+    body:'name=leilei&sex=gril'
+})
+    .then(response=>response.json())
+    .then(jsonData=>{
+        console.log(jsonData)
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+</script>
+</body>
+</html>

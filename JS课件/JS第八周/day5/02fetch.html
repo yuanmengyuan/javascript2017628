@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<form action="" enctype="application/x-www-form-urlencoded"></form>
+<script>
+    /*var xml=new XMLHttpRequest();
+    xml.open('get/')
+    xml.onreadystatechange=function () {
+
+    }
+    xml.send();*/
+    if('fetch' in window){
+        fetch('data.txt?name=lei&sex=gril')
+            .then(res=>res.json())
+            .then(data=>console.log(data))
+            .catch(err=>console.log(err))
+    }
+    //fetch返回的是promise对象；
+    /*if('fetch' in window){
+        fetch('data.txt')
+            .then(function(response){
+                console.dir(response)
+                console.log(response.headers.get('content-length'))
+                console.log(response.headers.get('content-type'))
+                console.log(response.headers.get('date'))
+                console.log(response.status)
+                console.log(response.statusText)
+                console.log(response.ok)
+                return response.text()
+            })
+            .then(function (jsonData) {
+                console.log(jsonData)
+            })
+            .catch(function (err) {
+                console.log(err)
+            })
+    }*/
+    /*fetch('data.txt',{
+        method:'POST',
+        headers:{
+            "Content-Type":"application/x-www-form-urlencoded"
+        },
+        body:"name=lei&sex=gril"
+    })
+        .then(response=>{
+            return response.json()
+        })
+        .then(jsonData=>{
+            console.log(jsonData)
+        })
+        .catch(err=>{
+            console.log(err)
+        })*/
+</script>
+</body>
+</html>

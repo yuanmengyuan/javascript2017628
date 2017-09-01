@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: #f00;
+        }
+    </style>
+</head>
+<body>
+<div id="div"></div>
+<script src="js/util.js"></script>
+<script src="js/event.js"></script>
+<script src="js/move.js"></script>
+<script>
+    var oDiv=document.getElementById('div');
+    animate({
+        el:oDiv, //必有
+        target:{ //必有
+            left:500,
+            top:400
+        },
+        effect:['Bounce','easeIn'],//可选
+        duration:1000//可选
+    });
+    on(oDiv,'myMove',fn1);
+    on(oDiv,'myMove',fn2);
+    on(oDiv,'myMove',fn3);
+
+    function fn1() {
+        console.log(11111)
+    }
+    function fn2() {
+        console.log(222222)
+    }
+    function fn3() {
+        console.log(3333333)
+    }
+</script>
+</body>
+</html>
