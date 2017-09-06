@@ -74,5 +74,4 @@
     });
     obj.a='334555';
     console.log(obj.a)
-
 }
