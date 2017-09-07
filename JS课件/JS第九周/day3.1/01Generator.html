@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<div id="div"></div>
+<script>
+    function* getData(url) {
+        yield fetch(url);
+    }
+    let k=getData('./data.txt');
+    k.next().value
+        .then(res=>res.json())
+        .then(data=>{
+            document.getElementById('div').innerHTML=data[0].name;
+        })
+</script>
+</body>
+</html>

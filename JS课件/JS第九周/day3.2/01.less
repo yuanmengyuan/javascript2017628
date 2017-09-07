@@ -1,0 +1,49 @@
+@import "reset.css";
+@import (reference)"public";//不把public.less中的less文件，在当前css文件中，进行编译
+
+.box{
+  width: 200px;
+  height: 200px;
+  font-size: 40px;
+  word-break: break-all;
+  background: @color;
+  .pulic(red,25%);
+  .padding(10px,20px,30px,40px)
+  //&:extend(.pulic);//继承；  .public拷贝
+}
+
+.box2{
+  p{
+    width: 300px;
+    height: 300px;
+    position: relative;
+    .bgRed;
+    &:hover{
+      .bgGreen;
+    }
+    &::after{
+      position: absolute;
+      display: block;
+      content:'';
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      right: -30px;
+      top: -30px;
+      background: @color;
+    }
+  }
+}
+.boxInner{
+  width:percentage(.4);
+  padding:floor(50.8888px);
+    p{
+      width: 200px;
+      height: 200px;
+      background: #ff0000;
+      span{
+        color: #ffffff;
+        font-size: 40px;
+      }
+    }
+}

@@ -1,0 +1,21 @@
+//全局变量
+@color:orange;
+//全局函数：不带参数
+//默认参数用":"
+.pulic(@bc,@br:50%){
+  border:10px solid @bc;
+  border-radius: @br;
+}
+//如果需要所有参数，用@arguments
+.padding(@top,@right,@bottom,@left){
+  padding:@arguments;
+}
+//条件判断
+.mixin(@red)when(@red=red){
+  background: @red;
+}
+.mixin(@red)when(@red=green){
+  background: @red;
+}
+.bgRed{.mixin(red)}
+.bgGreen{.mixin(green)}
