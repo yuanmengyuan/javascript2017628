@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="800" height="500"></canvas>
+<script>
+    let canvas=document.getElementById('canvas');
+    let ctx=canvas.getContext('2d');
+    let timer=null;
+    let ary=[];
+    //ctx.arc(x,y,r,start,end,false)
+    class Ball{
+        constructor(x,y,r=30){
+            this.x=x;
+            this.y=y;
+            this.r=r;
+
+            this.dx=Math.random()*10-5; //-5~5;
+            this.dy=Math.random()*10-5; //-5~5;
+            this.dr=Math.random()+.3;
+            this.color= `rgba(${Math.trunc(Math.random()*255)},${Math.trunc(Math.random()*255)},${Math.trunc(Math.random()*255)},.8)`;
+            //把新创建的每个实例，都放入数组
+            ary.push(this);
+        }
+        update(){
+            this.x-=this.dx;
+            this.y-=this.dy;
+            this.r-=this.dr;//让半径不断的变小；
+            //当球的半径小于或等于0的时候，把这个球的实例从数组中删掉；
+            console.log(this.r)
+            if(this.r<=0){
+                /*for(var i=0; i<ary.length; i++){
+                    if(ary[i]===this){
+                        ary.splice(i,1);
+                        i--;
+                    }
+                }*/
+                /*let index=ary.findIndex(item=>item===this);
+                ary.splice(index,1);
+                return;*/
+            }
+            return this;
+
+        }
+        //原型上的属性和方法；
+        render(){
+            if(this.r>0){//当半径大于0的时候，才画圆；
+                ctx.beginPath();
+                ctx.arc(this.x,this.y,this.r,0,Math.PI*2,false);
+                ctx.fillStyle=this.color;
+                ctx.fill();
+            }
+        }
+    }
+    /*let ball1=new Ball(200,200);
+    let ball2=new Ball(300,100);
+    let ball3=new Ball(100,400);
+    let ball4=new Ball(100,400);
+    let ball5=new Ball(100,400);
+    let ball6=new Ball(100,400);*/
+    timer=setInterval(function () {
+        //清空画布
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        for(let val of ary){
+            let res=val.update();
+            if(res){
+                res.render();
+            }
+        }
+    },30);
+    canvas.addEventListener('mousemove',(e)=>{
+        e=e||window.event;
+        new Ball(e.clientX,e.clientY);
+    })
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

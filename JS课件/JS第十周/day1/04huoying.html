@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        canvas{
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="800" height="500">您的网站太low了，速速升级！</canvas>
+<script>
+    let canvas=document.getElementById('canvas');
+    let ctx=canvas.getContext('2d');
+    let timer=null;
+    //ctx.drawImage(img,x,y,w,h,dx,dy,dw,dh);
+    class Huoying{
+        constructor(x,y,dx,dy){
+            //保存ps中的坐标和画布中的坐标
+            this.x=x;
+            this.y=y;
+            this.dx=dx;
+            this.dy=dy;
+            this.n=0;
+            this.dirX=30;
+            this.state=2;
+
+        }
+        update(){
+            this.n++;
+            this.n=this.n%4;
+            this.x=72*this.n;
+            this.dx+=this.dirX;
+            if(this.dx>=(canvas.width-72*2)){
+                this.dirX=-30;
+                this.state=1;
+            }else if(this.dx<=10){
+                this.dirX=30;
+                this.state=2;
+            }
+            return this;
+        }
+        render(){
+            ctx.beginPath();
+            ctx.drawImage(img,this.x,72*this.state,72,72,this.dx,this.dy,72*2.5,72*2.5);
+        }
+    }
+    let img=new Image;
+    let huoying=new Huoying(0,0,50,100);
+    img.src='./img/houying.png';
+    img.onload=function () {
+        //渲染render火影的实例；
+        timer=setInterval(function () {
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            huoying.update().render();
+        },150)
+    }
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+

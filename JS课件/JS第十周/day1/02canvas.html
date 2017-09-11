@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        canvas{
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="800" height="500">sorry！您的浏览器不支持canvas，请升级！</canvas>
+<script>
+    //1：获取canvas
+    let canvas=document.getElementById('canvas');
+    //2:创建一个2d环境
+    let ctx=canvas.getContext('2d');
+    //3:画线
+    /*ctx.beginPath();
+    ctx.moveTo(100,100);
+    ctx.lineTo(200,300);
+    ctx.lineTo(500,100);
+    //ctx.closePath();
+    /!*ctx.lineWidth=20;//调整线的粗细；
+    ctx.strokeStyle='yellow';//改变线的颜色*!/
+    //ctx.stroke();//线
+    ctx.fillStyle='red';//改变填充的颜色；
+    ctx.fill();*/
+    //4:矩形
+    //ctx.strokeRect(100,100,300,200);
+    //ctx.fillRect(100,100,300,200);
+    //ctx.rect(100,100,300,200);
+    //ctx.fill();
+    //ctx.stroke();
+    //5:使用图片
+    /*let img=new Image;
+    img.src='img/1.jpeg';
+    img.onload=function () {
+        ctx.drawImage(img,268,0,419,297,50,50,419,297);
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+    };*/
+    //6:画弧
+    //ctx.arc(300,300,100,0,Math.PI/2+Math.PI,true);
+    ctx.arc(300,300,50,0,Math.PI*2,true);
+    /*ctx.strokeStyle='red';
+    ctx.lineWidth=100;
+    ctx.stroke();*/
+    ctx.fill();
+</script>
+</body>
+</html>
