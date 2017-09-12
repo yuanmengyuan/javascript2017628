@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        body{
+            font-size: 30px;
+        }
+        .wrap a{
+            color: #333333;
+        }
+        .wrap div{
+            padding: 10px;
+            width: 500px;
+            height: 200px;
+            background: lightblue;
+            display: none;
+        }
+        .wrap a:nth-child(1){
+            color: #ff0000;
+        }
+        .wrap div:nth-of-type(1){
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <a href="#" data-target=".tiyu">体育频道</a>
+    <a href="#" data-target=".shenghuo">生活频道</a>
+    <a href="#" data-target=".yule">娱乐频道</a>
+    <a href="#" data-target=".fazhi">法制频道</a>
+    <div class="tiyu">体育频道111111111</div>
+    <div class="shenghuo">生活频道222222222</div>
+    <div class="yule">娱乐频道333333333</div>
+    <div class="fazhi">法制频道444444444</div>
+</div>
+<script>
+    let aBtn=document.getElementsByTagName('a');
+    let aDiv=document.querySelectorAll('.wrap div');
+    for(var i=0; i<aBtn.length; i++){
+        aBtn[i].onclick=function () {
+            let target=this.dataset.target;
+            for(var i=0; i<aDiv.length; i++){
+                aDiv[i].style.display='none';
+            }
+            document.querySelector(target).style.display='block';
+        }
+    }
+</script>
+</body>
+</html>

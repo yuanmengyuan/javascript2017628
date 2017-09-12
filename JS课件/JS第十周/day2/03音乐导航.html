@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            width: 800px;
+            border: 1px solid #000;
+            margin:100px auto;
+        }
+        ul::after{
+            display: block;
+            content:'';
+            height:0;
+            clear: both;
+        }
+        ul li{
+            list-style: none;
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            float: left;
+            box-sizing: border-box;
+            position: relative;
+        }
+        ul li+li{
+            border-left:1px dashed #ccc;
+        }
+        ul li ins{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            line-height: 50px;
+            left: 0;
+            top: 50px;
+        }
+
+    </style>
+</head>
+<body>
+<ul>
+    <li>音乐1</li>
+    <li>音乐2</li>
+    <li>音乐3</li>
+    <li>音乐4</li>
+    <li>音乐5</li>
+    <li>音乐6</li>
+    <li>音乐7</li>
+    <li>音乐8</li>
+</ul>
+<section>
+    <audio src="music/1.ogg"></audio>
+    <audio src="music/2.ogg"></audio>
+    <audio src="music/3.ogg"></audio>
+    <audio src="music/4.ogg"></audio>
+    <audio src="music/5.ogg"></audio>
+    <audio src="music/6.ogg"></audio>
+    <audio src="music/7.ogg"></audio>
+    <audio src="music/8.ogg"></audio>
+</section>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+<script>
+    //each中，参数（index,item）
+    //箭头函数中，禁止使用arguments；
+    let arr=['red','orange','blue','yellow','purple','pink','brown','green'];
+    let timer=null;
+    //jquery中的遍历
+    $('li').each((index,item)=>{
+        //给每个li添加ins标签，并且设置不同的背景颜色；
+        $('<ins>').appendTo($(item)).css('backgroundColor',arr[index]);
+    }).on('mouseenter',function () {
+        $(this).find('ins').stop().animate({top:0});
+        //加载当前对应的音乐；注意，我把jquery转成了原生；
+        $('audio')[$(this).index()].load();
+        $('audio')[$(this).index()].play();
+
+        //判断音乐播放完成的时候，要做什么事？
+        clearInterval(timer);
+        timer=setInterval(()=> {
+            if($('audio')[$(this).index()].ended){
+                //juqery中的自动触发；
+                $(this).trigger('mouseleave');
+                clearInterval(timer);
+            }
+        },20)
+    }).on('mouseleave',function () {
+        $(this).find('ins').stop().animate({top:50});
+        $('audio')[$(this).index()].pause();
+    });
+    //事件委托
+    $(document).on('keydown',function (e) {
+        e=e||window.event;
+        //键盘事件
+        if(e.keyCode>=49 && e.keyCode<=56){
+            $('li').eq(e.keyCode-49).trigger('mouseenter').siblings('li').trigger('mouseleave');
+        }
+    })
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

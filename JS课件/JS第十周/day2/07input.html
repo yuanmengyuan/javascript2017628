@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: 30px;
+        }
+        input{
+            width: 200px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+<!--398xx @ 163qq .com .cn
+/^([\w.-]+)@([1-9a-zA-Z]+)(\.[a-zA-Z]{2,4}){1,2}$/-->
+<form action="">
+    <!--<p><input type="email" name="email" required></p>-->
+    <p><input type="text" required name="email"  pattern="^([\w.-]+)@([1-9a-zA-Z]+)(\.[a-zA-Z]{2,4}){1,2}$" autofocus></p>
+    <input type="file" name="file" id="" multiple>选择文件
+    <p><input type="submit" value="提交"></p>
+</form>
+</body>
+</html>
+
+
+
+
+
+
+
+

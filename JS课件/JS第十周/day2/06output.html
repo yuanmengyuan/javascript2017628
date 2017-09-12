@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<form action="" oninput="haha.value=Number(range.value)+Number(num.value)">
+    <span>0</span><br/>
+    0<input type="range" name="range" id="range" value="0" min="0" max="100">100+
+    <input type="number" name="num">=
+    <output id="haha"></output>
+</form>
+<script>
+    let oR=document.getElementById('range');
+    let oSpan=document.getElementsByTagName('span')[0];
+    oR.onchange=function () {
+        oSpan.innerHTML=this.value;
+    }
+</script>
+</body>
+</html>

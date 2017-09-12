@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <style>
+        input,button{
+            width: 100px;
+            height: 20px;
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+        input[type=search]{
+        }
+    </style>
+</head>
+<body>
+<form action="">
+    邮箱：<input type="email" id="email" name="email" required><br/>
+    电话：<input type="tel" name="tel" id=""><br/>
+    日期：<input type="date" name="" id=""><br/>
+    搜索：<input type="search" name="search" id="">
+    颜色：<input type="color" name="" id="color">
+    <button>1223344</button>
+    <input type="submit" value="提交">
+</form>
+<script>
+
+    let oC=document.getElementById('color');
+    oC.onchange=function () {
+        document.body.style.background=this.value;
+    }
+</script>
+</body>
+</html>
