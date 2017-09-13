@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        h1{
+            font-size: 60px;
+            text-align: center;
+        }
+        button{
+            width: 200px;
+            height: 40px;
+            font-size: 20px;
+            display: block;
+            margin:50px auto;
+        }
+    </style>
+</head>
+<body>
+<h1 id="h1">0</h1>
+<button id="btn">计数器</button>
+<script>
+    let h1=document.getElementById('h1');
+    let btn=document.getElementById('btn');
+    let num=0;
+    //1）点击按钮，是数字累加；2）刷新页面，累加过的数字还在； 3）关闭页面之后重新开启，数字恢复0；
+    //每次刷新页面的时候，先判断是否有sessionStorage的值，如果有，进行赋值
+    if(sessionStorage.num){
+        num=sessionStorage.num;
+        h1.innerHTML=num;
+    }
+    btn.onclick=function () {
+        h1.innerHTML=++num;
+        //本地存储：sessionStorage;
+        sessionStorage.num=num;
+    }
+</script>
+</body>
+</html>

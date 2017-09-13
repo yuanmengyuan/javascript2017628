@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        textarea{
+            font-size: 20px;
+            padding: 10px;
+            box-sizing:content-box;
+        }
+        button{
+            width: 200px;
+            height: 40px;
+            display: inline-block;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+<form action="">
+    <textarea name="liuyan" id="t1" cols="50" rows="20"></textarea>
+    <button type="button" id="btn">保存留言</button>
+</form>
+<script>
+    let oT1=document.getElementById('t1');
+    let oBtn=document.getElementById('btn');
+    if(localStorage.getItem('aa')){
+        oT1.value=localStorage.aa;
+    }
+    //在取值的时候，如果值是一个JSON字符串，必须转成对象；
+    if(localStorage.getItem('bb')){
+        let data=JSON.parse(localStorage.getItem('bb'));
+        console.log(data);
+    }
+    oBtn.onclick=function () {
+        if(oT1.value.length){
+            alert('保存成功！！！');
+            //localStorage.aa=oT1.value;
+            localStorage.setItem('aa',oT1.value);
+            //在本地存储的时候，如果值是一个对象，必须转成字符串；
+            localStorage.setItem('bb',JSON.stringify({"name":"lei","sex":"gril"}));
+        }
+    }
+    for(var i=0; i<localStorage.length; i++){
+        //localStorage.key(i)拿的是属性名
+        console.log(localStorage[localStorage.key(i)])//属性值；
+    }
+</script>
+</body>
+</html>

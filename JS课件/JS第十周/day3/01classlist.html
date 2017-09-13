@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        html,body{
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="box1" id="box"></div>
+<script>
+    let oDiv=document.getElementById('box');
+    document.body.onclick=function () {
+        oDiv.classList.add('box2');
+        /*oDiv.classList.remove('box1');
+        if(oDiv.classList.length===0){
+            oDiv.removeAttribute('class');
+        }*/
+        //增加-删除-增加-删除。。。。。
+        //oDiv.classList.toggle('box2')
+
+        for(let val of oDiv.classList){
+            console.log(val)
+        }
+    }
+
+</script>
+</body>
+</html>

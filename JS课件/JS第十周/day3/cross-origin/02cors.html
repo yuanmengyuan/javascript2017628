@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    let xml=new XMLHttpRequest();
+    xml.open('GET',"http://localhost:3000/cors",true);
+    xml.onreadystatechange=function () {
+        if(xml.readyState===4 && /^2\d{2}$/.test(xml.status)){
+            let data=xml.responseText;
+            console.log(JSON.parse(data));
+        }
+    };
+    xml.send(null);
+</script>
+</body>
+</html>
