@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    window.addEventListener('message',e=>{
+        if(e.source !==window.parent){
+            return;
+        }
+        console.log('d2已经收到数据：',e.data);
+        console.dir(e)
+        parent.postMessage("这是d2的数据",e.origin);
+    })
+</script>
+</body>
+</html>

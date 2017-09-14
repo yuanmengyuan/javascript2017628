@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        h1{
+            font-size: 30px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            width: 300px;
+            border: 1px solid #ccc;
+        }
+        div:nth-child(1){
+            float: left;
+        }
+        div:nth-child(2){
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1  id="h1">你好，北京欢迎您</h1>
+</div>
+<div>
+    <iframe src="http://localhost:3001/e2.html"></iframe>
+</div>
+<script>
+    let h1=document.getElementById('h1');
+    window.onload=function () {
+        window.frames[0].postMessage('getColor','http://localhost:3001');
+    }
+    window.addEventListener('message',e=>{
+        let data=e.data;
+        h1.style.backgroundColor=data;
+    })
+</script>
+</body>
+</html>

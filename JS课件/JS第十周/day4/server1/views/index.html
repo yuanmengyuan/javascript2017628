@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<h1>test11111111</h1>
+<script>
+    let xml=new XMLHttpRequest();
+    xml.open('GET','http://localhost:3000/proxy',false);
+    xml.onreadystatechange=function () {
+        if(xml.readyState===4 && xml.status===200){
+            console.log(JSON.parse(xml.responseText))
+        }
+    };
+    xml.send(null);
+</script>
+</body>
+</html>

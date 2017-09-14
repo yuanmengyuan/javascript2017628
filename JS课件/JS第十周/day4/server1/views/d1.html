@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<iframe src="http://localhost:3001/d2.html" frameborder="0"></iframe>
+<script>
+    window.onload=function () {
+        let targetOrigin='http://localhost:3001';
+        //postMessage有两个参数：arg1:数据； arg2:目标域；(协议+域名+端口)
+        window.frames[0].postMessage('我是d1的数据',targetOrigin)
+    };
+    window.addEventListener('message',e=>{
+        console.log('d1已经收到数据：',e.data);
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+a1111111
+<script>
+    //创建一个iframe框架；
+    let ifr=document.createElement('iframe');
+    ifr.src='http://localhost:3001/a2.html#data';
+    ifr.style.display='none';
+    document.body.appendChild(ifr);
+
+    window.addEventListener('hashchange',e=>{
+        let data=location.hash.substring(1);
+        console.log(data)
+    })
+</script>
+</body>
+</html>

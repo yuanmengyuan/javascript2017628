@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        h1{
+            width: 100%;
+            height: 100%;
+            font-size: 20px;
+            color: #ffffff;
+            -webkit-user-select: none;
+        }
+    </style>
+</head>
+<body>
+<h1 style="background:red" id="h1" onclick="fnClick()">这是iframe引入的页面</h1>
+<script>
+    let bok=true;//开关思想；
+    let color=null;
+    let h1=document.getElementById('h1');
+    let origin=null;
+
+    window.addEventListener('message',e=>{
+        if(e.source !== window.parent){
+            return;
+        }
+        color=h1.style.backgroundColor;
+        origin=e.origin;
+        window.parent.postMessage(color,origin);
+    });
+    //red #f00  rgb(0,255,255); 颜色不能用于条件判断；
+    function fnClick() {
+        if(bok){
+            color='green';
+        }else{
+            color='red';
+        }
+        bok=!bok;
+        h1.style.background=color;
+        window.parent.postMessage(color,origin);
+    }
+</script>
+</body>
+</html>

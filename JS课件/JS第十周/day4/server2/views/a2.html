@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+a22222222222
+<script>
+   //判断请求过来的连接，如果有#data;说明他想获取数据；
+    switch(location.hash){
+        case '#data':
+            callback();
+            break;
+    }
+    //callBack造数据，并想办法怎么传给它的父页面；
+    function callback(){
+        let data='这是location.hash的数据：111111111';
+        try{
+            parent.location.hash='#'+data;
+        }catch(e){
+            //当不支持的时候；就把a2页面中的数据，传给a3(通过hash来传的);a3是a2的儿子；
+            let ifr=document.createElement('iframe');
+            ifr.src='http://localhost:3000/a3.html#'+data;
+            ifr.style.display='none';
+            document.body.appendChild(ifr);
+        }
+    }
+</script>
+</body>
+</html>
