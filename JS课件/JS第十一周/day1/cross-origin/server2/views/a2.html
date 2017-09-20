@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    switch (location.hash){
+        case '#data':
+            callback();
+            break;
+    }
+    function callback() {
+        //假数据
+        let data='这是hash的测试数据';
+        try{
+            parent.location.hash='#'+data;
+        }catch(e){
+            let ifr=document.createElement('iframe');
+            ifr.src='http://localhost:3000/a3.html?#'+data;
+            ifr.style.display='none';
+            document.body.appendChild(ifr);
+        }
+    }
+</script>
+</body>
+</html>

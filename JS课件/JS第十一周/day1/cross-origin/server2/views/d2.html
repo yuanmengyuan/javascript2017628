@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        html,body{
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            -webkit-user-select: none;
+        }
+        div{
+            width: 100%;
+            height: 100%;
+            background: #f00;
+        }
+    </style>
+</head>
+<body>
+<div onclick="fnAlert()" id="div">这是d2的页面</div>
+<script>
+    let oDiv=document.getElementById('div');
+    let bok=true;
+    let color="#f00";
+    let origin=null;
+    function fnAlert() {
+        if(bok){
+            color='#ff0'
+        }else{
+            color="#f00";
+        }
+        oDiv.style.background=color;
+        bok=!bok;
+        parent.postMessage(color,origin);
+    }
+    window.addEventListener('message',e=>{
+        if(e.source !== parent){
+            return;
+        }
+        origin=e.origin;
+        parent.postMessage(color,origin);
+    })
+</script>
+</body>
+</html>

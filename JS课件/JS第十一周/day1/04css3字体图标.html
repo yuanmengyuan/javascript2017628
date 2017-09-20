@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        /*定义了字体名称*/
+        @font-face {
+            font-family: "lei";
+            src:url('./font/MiFie-Website-Font.eot') format('embedded-opentype'),url('./font/MiFie-Website-Font.ttf') format('truetype'),url('./font/MiFie-Website-Font.woff') format('woff'),url('./font/MiFie-Website-Font.svg') format('svg');
+        }
+        /*规定哪些使用该字体*/
+        [class^='icon-'],[class*='icon-']{
+            font-family: 'lei' !important;
+            font-style: normal;
+            font-size: 60px;
+            transition: all .5s ease-out;
+        }
+        .icon-usd-barchart{
+            color: #ff0000;
+        }
+        .icon-usd-barchart:hover{
+            transform:rotateX(360deg);
+        }
+        .icon-usd-barchart::after{
+            content:"\e934";
+        }
+        .icon-pay-square{
+            color: #0000ff;
+        }
+        .icon-pay-square:hover{
+            transform:rotateZ(360deg)
+        }
+        .icon-pay-square::after{
+            content:"\e937";
+        }
+        i{
+            margin:20px;
+            float: left;
+        }
+        .icon-usd::after{
+            content:"\e928";
+        }
+        .icon-usd:hover{
+            transform: rotateY(360deg);
+        }
+        .icon-insurance::after{
+            content:"\e92d";
+        }
+        .icon-insurance:hover{
+            transform: rotateZ(360deg);
+        }
+    </style>
+</head>
+<body>
+<div>111</div>
+<i class="icon-usd-barchart"></i>
+<i class="icon-pay-square"></i>
+<i class="icon-usd"></i>
+<i class="icon-insurance"></i>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<iframe src="http://localhost:3001/b2.html" frameborder="0" id="ifr" style="display: none"></iframe>
+<script>
+    let ifr=document.getElementById('ifr');
+    ifr.onload=function () {//b2页面加载完成的时候；
+        this.onload=function () {
+            let data=this.contentWindow.name;
+            console.log(data);
+        };
+        this.src='http://localhost:3000/b3.html'
+    }
+</script>
+</body>
+</html>

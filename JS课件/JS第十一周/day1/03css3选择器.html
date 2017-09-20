@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        /*div[class$='box2']{
+            background: #ff0000;
+        }*/
+        .wrap div[class]{
+            background: #0000ff;
+        }
+        /*div：nth-child(1) 当前父容器下，第一个子元素，并且这个子元素必须跟div的标签一样*/
+        /*.wrap p:nth-child(1){
+            background: #ff0000;
+        }*/
+        /*.wrap p:nth-of-type(1){
+            background: #00ff00;
+        }*/
+        /*.wrap p:nth-last-of-type(1){
+            background: #0000ff;
+        }*/
+        /*.wrap p:nth-last-child(1){
+            background: #ff0000;
+        }*/
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="box1">我是div1</div>
+    <div class="box1 box2">我是div2</div>
+    <div class="box2 box3">我是div3</div>
+    <p class="box1 box2">我是p1</p>
+    <p>我是p2</p>
+</div>
+</body>
+</html>

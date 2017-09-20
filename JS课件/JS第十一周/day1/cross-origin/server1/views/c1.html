@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<iframe src="http://localhost:3001/c2.html" frameborder="0"></iframe>
+</body>
+<script>
+    window.onload=function () {
+        let targetOrigin='http://localhost:3001';
+        window.frames[0].postMessage('这是c1传给c2的数据',targetOrigin)
+    };
+    window.addEventListener('message',e=>{
+        console.log('c1已经接收到c2的数据：'+e.data)
+    })
+</script>
+</html>

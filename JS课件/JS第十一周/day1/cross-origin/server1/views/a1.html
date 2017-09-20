@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<iframe src="http://localhost:3001/a2.html?#data" frameborder="0"></iframe>
+<script>
+    let ifr=document.getElementsByTagName('iframe')[0];
+    window.addEventListener('hashchange',()=>{
+        console.log(location.hash.substring(1))
+    });
+</script>
+</body>
+</html>
