@@ -2,11 +2,11 @@ import React from 'react';
 import {render} from 'react-dom';
 import Greeter from './Greeter';
 import Header from './Header';
-import styles from './main.less';
+import './main.less';
 class Page extends React.Component{
     render(){
         return(
-            <div className={styles.root}>
+            <div>
                 <Header/>
                 <Greeter/>
             </div>

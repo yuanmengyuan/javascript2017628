@@ -1,8 +1,9 @@
 const path=require('path');
 const webpack=require('webpack');
 const HtmlWebpackPlugin=require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const extractLESS = new ExtractTextPlugin('[name]-[contenthash].css?');
 module.exports={
-    devtool:"eval-source-map",
     entry:'./app/main.js',//入口文件
     output:{//出口文件
         path:path.resolve(__dirname,'./public'),
@@ -21,24 +22,20 @@ module.exports={
                 exclude:/node_modules/
             },
             {
-                test:/(\.css|\.less)$/,
-                use:[
-                    {
-                        loader:'style-loader'
-                    },{
-                        loader: "css-loader",
-                        options: {
-                            modules:true
-                        }
-                    },{
-                        loader:'less-loader',
+                test: /\.less$/i,
+                use: extractLESS.extract({
+                    fallback:"style-loader",
+                    use:[{
+                        loader:'css-loader',
                         options:{
                             modules:true
                         }
                     },{
-                        loader: "postcss-loader"
-                    }
-                ]
+                        loader:'less-loader'
+                    },{
+                        loader:'postcss-loader'
+                    }]
+                })
             }
         ]
     },
@@ -47,6 +44,7 @@ module.exports={
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname,'./app/index.html'),
             title:'this is a webpack-test'
-        })
+        }),
+        extractLESS
     ]
 };
