@@ -1,0 +1,56 @@
+class Pop{
+    constructor(opt){
+        this.opt=opt;
+        this.oDiv=null;
+        this.init();
+    }
+    init(){
+        this.createShadow();
+        this.popUp()
+        this.click();
+    }
+    createShadow(){
+        this.oDiv=document.createElement('div');
+        this.oDiv.id='leilei';
+        //给遮罩加样式；
+        this.css(this.oDiv,{
+            width:'100%',
+            height:'100%',
+            background:'rgba(0,0,0,.4)',
+            position:'fixed',
+            left:0,
+            top:0,
+            right:0,
+            bottom:0,
+            display:'flex',
+            justifyContent:'center',
+            alignItems:'center',
+            zIndex:1000
+        });
+        document.body.appendChild(this.oDiv);
+    }
+    setCss(el,attr,val){
+        el.style[attr]=val;
+    }
+    css(el,opt){
+        for(let attr in opt){
+            this.setCss(el,attr,opt[attr])
+        }
+    }
+    popUp(){
+        let pop=document.createElement('div');
+        pop.innerHTML='这是弹窗的内容';
+        this.opt.zIndex=2000;
+        this.css(pop,this.opt);
+        this.oDiv.appendChild(pop);
+    }
+    click(){
+        this.oDiv.addEventListener('click',e=>{
+            //e.currentTarget指向当前发生事件的这个元素；
+            if(e.currentTarget===e.target){
+                this.oDiv.style.display='none';
+            }
+
+        })
+    }
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    /*function spacify(str) {
+        //字符串转数组  数组转字符串；
+        return str.split('').join(' ');
+    }
+    console.log('('+spacify('hello world')+')')*/
+    /*let str='hello world';
+    String.prototype.spacify=function () {
+        return this.split('').join(' ')
+    };
+    console.log(str.spacify());*/
+    function log() {
+        //类数组转数组；
+        let ary=Array.prototype.slice.call(arguments);
+        ary.unshift('(app)');
+        console.log.apply(console,ary);
+    }
+    log('haha','北京','xiix')
+</script>
+</body>
+</html>

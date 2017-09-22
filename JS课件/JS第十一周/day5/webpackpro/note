@@ -1,0 +1,6 @@
+//AMD(require.js)  异步模块定义：  define()定义模块  return 导出模块   require([a,b,c],(a,b,c)=>{})导入模块
+//CMD(sea.js) 同步模块定义
+// common.js-后台node.js：导出module.exports={}   const xxx=require('xxx');
+//es6:导入import xx from xxx       导出exports default
+//模块化  http协议  html5存储 promise  sockit.io  es6   打包工具：gulp webpack  vue（vue基础，vue-resource axios，vuex...）js基本功：1）变量提升-预解释  2）面向对象：继承，实例，类，原型 3）DOM 4）事件：事件流 捕获流程 冒泡流程，冒泡的运用- 事件委托／代理； 5）fetch ajax->跨域  同步和异步：  6）性能优化  7）web安全问题 8）算法 9)github
+//css盒子模型 兼容性问题；

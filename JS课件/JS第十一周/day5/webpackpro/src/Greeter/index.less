@@ -1,0 +1,21 @@
+@import "../public";
+.root{
+    color: #f00;
+    padding: 10px;
+    border:3px solid #333;
+    h1{
+      color: @purple-color;
+      &:hover{
+        color: pink;
+      }
+    }
+    p{
+      width: 100px;
+      height: 100px;
+      background: #00ff00;
+      transition: all 1s;
+      &:hover{
+        transform: translateX(300px);
+      }
+    }
+}

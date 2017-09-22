@@ -1,0 +1,41 @@
+一、Object Prototypes (对象原型)
+1、刚开始很简单。我会让侯选去定义个法，传个string类型的参数，然后将string的每个字符间加个空格返回，如:
+
+spacify('hello world') // => 'h e l l o w o r l d';
+
+尽管这个问题似乎 常简单，其实这是一个很好的开始，尤其是对于那些未经过电话试的侯选 ——他们很多声称精通 JavaScript，但通常连个简单的方法都不会写。
+
+2、如何把这个方法放入String对象上面？
+'hello world'.spacify();
+
+二、参数 arguments
+1、请定义一个未定义的log方法？比如: log('hello world')
+
+2、改变我调用log的方式，传入多个参数。强调：传入参数的个数是不定的，可不止两个。
+比如：log('hello', 'world');
+
+3、请给每一个log消息添加一个"(app)"的前辍；比如打印的结果为：'(app) hello world'；
+
+三：上下文
+1、
+var User = {
+  count: 1,
+  getCount: function() {
+     return this.count;
+  }
+};
+思考1：console.log(User.getCount());//1
+思考2：
+var func = User.getCount.bind(User);
+console.log(func());//undefined;
+
+2、怎样保证拿到的结果都是1？
+
+3、你想使用的这个bind方法不兼容？怎么办？
+
+四、弹出带遮罩的窗口组件（Overlay library）考察：HTML,CSS和JavaScript
+1、实现基本弹窗功能的组件；
+
+2、在内容很多的时候，如果弹窗还有效？
+
+3、点击遮罩，遮罩和弹窗都消失，但是点击弹窗，都不消失；
