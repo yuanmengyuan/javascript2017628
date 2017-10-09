@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        label{
+            display: block;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<!--http://localhost:3000/?user=lei&pass=123-->
+<form action="http://localhost:3000" method="post">
+    <label for="user">
+        用户名： <input type="text" name="user" id="user">
+    </label>
+    <label for="pass">
+        密码： <input type="password" name="pass" id="pass">
+    </label>
+    <label>
+        性别：
+        <input type="radio" name="sex" value="boy">男
+        <input type="radio" name="sex" value="gril">女
+    </label>
+    <label>
+        爱好：
+        <input type="checkbox" name="hobby" value="吃">吃
+        <input type="checkbox" name="hobby" value="睡">睡
+        <input type="checkbox" name="hobby" value="玩">玩
+    </label>
+    <p>
+        <input type="submit" value="提交数据">
+    </p>
+</form>
+</body>
+</html>

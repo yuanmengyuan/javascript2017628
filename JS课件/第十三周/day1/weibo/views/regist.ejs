@@ -1,0 +1,38 @@
+<% include pub/header.pub.ejs%>
+<!-- Main start-->
+<div class="container">
+    <h1>欢迎您注册</h1>
+    <form style="width: 50%">
+        <div class="form-group">
+            <label for="user">用户名:</label>
+            <input type="text" name="user" placeholder="请输入您的用户名" class="form-control" id="user">
+        </div>
+        <div class="form-group">
+            <label for="pass">密 码:</label>
+            <input type="password" name="pass" placeholder="请输入您的密码" class="form-control" id="pass">
+        </div>
+        <div>
+            <button type="button" id="btn" class="btn btn-primary">立即注册</button>
+        </div>
+    </form>
+</div>
+<!-- Main end-->
+<% include pub/footer.pub.ejs%>
+<script>
+    $('#btn').click(function () {
+        $.ajax({
+            url:'/doRegist',
+            type:'post',
+            data:$('form').serialize(),
+            success:function (val) {
+                // {bok:false,msg:'原因'}
+                if(val.bok){//注册成功
+                    alert(val.msg);
+                    location.href='/';
+                }else{//注册失败
+                    alert(val.msg);
+                }
+            }
+        })
+    })
+</script>

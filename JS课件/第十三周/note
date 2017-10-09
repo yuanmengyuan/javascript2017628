@@ -1,0 +1,40 @@
+### md5加密
+- 特点：不管加密多长的文字，永远都是32位英文字母，数字混合；
+- 哪怕只改一个字，密文都会大变；
+- md5没有反函数破解的可能，网上的破解工具，都是通过字典的模式，通过大量列出明-密对应，来破解的；
+- 案例：登陆注册
+### graphicsmagick 图像裁切
+- 用于服务器的图片处理：比如图片裁切；
+- windows安装：
+    + 到相对文件夹下找gm.ext运行；
+    + 设置全局环境变量；
+- Mac安装：
+    + 参考：http://blog.csdn.net/maindek/article/details/76164018
+- nodejs:头像裁切；.crop(100,100,100,100) w,h,x,y
+
+### 微博系统
+- 注册，登陆，可以发微博；
+- 所有人的微博都能被你看到，按时间排序，可以对微博进行"赞，评论"；
+### 数据库中需要的集合
+- user存储用户的信息；
+username不能重复；
+    {_oid:'xxxx',"username":"xiaoming","password":"md5加密","avator":"头像地址.png","sing":"一句话签名"}
+- post集合：存储用户发表的文章
+    {_oid:'xxxx',title:'标题','content':'内容',author:'username','date':"日期",'comment:[{"content":"","author":""},{},{}],'zan':['小明','小强']}
+- 数据库建立索引：
+db.restaurants.createIndex( { "cuisine": 1 } )
+好处：查找速度变快；
+坏处：插入每条数据的时候，效率低了；
+### 图像裁切
+- 体验：
+    + 图像信息：gm identify a.jpg
+    + 图像缩放
+    ```
+    gm('./img/a.jpg')
+        .resizeExact(200,200)
+        .write('./lei/01.jpg',err=>{
+            if(!err) console.log('done');
+        });
+    ```
+### 小微博
+

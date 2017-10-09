@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    let arr=[100,200,300,400];
+    let obj={
+        a:100,
+        b:200,
+        c:300
+    }
+//    arr.forEach(function(item,index){
+//        console.log(arguments)
+//    })
+    //遍历数组和对象，都用forEach
+    function forEach(obj,fn) {
+           if(obj instanceof Array){//数组
+               obj.forEach(function (item,index) {
+                   fn(index,item);
+               })
+           }else{//对象
+               for(var attr in obj){
+                   fn(attr,obj[attr]);
+               }
+           }
+    }
+    forEach(obj,function (index,item) {
+        console.log(index,item)
+    })
+</script>
+</body>
+</html>

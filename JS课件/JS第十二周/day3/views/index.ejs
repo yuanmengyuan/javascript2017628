@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>你最爱吃什么呢？</h1>
+    <ul>
+        <% for(var i=0; i<gua.length; i++){%>
+        <li><%= gua[i]%></li>
+        <%}%>
+        <!--<li>西瓜</li>
+        <li>哈密瓜</li>
+        <li>甜瓜</li>
+        <li>南瓜</li>-->
+    </ul>
+    <h2>同学录</h2>
+    <% for(var i=0; i<datas.length; i++){%>
+    <p>
+        <span>我是<%= datas[i].name%></span>
+        <span>我爱<%= datas[i].hobby%></span>
+    </p>
+    <%}%>
+</body>
+</html>

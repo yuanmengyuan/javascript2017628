@@ -1,0 +1,7 @@
+### 项目架构：MVC思想
+- models 获取数据的； files.js
+- controller 控制器：router.js
+- views 视图：xxx.ejs
+- public 静态资源：js/xxx.js  css/xxx.css img/xxx.jpg
+- uploads 上传的图片
+- touch app.js 入口文件，写服务器的

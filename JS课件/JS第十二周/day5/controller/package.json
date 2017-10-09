@@ -1,0 +1,8 @@
+{
+  "name": "controller",
+  "version": "0.0.1",
+  "main":"router.js",
+  "dependencies": {
+    
+  }
+}

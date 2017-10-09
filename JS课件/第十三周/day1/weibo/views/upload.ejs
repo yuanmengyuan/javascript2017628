@@ -1,0 +1,13 @@
+<% include pub/header.pub.ejs%>
+<!-- Main start-->
+<div class="container">
+    <form action="/doUpload" enctype="multipart/form-data" method="post">
+        <h1>请上传您的头像</h1>
+        <div class="form-group">
+            <input type="file" class="form-control" name="avatar" id="avatar">
+        </div>
+        <button type="submit" class="btn btn-primary">上传头像</button>
+    </form>
+</div>
+<!-- Main end-->
+<% include pub/footer.pub.ejs%>

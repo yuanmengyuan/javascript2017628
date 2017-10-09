@@ -1,0 +1,28 @@
+### 昨天的知识复习
+- node自带的模块：http，url,path,fs(fs.stat()->stats)
+- 静态资源服务器：mime.json   promise
+### 请求方式：get post
+- get:前端通过地址栏给后台传数据； https://www.baidu.com?name=lei&sex=gril&hobby
+    后台，就是拿到的参数是个对象；
+### 解析地址栏请求参数的思路：--get请求
+1、字符串和数组的方法，一路拆拆拆
+2、正则
+3、querystring
+4、url.parse(urlStr,true).query;
+5、express-> req.query;
+### post请求
+1、req.on/addListener('data',chunk=>{})
+  req.on('end',()=>{ querystring(str)})
+2、formidable+改名字+silly-datetime
+3、body-parser + express
+
+### express 本身是渐进式框架；
+在保留了原生node的基础上，又扩充了新的功能；
+- express的路由：正则 冒号
+    + req.params;
+- express 中间件： app.use()
+    + 比较精准的，往上写；
+    + 如果希望往下流 next()
+    + app.use((req,res)=>{}) 通过404页面接住不存在的请求；
+- ejs模板
+

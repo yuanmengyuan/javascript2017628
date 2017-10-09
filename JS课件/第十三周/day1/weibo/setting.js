@@ -1,0 +1,1 @@
+module.exports='mongodb://localhost:27017/weibo';//数据库的地址；

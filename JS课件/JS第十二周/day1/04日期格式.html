@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    function toDou(n){
+        return n>=0 && n<10?'0'+n:''+n;
+    }
+    function date() {
+        let oDate=new Date();
+        let y=oDate.getFullYear();
+        let m=''+(oDate.getMonth()+1);
+        let d=''+oDate.getDate();
+        return `${y}-${m.padStart(2,0)}-${d.padStart(2,0)}`;
+    }
+    console.log(date());
+</script>
+</body>
+</html>

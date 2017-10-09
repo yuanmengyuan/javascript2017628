@@ -1,0 +1,74 @@
+### 整体感知mongodb
+- 关于数据库的操作；
+    pwd可以查看当前光标所在的路径；
+    开机：mongod --dbpath 数据库的路径
+    开机之后千万不能关闭数据库，还必须重新打开一个cmd，输入mongo才能运行数据库；
+    1、查看有多少数据库：show dbs
+    2、创建并切换到对应的数据库：use 数据库的名称
+    3、查看数据库下有多少集合？  show collections
+    4、创建集合(在插入数据的时候，就自动创建了集合) db.集合名称.insert()
+        + 插入的数据就是json类型；
+        `db.student.insert({"name":"xiaowang","age":8})`
+    5、查看当前集合下有多少数据？db.student.find();
+    6、删除集合中的某条数据：
+        `db.student.remove({"name":"xiaowang"})`
+    7、删除集合中的所有数据(但是集合仍然存在)：db.student.remove({})
+    8、删除集合：db.集合名称.drop();
+    9、查看自己当前所在的数据库：db
+    10、删除数据库： db.dropDatabase()
+- 清空"数据库"：cls
+### 细说数据库命令
+- 批量导入：
+ 必须新开一个cmd;(cmd1:mongod; cmd2:mongo; cmd3:mongoimport)
+ mongoimport --db 数据库名称 --collection 集合名称 --drop --file 指定文件的地址(这个文件一定得是个json文件);
+- 增
+ ```
+ db.student.insert({"name":"zhangsan"})
+ ```
+- 删
+```
+//指定删除对应的数据：如果遇到多个一样的，统统删除
+db.restaurants.remove( { "borough": "Manhattan" } )
+//删除一样的多个数据中的一条；
+db.student.remove({"name":xxx},{justOne:true});
+//删除当前集合下的所有数据；
+db.restaurants.remove( { } )-》数据没了，但是集合还在
+//删除集合
+db.xxx.drop() ->集合没了
+```
+- 改
+```
+//第一个参数：查找； 第二个参数：修改；
+db.student.update({"name":"xixi"},{$set:{"name":"haha"}});
+//彻底覆盖；第二个对象，覆盖第一个对象；
+db.student.update({},{})
+```
+- 查
+    1、查找所有的数据；
+    db.meinv.find()
+    2、查找指定的数据
+   ```
+   db.meinv.find({"name":"孙俪"})
+   //数组
+   db.meinv.find({"hobby":"打架"})
+   //对象
+   db.meinv.find({"score.english":80})
+   //条件查找；$lt
+   db.meinv.find({"age":{$gt:30}})
+   db.meinv.find({"score.english":{$gt:90}})
+   //&& 且
+   db.meinv.find({"name":"孙俪","hobby":"吃"})
+   //$or 或
+   db.meinv.find({$or:[{"name":"刘诗诗"},{"name":"孙俪"}]})
+   //跳
+   db.meinv.find().skip()
+   //限制显示
+   db.meinv.find().limit()
+   //把一大堆的对象，都放入数组
+   db.meinv.find().toArray()
+   //总条数
+   db.meinv.find().count()
+   ```
+### node+mongodb
+
+

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+</head>
+<body>
+<script>
+    /*class Fn{
+        constructor(){
+            this.x=100;
+        }
+        getX(){
+            console.log(this.x);
+        }
+    }
+    class Sun extends Fn{
+        constructor(){
+            super();
+        }
+    }
+    let s1=new Sun;
+    console.dir(s1);*/
+    function extend(obj1,obj2) {
+        for(var attr in obj2){
+            obj1[attr]=obj2[attr];
+        }
+    }
+    function Fn() {
+        this.x=100;
+    }
+    Fn.prototype.getX=function () {
+        //console.log(this.x);
+    }
+    //1:混合继承：call继承+拷贝继承；
+    function Sun() {
+        Fn.call(this);//继承私有的属性和方法；
+    }
+    /*extend(Sun.prototype,Fn.prototype);
+    let s1=new Sun;
+    console.dir(s1)*/
+    //请用一句话，实现继承-》原型链继承
+    //Sun.prototype=new Fn;
+    //寄生式组合继承
+
+    /*function myCreate(obj){
+        let Fn=function(){};
+        Fn.prototype=obj;
+        return new Fn;
+    }*/
+    Object.prototype.myCreate=function (obj) {
+        let Fn=function(){};
+        Fn.prototype=obj;
+        return new Fn;
+    }
+
+    Sun.prototype=Object.myCreate(Fn.prototype);
+    let s1=new Sun;
+    //console.log(1111);
+    //console.dir(s1)
+
+    let obj={name:'lei',sex:'gril'};
+    Object.prototype.aa=123;
+    /*for(var attr in obj){
+        //for循环只能拿到自定义的属性和方法，无法拿到系统上的属性和方法；
+        //如果只想拿到自己私有的属性和方法；
+        if(obj.hasOwnProperty(attr)){
+            console.log(attr,obj[attr])
+        }
+    }*/
+//判断是否为公有属性；
+    Object.prototype.hasPubProperty=function (attr) {
+        //this就是实例obj对象；
+        return attr in this && !this.hasOwnProperty(attr)
+    };
+    console.log(obj.hasPubProperty('aa'))
+</script>
+</body>
+</html>

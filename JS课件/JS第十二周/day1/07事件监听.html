@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>圆梦源：勿忘初心，方得始终</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+<div id="div"></div>
+<script src="event.js"></script>
+<script>
+    let oDiv=document.getElementById('div');
+    on(oDiv,'myClick',fn3)
+    on(oDiv,'click',fn1);
+    /*on(oDiv,'click',fn2);
+    on(oDiv,'click',fn3);*/
+    function fn1(e) {
+        console.log(1)
+        fire.call(oDiv,'myClick',e)
+    }
+    function fn2() {
+        console.log(2)
+    }
+    function fn3(e) {
+        console.log(3,e.clientX)
+    }
+</script>
+</body>
+</html>
